@@ -1,6 +1,4 @@
 <?php
-var_dump($_GET);
-
 if(!isset($_GET['API']) || !isset($_GET['CALL'])) {
 	die(false);
 }
