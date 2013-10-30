@@ -76,7 +76,7 @@ if($innslag) {
 		. $sql2->debug() . '<br />';
 	$sql2->run();
 	
-	echo '<strong>Registering video @ UKM-TV</strong><br />'
+	echo '<strong>Registering video @ UKM-TV</strong><br />';
 	require_once('UKM/inc/tv/cron.functions.tv.php');
 	// REGISTRER MOT UKM-TV
 	$qry = new SQL("SELECT * 
