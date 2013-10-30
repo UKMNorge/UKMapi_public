@@ -1,5 +1,5 @@
 <?php
-echo '<h2>Register video</h2>';
+echo '<h3>Register video</h3>';
 
 require_once('UKM/innslag.class.php');
 require_once('UKM/monstring.class.php');
@@ -13,6 +13,7 @@ else
 	
 //// UKM WP RELATED VIDEO
 if($innslag) {
+	echo '<strong>THIS IS BAND-RELATED VIDEO</strong><br />';
 	$cron_id		= $_POST['id'];
 	$blog_id 		= $_POST['blog_id'];
 	$blog_url 		= 'http:' . $monstring->get('link');
