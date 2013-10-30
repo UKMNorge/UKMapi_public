@@ -47,7 +47,7 @@ if($innslag) {
 						  array('rel_id' => $already_exists['rel_id']));
 	}
 	$sql->add('blog_id', $blog_id);
-	$sql->add('blog_url', $blog_url)
+	$sql->add('blog_url', $blog_url);
 
 	$sql->add('post_id', $cron_id);
 	$sql->add('post_type', 'video');
