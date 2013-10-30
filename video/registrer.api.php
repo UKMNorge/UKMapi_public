@@ -85,11 +85,11 @@ if($innslag) {
 				AND `post_type` = 'video'
 				LIMIT 1",
 				array('cronid' => $cron_id));
-				
+	
 	$res = $qry->run('array');
 	if($res) {
-		$data = video_calc_data('wp_related', $res);
-		tv_update($data);
+//		$data = video_calc_data('wp_related', $res);
+//		tv_update($data);
 	}
 
 } else {
