@@ -90,7 +90,6 @@ if($innslag) {
 
 	if($res) {
 		$data = video_calc_data('wp_related', $res);
-		var_dump($data);
 		tv_update($data);
 	}
 
