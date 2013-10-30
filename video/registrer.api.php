@@ -6,7 +6,7 @@ require_once('UKM/monstring.class.php');
 
 $monstring = new monstring( $_POST['pl_id'] );
 
-if( (int) $_POST['b_id'] > 0 ) {
+if( (int) $_POST['b_id'] > 0 )
 	$innslag = new innslag( $_POST['b_id'] );
 else
 	$innslag = false;
