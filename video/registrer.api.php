@@ -24,10 +24,11 @@ if($innslag) {
 	
 	$pl_type		= $monstring->get('type');
 	
+	$file_with_path = 'ukmno/videos/' . $_POST['file_path']. $_POST['file_name_store'];
 	
-	$post_meta		= array('file' => 'ukmno/videos/' . $_POST['file_path']. $_POST['file_name_store'],
+	$post_meta		= array('file' => $file_with_path,
 							'nicename' => $blog_id,
-							'img' => 'ukmno/videos/' . $_POST['file_path']. str_replace('.mp4','.jpg', $_POST['file_name_store']),
+							'img' => str_replace('.mp4','.jpg', $file_with_path),
 							'title' => ucfirst($pl_type));
 	
 	$already_exists = new SQL("SELECT `rel_id`
@@ -41,6 +42,7 @@ if($innslag) {
 	$already_exists = $already_exists->run();
 	$already_exists = mysql_fetch_assoc( $already_exists );
 	
+	// REGISTRER MOT INNSLAG
 	if(!$already_exists) {
 		$sql = new SQLins('ukmno_wp_related');
 	} else {
@@ -65,14 +67,31 @@ if($innslag) {
 		. $sql->debug() . '<br />';
 	$sql->run();
 
-
+	// REGISTRER MOT OPPLASTER-TABELL
 	$sql2 = new SQLins('ukm_related_video',
 					  array('cron_id' => $cron_id));
-	$sql2->add('file', 'ukmno/videos/' . $_POST['file_path']. $_POST['file_name_store']);
+	$sql2->add('file', $file_with_path);
 	
 	echo '<strong>Tell videomodule file is converted</strong><br />'
 		. $sql2->debug() . '<br />';
 	$sql2->run();
+	
+	echo '<strong>Registering video @ UKM-TV</strong><br />'
+	require_once('UKM/inc/tv/cron.functions.tv.php');
+	// REGISTRER MOT UKM-TV
+	$qry = new SQL("SELECT * 
+				FROM `ukmno_wp_related`
+				WHERE `post_id` = '#cronid'
+				AND `post_type` = 'video'
+				LIMIT 1",
+				array('cronid' => $cron_id));
+				
+	$res = $qry->run('array');
+	if($res) {
+		$data = video_calc_data('wp_related', $res);
+		tv_update($data);
+	}
+
 } else {
 	die('Not supported video');
 }
