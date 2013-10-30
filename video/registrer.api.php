@@ -87,9 +87,10 @@ if($innslag) {
 				array('cronid' => $cron_id));
 	
 	$res = $qry->run('array');
-	var_dump($res);
+
 	if($res) {
 		$data = video_calc_data('wp_related', $res);
+		var_dump($data);
 		tv_update($data);
 	}
 
