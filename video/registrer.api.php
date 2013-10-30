@@ -60,16 +60,18 @@ if($innslag) {
 	
 	$sql->add('pl_type', $pl_type);
 	
-	echo $sql->debug();
-	//$sql->run();
+	echo '<strong>Create video/band relation</strong><br />'
+		. $sql->debug() . '<br />';
+	$sql->run();
 
 
 	$sql2 = new SQLins('ukm_related_video',
 					  array('cron_id' => $cron_id));
 	$sql2->add('file', 'ukmno/videos/' . $_POST['file_path']. $_POST['file_name_store']);
 	
-	echo $sql2->debug();
-	//$sql2->run();
+	echo '<strong>Tell videomodule file is converted</strong><br />'
+		. $sql2->debug() . '<br />';
+	$sql2->run();
 } else {
 	die('Not supported video');
 }
