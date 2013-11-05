@@ -30,7 +30,7 @@ switch($_POST['type']) {
 		$qry = new SQL("SELECT * 
 						FROM `ukm_standalone_video` 
 						WHERE `cron_id` = '#cron_id'",
-						array('file' => $_GET['ID']));
+						array('cron_id' => $_GET['ID']));
 		$res = $qry->run('array');
 		if($res) {
 			$data = video_calc_data('standalone_video', $res );
