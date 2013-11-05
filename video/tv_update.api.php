@@ -1,5 +1,6 @@
 <?php
 // http://api.ukm.no/video:updateTV/$id
+require_once('UKM/sql.class.php');
 require_once('UKM/inc/tv/cron.functions.tv.php');
 
 if(!isset($_POST['type'])) {
