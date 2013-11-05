@@ -97,11 +97,15 @@ if($innslag) {
 	echo '<strong>THIS IS STANDALONE (NOT BANDRELATED) VIDEO</strong>';
 
 	$file_with_path = 'ukmno/videos/' . $_POST['file_path']. $_POST['file_name_store'];
-	
+
+	echo '<strong>Save standalone file and image path</strong><br />'	
 	$update = new SQLins('ukm_standalone_video', array( 'cron_id' => $_POST['id'] ));
 	$update->add('video_file', $file_with_path);
 	$update->add('video_image', str_replace('.mp4','.jpg', $file_with_path));
 	$update->run();	
+
+	echo '<strong>Registering video @ UKM-TV</strong><br />';
+	require_once('UKM/inc/tv/cron.functions.tv.php');
 
 	$qry = new SQL("SELECT * 
 					FROM `ukm_standalone_video` 
