@@ -94,6 +94,23 @@ if($innslag) {
 	}
 
 } else {
-	die('Not supported video');
+	echo '<strong>THIS IS STANDALONE (NOT BANDRELATED) VIDEO</strong>';
+
+	$file_with_path = 'ukmno/videos/' . $_POST['file_path']. $_POST['file_name_store'];
+	
+	$update = new SQLins('ukm_standalone_video', array( 'cron_id' => $_POST['id'] ));
+	$update->add('video_file', $file_with_path);
+	$update->add('video_image', str_replace('.mp4','.jpg', $file_with_path));
+	$update->run();	
+
+	$qry = new SQL("SELECT * 
+					FROM `ukm_standalone_video` 
+					WHERE `cron_id` = '#file'",
+					array('file' => $_POST['id']));
+	$res = $qry->run('array');
+	if($res) {
+		$data = video_calc_data('standalone_video', $res );
+		tv_update($data);
+	}
 }
 ?>
