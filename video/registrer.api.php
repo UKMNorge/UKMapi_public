@@ -1,5 +1,19 @@
 <?php
-echo '<h3>Register video</h3>';
+header('Content-Type: application/json; charset=utf-8');
+
+error_log('REGISTRER:VIDEO');
+error_log('CRON_ID: '. var_export($_POST['id'],true));
+
+foreach( $_POST as $key => $val ) {
+    error_log('POST:'. $key .' => '. var_export($val,true));
+}
+
+if( !is_numeric( $_POST['id'] ) || $_POST['id'] == 0 ) {
+   	error_log('ERROR: Ugyldig cron ID');
+	error_log('FAILURE REGISTRER:VIDEO CRON_ID: '. var_export($_POST['id'],true));
+    header( 'HTTP/1.1 450 BAD REQUEST' );
+	die( json_encode( array('success' => false, 'type' => 'unknown') ) );
+}
 
 require_once('UKM/innslag.class.php');
 require_once('UKM/monstring.class.php');
@@ -13,7 +27,7 @@ else
 	
 //// UKM WP RELATED VIDEO
 if($innslag) {
-	echo '<strong>THIS IS BAND-RELATED VIDEO</strong><br />';
+    error_log('TYPE: INNSLAG');
 	$cron_id		= $_POST['id'];
 	$blog_id 		= $_POST['blog_id'];
 	$blog_url 		= 'http:' . $monstring->get('link');
@@ -44,9 +58,11 @@ if($innslag) {
 	
 	// REGISTRER MOT INNSLAG
 	if(!$already_exists) {
+	    error_log('Video finnes ikke i related-table fra tidligere');
 		$sql = new SQLins('ukmno_wp_related');
 	} else {
-		$sql = new SQLins('ukmno_wp_related',
+	    error_log('Video finnes allerede (rel_id: '. $already_exists['rel_id'].')');
+	    		$sql = new SQLins('ukmno_wp_related',
 						  array('rel_id' => $already_exists['rel_id']));
 	}
 	$sql->add('blog_id', $blog_id);
@@ -63,22 +79,20 @@ if($innslag) {
 	
 	$sql->add('pl_type', $pl_type);
 	
-	echo '<strong>Create video/band relation</strong><br />'
-		. $sql->debug() . '<br />';
 	$sql->run();
+	error_log('Oppdater wp_related, knytt film mot innslag');
+	error_log('WP_RELATED QRY: '. $sql->debug());
 
 	// REGISTRER MOT OPPLASTER-TABELL
 	$sql2 = new SQLins('ukm_related_video',
 					  array('cron_id' => $cron_id));
 	$sql2->add('file', $file_with_path);
-	
-	echo '<strong>Tell videomodule file is converted</strong><br />'
-		. $sql2->debug() . '<br />';
 	$sql2->run();
+	error_log('Oppdater UKM Video-modulen med status');
+	error_log('RELATED_VIDEO QRY: '. $sql2->debug());
 	
-	echo '<strong>Registering video @ UKM-TV</strong><br />';
-	require_once('UKM/inc/tv/cron.functions.tv.php');
 	// REGISTRER MOT UKM-TV
+	require_once('UKM/inc/tv/cron.functions.tv.php');
 	$qry = new SQL("SELECT * 
 				FROM `ukmno_wp_related`
 				WHERE `post_id` = '#cronid'
@@ -87,34 +101,57 @@ if($innslag) {
 				array('cronid' => $cron_id));
 	
 	$res = $qry->run('array');
-
-	if($res) {
+    error_log('Registrer i UKM-TV');
+	if( is_array($res) ) {
+	    error_log('Data sendt inn til tv_update()');
+	    foreach( $res as $key => $val ) {
+    	    error_log('TV_UPDATE:'. $key .' => '. var_export($val, true));
+	    }
 		$data = video_calc_data('wp_related', $res);
 		tv_update($data);
+		
+		error_log('SUCCESS REGISTRER:VIDEO CRON_ID: '. var_export($_POST['id'],true));		
+		die( json_encode( array('success' => true, 'type' => 'innslag') ) );
+	} else {
+    	error_log('ERROR: fikk ikke hentet ut data fra wp_related!');
+		error_log('FAILURE REGISTRER:VIDEO CRON_ID: '. var_export($_POST['id'],true));
+        header( 'HTTP/1.1 451 BAD REQUEST' );
+		die( json_encode( array('success' => false, 'type' => 'innslag') ) );
 	}
 
 } else {
-	echo '<strong>THIS IS STANDALONE (NOT BANDRELATED) VIDEO</strong>';
+    error_log('TYPE: REPORTASJE');
 
 	$file_with_path = 'ukmno/videos/' . $_POST['file_path']. $_POST['file_name_store'];
 
-	echo '<strong>Save standalone file and image path</strong><br />';
 	$update = new SQLins('ukm_standalone_video', array( 'cron_id' => $_POST['id'] ));
 	$update->add('video_file', $file_with_path);
 	$update->add('video_image', str_replace('.mp4','.jpg', $file_with_path));
 	$update->run();	
+    error_log('Oppdater standalone video');
+    error_log('STANDALONE QRY: '. $update->debug() );
 
-	echo '<strong>Registering video @ UKM-TV</strong><br />';
 	require_once('UKM/inc/tv/cron.functions.tv.php');
-
 	$qry = new SQL("SELECT * 
 					FROM `ukm_standalone_video` 
 					WHERE `cron_id` = '#file'",
 					array('file' => $_POST['id']));
 	$res = $qry->run('array');
+    error_log('Registrer i UKM-TV');
 	if($res) {
+	    error_log('Data sendt inn til tv_update()');
+	    foreach( $res as $key => $val ) {
+    	    error_log('TV_UPDATE:'. $key .' => '. var_export($val, true));
+	    }
 		$data = video_calc_data('standalone_video', $res );
 		tv_update($data);
+		error_log('SUCCESS REGISTRER:VIDEO CRON_ID: '. var_export($_POST['id'],true));
+		die( json_encode( array('success' => true, 'type' => 'reportasje') ) );
+	} else {
+    	error_log('ERROR: fikk ikke hentet ut data fra standalone_video!');
+		error_log('FAILURE REGISTRER:VIDEO CRON_ID: '. var_export($_POST['id'],true));
+        header( 'HTTP/1.1 452 BAD REQUEST' );
+		die( json_encode( array('success' => false, 'type' => 'reportasje') ) );
 	}
 }
 ?>
