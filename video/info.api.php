@@ -27,7 +27,7 @@ $infos->monstring->type = $monstring->g('type');
 
 if( empty( $infos->pl_id ) ) {
     $infos->monstring->navn = 'Ukjent';
-    $path = $infos->sesong .'/Ukjent/';
+    $path = $tv_file->season .'/Ukjent/';
 } elseif( $infos->monstring->type == 'land' ) {
 	$infos->monstring->sokestreng = $infos->monstring->navn .' '. $infos->sesong;	
 	$path = $infos->sesong .'/UKM-festivalen/';
@@ -81,7 +81,7 @@ if( $infos->type == 'Reportasje' ) {
 
 $infos->path = new stdClass();
 $infos->path->dir = $path;
-$infos->path->filename = preg_replace('/[^\da-z -æøå]/i', '',$tv_file->title);
+$infos->path->filename = preg_replace('/[^\da-z -æøå]/i', '',$tv_file->title). '(CRONID'.$cron_id .' TVID'. $tv_file->id .')';
 
 function infos_person( $p_id, $b_id=false ) {
 	$person = new person( $p_id, $b_id );
