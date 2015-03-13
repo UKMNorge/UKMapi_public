@@ -16,6 +16,8 @@ $infos->tittel = $tv_file->title;
 $infos->tv_url = $tv_file->full_url;
 $infos->tv_file = $tv_file->file_name;
 $infos->tv_path = $tv_file->file_path;
+$infos->cron_id = $cron_id;
+$infos->tv_id = $tv_file->id;
 
 $infos->pl_id = $tv_file->tag('pl');
 $infos->type = $tv_file->b_id == 0 ? 'Reportasje' : 'Innslag';
