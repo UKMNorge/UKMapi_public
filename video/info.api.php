@@ -109,8 +109,5 @@ function infos_tittel( $tittel ) {
 	return $data;
 }
 
-#echo json_encode( $infos );
-
-echo '<pre>';
-var_dump( $infos );
-echo '</pre>';
+echo json_encode( $infos );
+die();
