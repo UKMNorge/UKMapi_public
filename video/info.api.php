@@ -13,7 +13,9 @@ $tv_file = new tv( false, $cron_id );
 $infos = new stdClass();
 
 $infos->tittel = $tv_file->title;
-$infos->url = $tv_file->full_url;
+$infos->tv_url = $tv_file->full_url;
+$infos->tv_file = $tv_file->file_name;
+$infos->tv_path = $tv_file->file_path;
 
 $infos->pl_id = $tv_file->tag('pl');
 $infos->type = $tv_file->b_id == 0 ? 'Reportasje' : 'Innslag';
