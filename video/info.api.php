@@ -15,8 +15,6 @@ $infos = new stdClass();
 $infos->tittel = $tv_file->title;
 $infos->url = $tv_file->full_url;
 
-$infos->type = $tv_file->b_id == 0 ? 'Reportasje' : 'Innslag';
-
 $infos->pl_id = $tv_file->tag('pl');
 
 $monstring = new monstring( $infos->pl_id );
@@ -25,14 +23,15 @@ $type_monstring = $monstring->g('type');
 $infos->sesong = $monstring->g('season');
 $infos->monstring = new stdClass();
 $infos->monstring->navn = $monstring->g('pl_name');
+$infos->monstring->type = $monstring->g('type');
 
 if( empty( $infos->pl_id ) ) {
     $infos->monstring->navn = 'Ukjent';
     $path = $infos->sesong .'/Ukjent/';
-} elseif( $infos->type == 'land' ) {
+} elseif( $infos->monstring->type == 'land' ) {
 	$infos->monstring->sokestreng = $infos->monstring->navn .' '. $infos->sesong;	
 	$path = $infos->sesong .'/UKM-festivalen/';
-} elseif( $infos->type == 'fylke' ) {
+} elseif( $infos->monstring->type == 'fylke' ) {
 	$infos->monstring->sokestreng = 'Fylkesmønstringen '. $infos->monstring->navn .' i '. $infos->sesong;
 	$infos->monstring->fylke = $monstring->g('fylke_name');
 	$path = $infos->sesong .'/'. $infos->monstring->navn .'(PLID'. $infos->pl_id .')/';
@@ -47,13 +46,6 @@ if( empty( $infos->pl_id ) ) {
 	$infos->monstring->kommuner = rtrim( $infos->monstring->kommuner, ', ' );
 	$path = $infos->sesong .'/'. $infos->monstring->fylke .'/'. $infos->monstring->kommuner .' (PLID'. $infos->pl_id .')/';
 }
-
-$infos = new stdClass();
-
-$infos->tittel = $tv_file->title;
-$infos->url = $tv_file->full_url;
-
-$infos->type = $tv_file->b_id == 0 ? 'Reportasje' : 'Innslag';
 
 if( $infos->type == 'Reportasje' ) {
 	$path .= 'Reportasje/';
