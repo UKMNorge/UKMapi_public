@@ -16,6 +16,7 @@ $infos->tittel = $tv_file->title;
 $infos->url = $tv_file->full_url;
 
 $infos->pl_id = $tv_file->tag('pl');
+$infos->type = $tv_file->b_id == 0 ? 'Reportasje' : 'Innslag';
 
 $monstring = new monstring( $infos->pl_id );
 $type_monstring = $monstring->g('type');
