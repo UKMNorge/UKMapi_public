@@ -81,7 +81,7 @@ if( $infos->type == 'Reportasje' ) {
 		$infos->innslag->personer[] = infos_person( $person['p_id'], $infos->innslag->ID );
 	}
 	
-	$titler = $innslag->titler();
+	$titler = $innslag->titler( $infos->pl_id );
 	foreach( $titler as $tittel ) {
 		$infos->innslag->titler[] = infos_tittel( $tittel );
 	}
