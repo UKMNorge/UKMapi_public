@@ -39,7 +39,7 @@ if( empty( $infos->pl_id ) ) {
 } elseif( $infos->monstring->type == 'fylke' ) {
 	$infos->monstring->sokestreng = 'Fylkesmønstringen '. $infos->monstring->navn .' i '. $infos->sesong;
 	$infos->monstring->fylke = $monstring->g('fylke_name');
-	$path = $infos->sesong .'/'. $infos->monstring->navn .'(PLID'. $infos->pl_id .')/';
+	$path = $infos->sesong .'/'. $monstring->g('fylke_name') .'/_Fylkesmønstringen (PLID'. $infos->pl_id .')/';
 } else {
 	$infos->monstring->sokestreng = 'Lokalmønstringen '. $infos->monstring->navn .' i '. $infos->sesong;
 	$infos->monstring->fylke = $monstring->g('fylke_name');
