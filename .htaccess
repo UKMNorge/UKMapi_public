@@ -1,4 +1,4 @@
 Options +FollowSymLinks
 RewriteEngine On
-RewriteRule ^([a-z]+):([a-z0-9A-Z-_]+)/([0-9]+)/?$ index.php?API=$1&CALL=$2&ID=$3 [QSA,L]
+RewriteRule ^([a-z]+):([a-z0-9A-Z-_]+)/([0-9.]+)/?$ index.php?API=$1&CALL=$2&ID=$3 [QSA,L]
 RewriteRule ^([a-z]+):([a-z0-9A-Z-_]+)/?$ index.php?API=$1&CALL=$2&ID=null [QSA,L]
