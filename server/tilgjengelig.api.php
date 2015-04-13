@@ -3,7 +3,7 @@
 	$UKMCURL->request( 'http://'. $_GET['ID'] );
 
 	if( !$UKMCURL->result ) {
-		die(0);
+		die('false');
 	}
-	die(1);
+	die('true');
 ?>
