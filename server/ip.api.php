@@ -1,3 +1,3 @@
 <?php
-	echo json_encode( $_SERVER['REMOTE_ADDR'] );
-	?>
+echo $_SERVER['REMOTE_ADDR'];
+?>
