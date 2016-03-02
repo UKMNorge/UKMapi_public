@@ -6,7 +6,7 @@
 
 
 
-if( !isset( $_GET['ID'] ) || !isset( $_GET['SUBID']) || empty( $_GET['ID'] ) || empty( $_GET['SUB'] ) ) {
+if( !isset( $_GET['ID'] ) || !isset( $_GET['SUBID']) || empty( $_GET['ID'] ) || empty( $_GET['SUBID'] ) ) {
 	die('Mangler identifikator(er)'); 
 }
 
