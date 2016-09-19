@@ -43,23 +43,15 @@ return;
 ## Output:
 # Et objekt som beskriver om forespørselen er godkjent eller ikke.
 #
-function tilgang() {
+function tilgang($api_key, $system, $permission) {
 	$result = new stdClass();
 	// URLRewrite håndterer en del av sikkerheten, SQL-klassen resterende.
-	$api_key = $_POST['API_KEY'];
-	$system = $_POST['SYSTEM'];
-	$permission = $_POST['PERMISSION'];
 
 	if($api_key == null || $system == null || $permission == null) {
 		$result->success = false;
 		$result->errors[] = 'UKMapi: Mangler èn eller flere parametere.';
 		return $result;
 	}
-
-	#$api_key = 'test';
-	#$system = 'rsvp';
-	#$permission = 'read';
-
 	
 	$qry = new SQL("SELECT COUNT(*) FROM API_Permissions 
 					WHERE `api_key` = '#api_key'
@@ -68,8 +60,7 @@ function tilgang() {
 					array(	'api_key' => $api_key,
 							'system' => $system,
 							'permission' => $permission));
-	#echo $qry->debug();
-	#$qry->error();
+	
 	$res = $qry->run('field', 'COUNT(*)');
 	
 	if($res == 1) {
@@ -87,86 +78,59 @@ function tilgang() {
 	return $result;
 }
 
-### Sign
-# Signerer en POST-request for et gitt system og sjekker om signeringen er korrekt
-# Signeringen er en md5-sum av api_key, variabler og secret.
-## Inputs:
-# $_POST[]-variabler
-# $_POST['signed_request']
-## Outputs:
-# Et objekt med success = true/false
-function sign() {
-	#var_dump($_GET);
-	#var_dump($_POST);
+function signedTilgang2() {
+
 	$result = new stdClass();
-	if($_POST['API_KEY'] == null || $_POST['signed_request'] == null) {
+	// Sjekk at tidspunktene er innenfor maksgrensa vi tillater.
+	if(!timestampsOkay()) {
 		$result->success = false;
-		$result->errors[] = 'UKMapi: Mangler èn eller flere parametere.';
+		$result->errors[] = 'UKMapi: Timestampene er ikke innenfor godkjent intervall!';
 		return $result;
 	}
+	require_once(__DIR__.'/class/Signer.php');
 
-	$api_key = $_POST['API_KEY'];
-	$data = $_POST;
-	$signed_request = $_POST['signed_request'];
+	$api_key = $_POST['api_key'];
+	$sys_key = $_POST['sys_key'];
+	$originalSigner = new UKMNorge\APIBundle\Util\Signer($api_key, $secret);
+	$serviceSigner = new UKMNorge\APIBundle\Util\Signer($sys_key, $secret);
+
+	// VALIDATE EXTERNAL SERVICE
+	$externalData = array();
+	$externalData['time'] = $_POST['externalTime'];
+	$internalSign1 = $originalSigner->sign($externalData);
 	
-
-	unset($data['signed_request']);
-	$signed = doSign($api_key, $data);
-
-	if($signed == $signed_request) {
-		$result->success = true;
-	}
-	else {
-		/*echo '<pre>data: <br>';
-		var_dump($data);
-		echo '<br>signed_request: <br>';
-		var_dump($signed_request);
-		echo '<br>signed: <br>';
-		var_dump($signed);
-		echo '</pre>';*/
-		$result->success = false;
-		$result->errors[] = 'UKMapi: Den signerte spørringen stemmer ikke.';
-		// TODO: ERROR LOG THIS
+	// VALIDATE DATA PROVIDER
+	$serviceData = $_POST;
+	$hidden = array('api_key', 'sign1', 'sign2', 'externalTime', 'sys_key');
+	foreach ($serviceData as $key => $val) {
+		if(in_array($key, $hidden)) {
+			unset($serviceData[$key]);
+		}
 	}
 
-	return $result;
-}
-
-### Gjør det samme som tilgang og sign, men slått sammen.
-## Dette er den anbefalte metoden å bruke for et eksternt system.
-function signedTilgang() {
-	$validate = sign();
-	$result = new stdClass();
-	if($validate->success === true) {
-		$tilgang = tilgang();
+	$serviceData['signature'] = $internalSign1;
+	$internalSign2 = $serviceSigner->sign($serviceData);
+	
+	if($internalSign2 == $_POST['sign2'] && $internalSign1 == $_POST['sign1']) {
+		$tilgang = tilgang($api_key, $_POST['sys_key'], $_POST['permission']);
 		if($tilgang->success === true) {
 			$result->success = true;
 		} 
 		else {
 			$result->success = false;
 			$result->errors = $tilgang->errors;
+			return $result;
 		}
-	} 
-	else {
-		$result->success = false;
-		$result->errors = $validate->errors;
+		// Sign the result
+		$result->sign = $serviceSigner->responseSign(get_object_vars($result));
+		return $result;
 	}
+	else $result->success = false;
+	
 	return $result;
 }
 
-### doSign
-## Gjennomfører den faktiske signeringen av en POST-request.
-function doSign($api_key, $data) {
-
-	if($api_key == null || $data == null) {
-		return false;
-	}
-
-	$qry = new SQL("SELECT secret FROM API_Keys
-					WHERE `api_key` = '#api_key'", array('api_key' => $api_key));
-	$secret = $qry->run('field', 'secret');
-	if($secret == false) {
-		return false;
-	}
-	return hash('sha256', $api_key . http_build_query($data) . $secret);
+// TODO: Implementer
+function timestampsOkay() {
+	return false;
 }
