@@ -79,58 +79,89 @@ function tilgang($api_key, $system, $permission) {
 }
 
 function signedTilgang2() {
-
-	$result = new stdClass();
-	// Sjekk at tidspunktene er innenfor maksgrensa vi tillater.
-	if(!timestampsOkay()) {
-		$result->success = false;
-		$result->errors[] = 'UKMapi: Timestampene er ikke innenfor godkjent intervall!';
-		return $result;
-	}
-	require_once(__DIR__.'/class/Signer.php');
-
-	$api_key = $_POST['api_key'];
-	$sys_key = $_POST['sys_key'];
-	$originalSigner = new UKMNorge\APIBundle\Util\Signer($api_key, $secret);
-	$serviceSigner = new UKMNorge\APIBundle\Util\Signer($sys_key, $secret);
-
-	// VALIDATE EXTERNAL SERVICE
-	$externalData = array();
-	$externalData['time'] = $_POST['externalTime'];
-	$internalSign1 = $originalSigner->sign($externalData);
-	
-	// VALIDATE DATA PROVIDER
-	$serviceData = $_POST;
-	$hidden = array('api_key', 'sign1', 'sign2', 'externalTime', 'sys_key');
-	foreach ($serviceData as $key => $val) {
-		if(in_array($key, $hidden)) {
-			unset($serviceData[$key]);
-		}
-	}
-
-	$serviceData['signature'] = $internalSign1;
-	$internalSign2 = $serviceSigner->sign($serviceData);
-	
-	if($internalSign2 == $_POST['sign2'] && $internalSign1 == $_POST['sign1']) {
-		$tilgang = tilgang($api_key, $_POST['sys_key'], $_POST['permission']);
-		if($tilgang->success === true) {
-			$result->success = true;
-		} 
-		else {
+	try {
+		$result = new stdClass();
+		#$result->errors[] = "Debug: ".var_export($_POST, true);
+		// Sjekk at tidspunktene er innenfor maksgrensa vi tillater.
+		if(!timestampsOkay()) {
 			$result->success = false;
-			$result->errors = $tilgang->errors;
+			$result->errors[] = 'UKMapi: Timestampene er ikke innenfor godkjent intervall!';
 			return $result;
 		}
-		// Sign the result
-		$result->sign = $serviceSigner->responseSign(get_object_vars($result));
+		require_once(__DIR__.'/class/Signer.php');
+
+		## DATA FROM SERVICE:
+		$service_time = $_POST['time'];
+		$service_sys_key = $_POST['sys_key'];
+		$service_permission = $_POST['permission'];
+		$service_time = $_POST['time'];
+		$service_sign = $_POST['sign2'];
+
+		if(null == $service_time || null == $service_sys_key || null == $service_permission || null == $service_time || null == $service_sign ) {
+			$result->success == false;
+			$result->errors[] = "UKMapi: Mangler data fra UKM-tjenesten!";
+		}
+
+		## DATA FROM EXTERNAL SERVICE
+		$external_time = $_POST['externalTime'];
+		$external_sign = $_POST['sign1'];
+		$external_api_key = $_POST['api_key'];
+
+		if(null == $external_time || null == $external_sign || null == $external_api_key) {
+			$result->success == false;
+			$result->errors[] = "UKMapi: Mangler data fra ekstern tjeneste!";
+		}
+
+		$originalSigner = new UKMNorge\APIBundle\Util\Signer($external_api_key);
+		$serviceSigner = new UKMNorge\APIBundle\Util\Signer($service_sys_key);
+
+		// VALIDATE EXTERNAL SERVICE
+		$internalSign1 = $originalSigner->sign($external_time);
+
+		// VALIDATE DATA PROVIDER
+		$serviceData = $_POST;
+		$hidden = array('api_key', 'sign1', 'sign2', 'externalTime', 'sys_key');
+		foreach ($serviceData as $key => $val) {
+			if(in_array($key, $hidden)) {
+				unset($serviceData[$key]);
+			}
+		}
+
+		$data = $internalSign1.$service_permission;
+		$internalSign2 = $serviceSigner->sign($service_time, $data);
+		#echo $internalSign2;
+
+		if($internalSign2 == $_POST['sign2'] && $internalSign1 == $_POST['sign1']) {
+			$tilgang = tilgang($external_api_key, $service_sys_key, $service_permission);
+			if($tilgang->success === true) {
+				$result->success = true;
+			} 
+			else {
+				$result->success = false;
+				$result->errors = $tilgang->errors;
+				return $result;
+			}
+			// Sign the result
+			$result->sign = $serviceSigner->responseSign($internalSign1, $service_time, get_object_vars($result));
+			return $result;
+		}
+		else {
+			$result->success = false;
+			$result->errors[] = 'UKMapi: Signeringen er ikke godkjent.';
+			$result->errors[] = 'Sign1: '.$internalSign1.' != ' .$external_sign;
+			$result->errors[] = 'Sign2: '.$internalSign2.' != ' .$service_sign;
+		}
+		
 		return $result;
 	}
-	else $result->success = false;
-	
-	return $result;
+	catch(Exception $e) {
+		$result = new stdClass();
+		$result->success = false;
+		$result->errors[] = 'UKMapi: Det oppsto en ukjent feil med feilmeldingen '.$e->getMessage();
+	}
 }
 
 // TODO: Implementer
 function timestampsOkay() {
-	return false;
+	return true;
 }
