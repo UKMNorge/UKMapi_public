@@ -4,7 +4,7 @@
 # Version 0.1
 # Author: UKM Norge / A Hustad
 
-error_reporting(E_ALL);
+error_reporting(E_NONE);
 #var_dump($_GET['ID']);
 require_once('UKM/sql.class.php');
 
