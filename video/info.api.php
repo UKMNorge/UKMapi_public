@@ -99,6 +99,7 @@ function infos_person( $p_id, $b_id=false ) {
 	$data->telefon = $person->getNicePhone() .' ('. $person->g('p_phone') .')';
 	$data->alder = $person->alder() .' år';	
 	$data->epost = $person->g('p_email');
+	$data->instrument = $person->g('instrument');
 	
 	return $data;
 }
