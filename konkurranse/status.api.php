@@ -1,4 +1,7 @@
 <?php
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *');
+
 require_once('UKM/sql.class.php');
 
 $qryTotal = "(SELECT COUNT(`id`) AS `total` FROM `konkurranse_svar` WHERE `sporsmal_id` = '#key')";
