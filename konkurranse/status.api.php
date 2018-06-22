@@ -4,16 +4,19 @@ header('Access-Control-Allow-Origin: *');
 
 require_once('UKM/sql.class.php');
 
-$qryTotal = "(SELECT COUNT(`id`) AS `total` FROM `konkurranse_svar` WHERE `sporsmal_id` = '#key')";
+$qryTotal = "(SELECT COUNT(`konkurranse_svar`.`id`) AS `total` FROM `konkurranse_svar` WHERE `konkurranse_svar`.`sporsmal_id` = '#key')";
 
 $sql = new SQL("
-	SELECT `svar` AS `id`, COUNT(`id`) AS `antall`,
+	SELECT `alternativ`.`id` AS `id`, COUNT(`konkurranse_svar`.`id`) AS `antall`,`alternativ`.`name`,
 		$qryTotal AS `total`,
-		FLOOR((100/$qryTotal * COUNT(`id`))) AS `prosent`
+		FLOOR((100/$qryTotal * COUNT(`konkurranse_svar`.`id`))) AS `prosent`
 	FROM `konkurranse_svar`
-	WHERE `sporsmal_id` = '#key'
-	GROUP BY `svar`
-	ORDER BY `svar` ASC
+	LEFT JOIN `konkurranse_alternativ` AS `alternativ`
+		ON(`alternativ`.`id` = `konkurranse_svar`.`alternativ_id`)
+	WHERE `konkurranse_svar`.`sporsmal_id` = '#key'
+	GROUP BY `alternativ_id`
+	ORDER BY `alternativ_id` ASC
+	LIMIT 6
 	",
 	['key' => $_GET['ID']]
 );
