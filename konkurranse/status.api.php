@@ -22,9 +22,9 @@ $sql = new SQL("
 );
 
 $res = $sql->run();
-$antall = mysql_num_rows( $res );
+$antall = SQL::fetch( $res );
 $resultat = [];
-while( $row = mysql_fetch_assoc( $res ) ) {
+while( $row = SQL::fetch( $res ) ) {
 	$resultat[] = $row;
 }
 

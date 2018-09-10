@@ -19,6 +19,6 @@ $sql = new SQL("SELECT *
 			   array('id' => $_GET['ID'], 'plid' => $_GET['SUBID'] )
 			  );
 $res = $sql->run();
-$file = mysql_fetch_assoc( $res );
+$file = SQL::fetch( $res );
 
 die( json_encode( $file ) );

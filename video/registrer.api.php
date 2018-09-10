@@ -54,7 +54,7 @@ if($innslag) {
 							   		 'blog_id' => $blog_id)
 							   );
 	$already_exists = $already_exists->run();
-	$already_exists = mysql_fetch_assoc( $already_exists );
+	$already_exists = SQL::fetch( $already_exists );
 	
 	// REGISTRER MOT INNSLAG
 	if(!$already_exists) {
