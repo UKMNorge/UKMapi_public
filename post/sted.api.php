@@ -21,7 +21,6 @@ function poststed($code) {
 	$qry = new SQL("SELECT `postalplace` FROM `smartukm_postalplace` WHERE `postalcode` = #code", array("code" => $code));
 
 	$place = $qry->run('field', 'postalplace');
-	$place = utf8_encode($place);
 
 	//var_dump($place);
 	if(empty($place)) return false;
