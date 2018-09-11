@@ -1,0 +1,202 @@
+[10-Aug-2018 21:24:25 Europe/Oslo] PHP Warning:  get_class() expects parameter 1 to be object, string given in /usr/local/lib/php/UKM/monstringer.class.php on line 192
+[27-Aug-2018 21:49:53 Europe/Oslo] PHP Warning:  get_class() expects parameter 1 to be object, string given in /usr/local/lib/php/UKM/monstringer.class.php on line 192
+[27-Aug-2018 21:50:33 Europe/Oslo] PHP Warning:  get_class() expects parameter 1 to be object, string given in /usr/local/lib/php/UKM/monstringer.class.php on line 192
+[27-Aug-2018 21:50:50 Europe/Oslo] PHP Warning:  get_class() expects parameter 1 to be object, string given in /usr/local/lib/php/UKM/monstringer.class.php on line 192
+[27-Aug-2018 21:52:03 Europe/Oslo] PHP Warning:  get_class() expects parameter 1 to be object, string given in /usr/local/lib/php/UKM/monstringer.class.php on line 192
+[27-Aug-2018 21:59:04 Europe/Oslo] PHP Warning:  get_class() expects parameter 1 to be object, string given in /usr/local/lib/php/UKM/monstringer.class.php on line 192
+[27-Aug-2018 22:11:31 Europe/Oslo] PHP Warning:  get_class() expects parameter 1 to be object, string given in /usr/local/lib/php/UKM/monstringer.class.php on line 192
+[27-Aug-2018 23:40:35 Europe/Oslo] PHP Parse error:  syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM) in /home/ukmapi/public_html/v2/program/listByDay.php on line 12
+[27-Aug-2018 23:51:28 Europe/Oslo] PHP Fatal error:  Class 'json_export' not found in /home/ukmapi/public_html/v2/monstringer/findBy.php on line 17
+[27-Aug-2018 23:51:33 Europe/Oslo] PHP Parse error:  syntax error, unexpected 'hendelse' (T_STRING), expecting variable (T_VARIABLE) in /home/ukmapi/public_html/v2/models/monstring.model.php on line 26
+[27-Aug-2018 23:51:42 Europe/Oslo] PHP Fatal error:  Call to a member function getId() on a non-object in /home/ukmapi/public_html/v2/models/monstring.model.php on line 7
+[27-Aug-2018 23:52:01 Europe/Oslo] PHP Warning:  Creating default object from empty value in /home/ukmapi/public_html/v2/models/monstring.model.php on line 15
+[27-Aug-2018 23:56:22 Europe/Oslo] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 130968 bytes) in /home/ukmapi/public_html/v2/models/monstring.model.php on line 29
+[30-Aug-2018 13:11:25 Europe/Oslo] PHP Fatal error:  Call to undefined method forestillinger::getHendelse() in /home/ukmapi/public_html/v2/program/findBy.php on line 9
+[30-Aug-2018 13:30:04 Europe/Oslo] PHP Fatal error:  Call to undefined method innslag_v2::getI() in /home/ukmapi/public_html/v2/models/monstring.model.php on line 41
+[30-Aug-2018 13:30:24 Europe/Oslo] PHP Fatal error:  Cannot use object of type innslag_collection as array in /home/ukmapi/public_html/v2/program/findBy.php on line 14
+[30-Aug-2018 13:36:44 Europe/Oslo] PHP Fatal error:  Cannot use object of type innslag_collection as array in /home/ukmapi/public_html/v2/program/findBy.php on line 16
+[30-Aug-2018 13:36:55 Europe/Oslo] PHP Fatal error:  Call to a member function getId() on a non-object in /home/ukmapi/public_html/v2/models/monstring.model.php on line 7
+[30-Aug-2018 13:38:04 Europe/Oslo] PHP Fatal error:  Call to a member function getId() on a non-object in /home/ukmapi/public_html/v2/models/monstring.model.php on line 7
+[30-Aug-2018 13:38:17 Europe/Oslo] PHP Fatal error:  Call to a member function getId() on a non-object in /home/ukmapi/public_html/v2/models/monstring.model.php on line 7
+[30-Aug-2018 13:38:30 Europe/Oslo] PHP Fatal error:  Call to undefined method stdClass::getId() in /home/ukmapi/public_html/v2/models/monstring.model.php on line 7
+[30-Aug-2018 21:33:36 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:33:36 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:33:36 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:33:36 Europe/Oslo] PHP Fatal error:  Call to a member function getSize() on a non-object in /home/ukmapi/public_html/v2/models/monstring.model.php on line 71
+[30-Aug-2018 21:34:21 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:21 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:21 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:21 Europe/Oslo] PHP Fatal error:  Call to a member function getUrl() on a non-object in /home/ukmapi/public_html/v2/models/monstring.model.php on line 78
+[30-Aug-2018 21:34:22 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:22 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:22 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:22 Europe/Oslo] PHP Fatal error:  Call to a member function getUrl() on a non-object in /home/ukmapi/public_html/v2/models/monstring.model.php on line 78
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:34:45 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:51 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:52 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:53 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:54 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:54 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:54 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:35:54 Europe/Oslo] PHP Warning:  copy() expects at least 2 parameters, 1 given in /usr/local/lib/php/UKM/bilder.class.php on line 100
+[30-Aug-2018 21:35:54 Europe/Oslo] PHP Warning:  ksort() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 101
+[30-Aug-2018 21:35:54 Europe/Oslo] PHP Warning:  end() expects parameter 1 to be array, null given in /usr/local/lib/php/UKM/bilder.class.php on line 102
+[30-Aug-2018 21:36:31 Europe/Oslo] PHP Fatal error:  Call to undefined method bilde_storrelse::width() in /home/ukmapi/public_html/v2/models/monstring.model.php on line 77
