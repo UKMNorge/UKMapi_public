@@ -9,7 +9,10 @@ switch( API_FINDBY_SELECTOR ) {
 		$innslag = $monstring->getInnslag()->get( API_FINDBY_ID );
         $export = json_export::innslag( $innslag );
         $export->bilder = [];
+        $export->artikler = [];
+        $export->filmer = [];
         
+        // BILDER
         foreach( $innslag->getBilder()->getAll() as $bilde ) {
             $export_bilde = json_export::bilde( $bilde );
             $export_bilde->storrelser = [];
@@ -17,6 +20,16 @@ switch( API_FINDBY_SELECTOR ) {
                 $export_bilde->storrelser[ $storrelse ] = json_export::bilde( $bilde, $storrelse );
             }
             $export->bilder[] = $export_bilde;
+        }
+
+        // ARTIKLER
+        foreach( $innslag->getArtikler()->getAll() as $artikkel ) {
+            $export->artikler[] = json_export::artikkel( $artikkel );
+        }
+
+        // UKM-TV
+        foreach( $innslag->getFilmer() as $film ) {
+            $export->filmer[] = json_export::tv( $film );
         }
         break;
 	default:

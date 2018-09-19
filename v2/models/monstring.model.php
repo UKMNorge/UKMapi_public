@@ -63,6 +63,7 @@ class json_export {
 		$object->url			= $url;
 		$object->width			= 100;
 		$object->height			= 56;
+		$object->orientation	= 'landscape';
 		
 		return $object;
 	}
@@ -77,6 +78,40 @@ class json_export {
 		$object->width			= $size->getWidth();
 		$object->height			= $size->getHeight();
 		$object->orientation	= $size->getOrientation();
+		return $object;
+	}
+
+	public static function artikkel( $artikkel ) {
+		$object = new stdClass();
+		$object->blog				= new stdClass();
+		$object->monstring			= new stdClass();
+
+		$object->id					= $artikkel->getId();
+		$object->navn				= $artikkel->getTittel();
+		$object->url				= $artikkel->getLink();
+		$object->monstring->type	= $artikkel->getMonstringType();
+		$object->monstring->sesong	= $artikkel->getSeason();
+		$object->blog->id			= $artikkel->getBlogId();
+		$object->blog->url			= $artikkel->getBlogPath();
+		
+		return $object;
+	}
+
+	public static function tv( $tv ) {
+		$object = new stdClass();
+		$object->kategori			= new stdClass();
+
+		$object->bilde 				= new stdClass();
+		$object->bilde->url			= $tv->image_url;
+		$object->bilde->width		= 1280;
+		$object->bilde->height		= 720;
+		$object->bilde->orientation	= 'landscape';
+
+		$object->url				= $tv->full_url;
+		$object->navn				= $tv->title;
+		$object->kategori->url 		= $tv->category_url;
+		$object->kategori->navn		= $tv->category;
+
 		return $object;
 	}
 	
