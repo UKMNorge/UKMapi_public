@@ -15,6 +15,7 @@ switch( API_FINDBY_SELECTOR ) {
             $export_bilde->storrelser = [];
             foreach( ['thumbnail','medium','large','lite'] as $storrelse ) {
                 $export_bilde->storrelser[ $storrelse ] = json_export::bilde( $bilde, $storrelse );
+            }
             $export->bilder[] = $export_bilde;
         }
         break;
