@@ -66,7 +66,7 @@ class json_export {
 		
 		return $object;
 	}
-	public static function bilde( $bilde, $size ) {
+	public static function bilde( $bilde, $size='lite' ) {
 		if( is_object( $bilde ) ) {
 			$size = $bilde->getSize( $size );
 		} else {
