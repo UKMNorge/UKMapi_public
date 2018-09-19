@@ -76,7 +76,7 @@ class json_export {
 		$object 				= self::placeholder( $size->getUrl() );
 		$object->width			= $size->getWidth();
 		$object->height			= $size->getHeight();
-
+		$object->orientation	= $size->getOrientation();
 		return $object;
 	}
 	
