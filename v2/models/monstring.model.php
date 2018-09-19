@@ -100,8 +100,9 @@ class json_export {
 	public static function tv( $tv ) {
 		$object = new stdClass();
 		$object->kategori			= new stdClass();
-
+		$object->samling			= new stdClass();
 		$object->bilde 				= new stdClass();
+
 		$object->bilde->url			= $tv->image_url;
 		$object->bilde->width		= 1280;
 		$object->bilde->height		= 720;
@@ -109,6 +110,10 @@ class json_export {
 
 		$object->url				= $tv->full_url;
 		$object->navn				= $tv->title;
+
+		$object->samling->url 		= $tv->set_url;
+		$object->samling->navn		= $tv->set;
+
 		$object->kategori->url 		= $tv->category_url;
 		$object->kategori->navn		= $tv->category;
 
