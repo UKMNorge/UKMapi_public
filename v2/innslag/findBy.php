@@ -28,8 +28,10 @@ switch( API_FINDBY_SELECTOR ) {
         }
 
         // UKM-TV
-        foreach( $innslag->getFilmer() as $film ) {
-            $export->filmer[] = json_export::tv( $film );
+        if( is_array( $innslag->getFilmer() ) {
+            foreach( $innslag->getFilmer() as $film ) {
+                $export->filmer[] = json_export::tv( $film );
+            }
         }
         break;
 	default:
