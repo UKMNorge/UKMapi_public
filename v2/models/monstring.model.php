@@ -120,8 +120,8 @@ class json_export {
 		$object->kategori->url 		= $tv->category_url;
 		$object->kategori->navn		= $tv->category;
 
-		$object->fil->mobil			= $tv->file_mobile;
-		$object->fil->desktop		= $tv->file_720p;
+		$object->fil->mobil			= $tv->storageurl . $tv->file_mobile;
+		$object->fil->desktop		= $tv->storageurl . $tv->file_720p;
 
 		return $object;
 	}
