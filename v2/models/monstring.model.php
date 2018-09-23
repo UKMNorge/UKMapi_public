@@ -98,10 +98,13 @@ class json_export {
 	}
 
 	public static function tv( $tv ) {
+		$tv->videofile();	// Henter ut informasjon om selve fila
+		
 		$object = new stdClass();
 		$object->kategori			= new stdClass();
 		$object->samling			= new stdClass();
 		$object->bilde 				= new stdClass();
+		$object->fil				= new stdClass();
 
 		$object->bilde->url			= $tv->image_url;
 		$object->bilde->width		= 1280;
@@ -117,8 +120,12 @@ class json_export {
 		$object->kategori->url 		= $tv->category_url;
 		$object->kategori->navn		= $tv->category;
 
+		$object->fil->mobil			= $tv->file_mobile;
+		$object->fil->desktop		= $tv->file_720p;
+
 		return $object;
 	}
+	
 	
 	public static function innslag_type( $type ) {
 		$object					= new stdClass();
