@@ -1,5 +1,11 @@
 Options +FollowSymLinks
 RewriteEngine On
+
+## V2
+RewriteRule ^2.([0-9]+)/([a-z]+)/([0-9]+|[a-z]+-[0-9]+)?/?$ v2/index.php?V=$1&API=$2&CALL=$3
+RewriteRule ^2.([0-9]+)/monstring-([0-9]+)/([a-z]+)/([a-zA-Z]+|[0-9]+|[a-z]+-[0-9]+)?/?$ v2/index.php?V=$1&API=$3&CALL=$4&MONSTRING=$2
+
+## V1
 RewriteRule ^([a-z]+):([a-z0-9A-Z-_]+)/([0-9.]+)/([0-9.]+)/?$ index.php?API=$1&CALL=$2&ID=$3&SUBID=$4 [QSA,L]
 RewriteRule ^([a-z]+):([a-z0-9A-Z-_]+)/([a-z0-9A-Z.]+)/?$ index.php?API=$1&CALL=$2&ID=$3 [QSA,L]
 RewriteRule ^([a-z]+):([a-z0-9A-Z-_]+)/?$ index.php?API=$1&CALL=$2&ID=null [QSA,L]
