@@ -1,5 +1,6 @@
 <?php
 
+require_once('UKM/monstringer.class.php');
 $fylker = [];
 $monstringer = monstringer_v2::getFylker( API_SEASON );
 foreach( $monstringer as $monstring ) {
