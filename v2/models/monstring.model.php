@@ -147,4 +147,24 @@ class json_export {
 		$object->fylke->navn	= $kommune->getFylke()->getNavn();
 		return $object;
 	}
+
+	public static function kontakt( $kontakt ) {
+		$object					= new stdClass();
+		$object->id				= $kontakt->getId();
+		
+		$object->fornavn		= $kontakt->getFornavn();
+		$object->etternavn		= $kontakt->getEtternavn();
+		$object->navn			= $object->fornavn .' '. $object->etternavn;
+		
+		$object->tittel			= $object->getTittel();
+		
+		$object->telefon		= $object->getTelefon();
+		$object->epost			= $object->getEpost();
+		$object->facebook		= $object->getFacebook();
+
+		$object->bilde			= new stdClass();
+		$object->bilde->url		= $object->getBilde();
+
+		return $object;
+	}
 }
