@@ -11,6 +11,7 @@ $monstring = new monstring_v2( API_MONSTRING );
 $program = $monstring->getProgram()->sorterPerDag( $monstring->getProgram()->getAllInkludertInterne() );
 
 $dager = [];
+$hendelser = [];
 foreach( $program as $date => $day ) {
 	
 	$dag = new stdClass();
@@ -19,11 +20,16 @@ foreach( $program as $date => $day ) {
 	$dag->hendelser = [];
 	
 	foreach( $day->forestillinger as $hendelse ) {
-		$dag->hendelser[] = json_export::hendelse( $hendelse );
+		$dag->hendelser[] = $hendelse->getId();
+		$hendelser[] = json_export::hendelse( $hendelse );
 	}
 	
 	$dager[] = $dag;
 }
 
-echo json_encode( $dager );
+$data = new stdClass();
+$data->dager = $dager;
+$data->hendelser = $hendelser;
+
+echo json_encode( $data );
 die();
