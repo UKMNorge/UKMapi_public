@@ -2,7 +2,7 @@
 
 require_once('UKM/monstring.class.php');
 
-if( !API_ID ) {
+if( !API_MONSTRING ) {
 	die('false');
 }
 
