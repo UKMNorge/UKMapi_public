@@ -2,10 +2,12 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=utf-8");
 
+$current_season = date('n') < 8 ? (int) date('Y') : (int) date('Y') + 1;
+
 define('MODELS', dirname( __FILE__ ) .'/models/');
 
 define('API', empty( $_GET['API'] ) ? 'list' : $_GET['API'] );
-define('API_SEASON', isset( $_GET['SESONG'] ) ? $_GET['SESONG'] : (int) date('Y') );
+define('API_SEASON', isset( $_GET['SESONG'] ) ? $_GET['SESONG'] : $current_season );
 define('API_VERSION', $_GET['V']);
 /**
  * Tomt kall vil returnere en liste
