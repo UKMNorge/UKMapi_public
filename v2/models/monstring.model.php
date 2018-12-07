@@ -156,14 +156,14 @@ class json_export {
 		$object->etternavn		= $kontakt->getEtternavn();
 		$object->navn			= $object->fornavn .' '. $object->etternavn;
 		
-		$object->tittel			= $object->getTittel();
+		$object->tittel			= $kontakt->getTittel();
 		
-		$object->telefon		= $object->getTelefon();
-		$object->epost			= $object->getEpost();
-		$object->facebook		= $object->getFacebook();
+		$object->telefon		= $kontakt->getTelefon();
+		$object->epost			= $kontakt->getEpost();
+		$object->facebook		= $kontakt->getFacebook();
 
 		$object->bilde			= new stdClass();
-		$object->bilde->url		= $object->getBilde();
+		$object->bilde->url		= $kontakt->getBilde();
 
 		return $object;
 	}
