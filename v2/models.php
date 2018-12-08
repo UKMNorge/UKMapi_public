@@ -16,6 +16,7 @@ class json_export {
 		$object->start		= self::dato( $monstring->getStart() );
 		$object->stop		= self::dato( $monstring->getStop() );
 		$object->type		= $monstring->getType();
+		$object->url		= $monstring->getLink();
 		
 		return $object;
 	}
