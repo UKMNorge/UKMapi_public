@@ -4,8 +4,6 @@ header("Content-Type: application/json; charset=utf-8");
 
 $current_season = date('n') < 8 ? (int) date('Y') : (int) date('Y') + 1;
 
-define('MODELS', dirname( __FILE__ ) .'/models/');
-
 define('API', empty( $_GET['API'] ) ? 'list' : $_GET['API'] );
 define('API_SEASON', isset( $_GET['SESONG'] ) ? $_GET['SESONG'] : $current_season );
 define('API_VERSION', $_GET['V']);
@@ -61,7 +59,7 @@ if( API_VERSION == 0 ) {
 }
 
 if( file_exists( $folder ) && is_dir( $folder ) && file_exists( $file ) ) {
-	require_once( MODELS . 'monstring.model.php');
+	require_once( 'models.php');
 
 	try {
 		require_once( $file );
