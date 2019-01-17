@@ -2,11 +2,27 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=utf-8");
 
+require_once('UKMconfig.inc.php');
+require_once('functions.inc.php');
+if( UKM_HOSTNAME == 'ukm.dev' ) {
+	ini_set('display_errors', true);
+}
+
 $current_season = date('n') < 8 ? (int) date('Y') : (int) date('Y') + 1;
+#DEBUG
+$current_season = 2014;
 
 define('API', empty( $_GET['API'] ) ? 'list' : $_GET['API'] );
 define('API_SEASON', isset( $_GET['SESONG'] ) ? $_GET['SESONG'] : $current_season );
 define('API_VERSION', $_GET['V']);
+
+/**
+ * Path til auth-check
+ * Endpoints som krever autentisering må inkludere følgende kode-linje:
+ * require_once( AUTH ); 
+*/
+define('AUTH', dirname( __FILE__ ) .'/auth.inc.php');
+
 /**
  * Tomt kall vil returnere en liste
 **/
@@ -64,12 +80,7 @@ if( file_exists( $folder ) && is_dir( $folder ) && file_exists( $file ) ) {
 	try {
 		require_once( $file );
 	} catch( Exception $e ) {
-		echo json_encode( [
-			'success' => false,
-			'error_message' => $e->getMessage(),
-			'error_code' => $e->getCode()
-		] );
-		die();
+		abort( $e->getMessage(), $e->getCode() );
 	}
 }
 

@@ -1,8 +1,10 @@
 Options +FollowSymLinks
 RewriteEngine On
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
 ## V2
-RewriteRule ^2.([0-9]+)/([a-z]+)/([0-9]+|[a-z]+-[0-9]+)?/?$ v2/index.php?V=$1&API=$2&CALL=$3
+RewriteRule ^2.([0-9]+)/([a-z]+)/([a-z]+|[0-9]+|[a-z]+-[0-9]+)?/?$ v2/index.php?V=$1&API=$2&CALL=$3
 RewriteRule ^2.([0-9]+)/monstring-([0-9]+)/([a-z]+)/([a-zA-Z]+|[0-9]+|[a-z]+-[0-9]+)?/?$ v2/index.php?V=$1&API=$3&CALL=$4&MONSTRING=$2
 
 ## V1
