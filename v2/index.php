@@ -10,7 +10,7 @@ if( UKM_HOSTNAME == 'ukm.dev' ) {
 
 $current_season = date('n') < 8 ? (int) date('Y') : (int) date('Y') + 1;
 #DEBUG
-$current_season = 2014;
+#$current_season = 2014;
 
 define('API', empty( $_GET['API'] ) ? 'list' : $_GET['API'] );
 define('API_SEASON', isset( $_GET['SESONG'] ) ? $_GET['SESONG'] : $current_season );
