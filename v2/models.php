@@ -34,6 +34,11 @@ class json_export {
 		
 		$object->post_id		= $hendelse->getTypePostId();
 		$object->category_id	= $hendelse->getTypeCategoryId();
+
+		$object->innslag		= [];
+		foreach( $hendelse->getInnslag()->getAll() as $innslag ) {
+			$object->innslag[] = $innslag->getId();
+		}
 		return $object;
 	}
 	
