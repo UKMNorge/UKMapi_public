@@ -65,6 +65,7 @@ class json_export {
 		$object->width			= 100;
 		$object->height			= 56;
 		$object->orientation	= 'landscape';
+		$object->isPlaceholder	= true;
 		
 		return $object;
 	}
@@ -79,6 +80,7 @@ class json_export {
 		$object->width			= $size->getWidth();
 		$object->height			= $size->getHeight();
 		$object->orientation	= $size->getOrientation();
+		$object->isPlaceholder	= false;
 		return $object;
 	}
 
