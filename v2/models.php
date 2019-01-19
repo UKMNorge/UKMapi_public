@@ -72,7 +72,7 @@ class json_export {
 	public static function tittel( $tittel ) {
 		$object = new stdClass();
 		$object->id 			= $tittel->getId();
-		$object->navn			= $tittel->getNavn();
+		$object->navn			= $tittel->getTittel();
 
 		return $object;
 	}
