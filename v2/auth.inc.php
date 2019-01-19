@@ -30,5 +30,7 @@ if( !$res || SQL::numRows( $res ) == 0 ) {
     abort('Auth failed.', 1);
 }
 
+
+die('LOG REQUEST HERE');
 // RESET DB CONNECTION
 DBread::setDatabase('ukm');
