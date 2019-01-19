@@ -11,9 +11,17 @@ switch( API_FINDBY_SELECTOR ) {
         $export->bilder = [];
         $export->artikler = [];
         $export->filmer = [];
+        $export->titler = [];
+        $export->personer = [];
+
+        // TITLER
+        if( $innslag->getType()->harTitler() ) {
+            foreach( $innslag->getTitler()->getAll() as $tittel ) {
+                $export->titler[] = json_export::tittel( $tittel );
+            }
+        }
         
         // PERSONER
-        $export->personer = [];
         foreach( $innslag->getPersoner()->getAll() as $person ) {
             $person_data = json_export::person( $person );
             $person_data->rolle = $person->getRolle();

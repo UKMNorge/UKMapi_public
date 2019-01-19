@@ -68,6 +68,14 @@ class json_export {
 
 		return $object;
 	}
+
+	public static function tittel( $tittel ) {
+		$object = new stdClass();
+		$object->id 			= $tittel->getId();
+		$object->navn			= $titel->getNavn();
+
+		return $object;
+	}
 	
 	public static function placeholder( $url='https://grafikk.ukm.no/profil/logoer/UKM_logo_sort_0100.png' ) {
 		$object 				= new stdClass();
