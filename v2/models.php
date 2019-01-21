@@ -46,7 +46,8 @@ class json_export {
 		$object->kommune				= self::kommune( $innslag->getKommune() );
 		$object->kategori				= $innslag->getKategori();
 		$object->sjanger				= $innslag->getSjanger();
-		$object->kategori_og_sjanger	= $innslag->getKategoriOgSjanger();
+        $object->kategori_og_sjanger	= $innslag->getKategoriOgSjanger();
+        $object->tid                    = self::tid( $innslag->getTitler()->getVarighet() );
 		
 		try {
 			$bilde 						= $innslag->getBilder()->getFirst();
@@ -56,7 +57,25 @@ class json_export {
 		}
 
 		return $object;
-	}
+    }
+    
+    public static function tid( $tid ) {
+        $object                 = new stdClass();
+
+        if( is_object( $tid ) && get_class( $tid ) == 'tid' ) {
+            $object->sekunder       = $tid->getSekunder();
+            $object->human          = $tid->getHuman();
+            $object->human_short    = $tid->getHumanShort();
+            $object->human_long     = $tid->getHumanLong();
+        } else {
+            $object->sekunder       = 0;
+            $object->human          = '';
+            $object->human_short    = '';
+            $object->human_long     = '';
+        }
+
+        return $object;
+    }
 	
 	public static function person( $person ) {
 		$object 						= new stdClass();
