@@ -47,7 +47,11 @@ class json_export {
 		$object->kategori				= $innslag->getKategori();
 		$object->sjanger				= $innslag->getSjanger();
         $object->kategori_og_sjanger	= $innslag->getKategoriOgSjanger();
-        $object->tid                    = self::tid( $innslag->getTitler()->getVarighet() );
+        if( $innslag->getType()->harTitler() ) {
+            $object->tid                    = self::tid( $innslag->getTitler()->getVarighet() );
+        } else {
+            $object->tid = self::tid( 0 );
+        }
 		
 		try {
 			$bilde 						= $innslag->getBilder()->getFirst();
