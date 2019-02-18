@@ -46,6 +46,7 @@ class json_export {
 		$object->kommune				= self::kommune( $innslag->getKommune() );
 		$object->kategori				= $innslag->getKategori();
 		$object->sjanger				= $innslag->getSjanger();
+		$object->sjanger_eller_kategori			= empty( $innslag->getSjanger() ) ? $innslag->getKategori() : $innslag->getSjanger();
         $object->kategori_og_sjanger	= $innslag->getKategoriOgSjanger();
         $object->tid                    = self::tid( $innslag->getTitler()->getVarighet() );
 		
