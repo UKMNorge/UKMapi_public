@@ -6,10 +6,8 @@ require_once('UKMconfig.inc.php');
 require_once('functions.inc.php');
 if( UKM_HOSTNAME == 'ukm.dev' ) {
 	ini_set('display_errors', true);
-	#$current_season = 2014;
-} else {
-	$current_season = date('n') < 8 ? (int) date('Y') : (int) date('Y') + 1;
 }
+$current_season = date('n') < 8 ? (int) date('Y') : (int) date('Y') + 1;
 
 define('API', empty( $_GET['API'] ) ? 'list' : $_GET['API'] );
 define('API_SEASON', isset( $_GET['SESONG'] ) ? $_GET['SESONG'] : $current_season );
