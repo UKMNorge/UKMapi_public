@@ -4,7 +4,7 @@ class json_export {
 	
 	public static function commons( $inp_object ) {
 		$object 			= new stdClass();
-		$object->id			= $inp_object->getId();
+		$object->id			= (int) $inp_object->getId();
 		$object->navn		= $inp_object->getNavn();
 		$object->sted		= $inp_object->getSted();
 		
@@ -32,14 +32,14 @@ class json_export {
 		$object->intern			= $hendelse->erIntern();
 		$object->detaljer		= $hendelse->erSynligDetaljprogram();
 		
-		$object->post_id		= $hendelse->getTypePostId();
-		$object->category_id	= $hendelse->getTypeCategoryId();
+		$object->post_id		= (int) $hendelse->getTypePostId();
+		$object->category_id	= (int) $hendelse->getTypeCategoryId();
 		return $object;
 	}
 	
 	public static function innslag( $innslag ) {
 		$object 						= new stdClass();
-		$object->id						= $innslag->getId();
+		$object->id						= (int) $innslag->getId();
 		$object->navn					= $innslag->getNavn();
 		$object->type					= self::innslag_type( $innslag->getType() );
 		$object->beskrivelse			= $innslag->getBeskrivelse();
@@ -95,7 +95,7 @@ class json_export {
 
 	public static function tittel( $tittel ) {
 		$object = new stdClass();
-		$object->id 			= $tittel->getId();
+		$object->id 			= (int) $tittel->getId();
 		$object->navn			= $tittel->getTittel();
 
 		return $object;
@@ -131,12 +131,12 @@ class json_export {
 		$object->blog				= new stdClass();
 		$object->monstring			= new stdClass();
 
-		$object->id					= $artikkel->getId();
+		$object->id					= (int) $artikkel->getId();
 		$object->navn				= $artikkel->getTittel();
 		$object->url				= $artikkel->getLink();
 		$object->monstring->type	= $artikkel->getMonstringType();
 		$object->monstring->sesong	= $artikkel->getSeason();
-		$object->blog->id			= $artikkel->getBlogId();
+		$object->blog->id			= (int) $artikkel->getBlogId();
 		$object->blog->url			= $artikkel->getBlogPath();
 		
 		return $object;
@@ -176,7 +176,7 @@ class json_export {
 	
 	public static function innslag_type( $type ) {
 		$object					= new stdClass();
-		$object->id				= $type->getId();
+		$object->id				= (int) $type->getId();
 		$object->navn			= $type->getNavn();
 		$object->key			= $type->getKey();
 		$object->ikon			= $type->getIcon();
@@ -187,17 +187,17 @@ class json_export {
 	
 	public static function kommune( $kommune ) {
 		$object					= new stdClass();
-		$object->id				= $kommune->getId();
+		$object->id				= (int) $kommune->getId();
 		$object->navn			= $kommune->getNavn();
 		$object->fylke			= new stdClass();
-		$object->fylke->id		= $kommune->getFylke()->getId();
+		$object->fylke->id		= (int) $kommune->getFylke()->getId();
 		$object->fylke->navn	= $kommune->getFylke()->getNavn();
 		return $object;
 	}
 
 	public static function kontakt( $kontakt ) {
 		$object					= new stdClass();
-		$object->id				= $kontakt->getId();
+		$object->id				= (int) $kontakt->getId();
 		
 		$object->fornavn		= $kontakt->getFornavn();
 		$object->etternavn		= $kontakt->getEtternavn();
