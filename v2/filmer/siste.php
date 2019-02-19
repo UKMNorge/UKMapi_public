@@ -11,7 +11,7 @@ $counter = 0;
 while( $tv = $files->fetch() ) {
     $counter++;
     $filmer[] = json_export::tv( $tv );
-    if( $counter > LIMIT ) {
+    if( $counter >= LIMIT ) {
         break;
     }
 }
