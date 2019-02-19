@@ -6,7 +6,7 @@ $files = new tv_files('place', API_MONSTRING);
 $files->limit( 5 );
 
 $filmer = [];
-while( $tv = $files->getVideos() ) {
+while( $tv = $files->fetch() ) {
     $filmer[] = json_export::tv( $tv );
 }
 
