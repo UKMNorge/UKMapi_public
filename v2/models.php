@@ -151,7 +151,7 @@ class json_export {
 		$object->bilde 				= new stdClass();
 		$object->fil				= new stdClass();
 
-		$object->id					= $tv->id;
+		$object->id					= (int) $tv->id;
 
 		$object->bilde->url			= $tv->image_url;
 		$object->bilde->width		= 1280;
