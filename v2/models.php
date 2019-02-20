@@ -137,7 +137,7 @@ class json_export {
 		$object->monstring->type	= $artikkel->getMonstringType();
 		$object->monstring->sesong	= $artikkel->getSesong();
 		$object->blog->id			= (int) $artikkel->getBlogId();
-		$object->blog->url			= $artikkel->getBlogPath();
+		$object->blog->url			= $artikkel->setBlogUrl();
 		
 		return $object;
 	}
