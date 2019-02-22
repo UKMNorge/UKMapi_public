@@ -135,9 +135,9 @@ class json_export {
 		$object->navn				= $artikkel->getTittel();
 		$object->url				= $artikkel->getLink();
 		$object->monstring->type	= $artikkel->getMonstringType();
-		$object->monstring->sesong	= $artikkel->getSeason();
+		$object->monstring->sesong	= $artikkel->getSesong();
 		$object->blog->id			= (int) $artikkel->getBlogId();
-		$object->blog->url			= $artikkel->getBlogPath();
+		$object->blog->url			= $artikkel->getBlogUrl();
 		
 		return $object;
 	}
