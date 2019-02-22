@@ -52,6 +52,9 @@ else {
 	define('API_CALL', basename( $_GET['CALL'] ));
 }
 
+if( isset( $_GET['ID'] ) ) {
+	define('API_FINDBY_ID', $_GET['ID']);
+}
 if( isset( $_GET['MONSTRING'] ) && !empty( $_GET['MONSTRING'] ) ) {
 	define('API_MONSTRING', (int) $_GET['MONSTRING']);
 } else {

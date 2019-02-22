@@ -4,8 +4,9 @@ RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
 ## V2
-RewriteRule ^2.([0-9]+)/([a-z]+)/([a-z]+|[0-9]+|[a-z]+-[0-9]+)?/?$ v2/index.php?V=$1&API=$2&CALL=$3
-RewriteRule ^2.([0-9]+)/monstring-([0-9]+)/([a-z]+)/([a-zA-Z]+|[0-9]+|[a-z]+-[0-9]+)?/?$ v2/index.php?V=$1&API=$3&CALL=$4&MONSTRING=$2
+RewriteRule ^2.([0-9]+)/([a-z]+)/([a-z]+|[0-9]+|[a-z]+-[0-9]+)?/?$ v2/index.php?V=$1&API=$2&CALL=$3 [L]
+RewriteRule ^2.([0-9]+)/monstring-([0-9]+)/([a-z]+)/([a-zA-Z]+)/([0-9]+)$ v2/index.php?V=$1&API=$3&CALL=$4&MONSTRING=$2&ID=$5 [L]
+RewriteRule ^2.([0-9]+)/monstring-([0-9]+)/([a-z]+)/([a-zA-Z]+|[0-9]+|[a-z]+-[0-9]+)?/?$ v2/index.php?V=$1&API=$3&CALL=$4&MONSTRING=$2 [L]
 
 ## V1
 RewriteRule ^([a-z]+):([a-z0-9A-Z-_]+)/([0-9.]+)/([0-9.]+)/?$ index.php?API=$1&CALL=$2&ID=$3&SUBID=$4 [QSA,L]
