@@ -223,9 +223,9 @@ class json_export {
 
 
 	public static function fylke( $fylke ) {
-		$object->fylke			= new stdClass();
-		$object->fylke->id		= (int) $fylke->getId();
-		$object->fylke->navn	= $fylke->getNavn();
+		$object			= new stdClass();
+		$object->id		= (int) $fylke->getId();
+		$object->navn	= $fylke->getNavn();
 
 		return $object;
 	}
