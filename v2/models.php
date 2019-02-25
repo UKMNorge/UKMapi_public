@@ -17,6 +17,14 @@ class json_export {
 		$object->stop		= self::dato( $monstring->getStop() );
 		$object->type		= $monstring->getType();
 		$object->url		= $monstring->getLink();
+
+		if( $monstring->getType() == 'fylke' ) {
+			$object->fylke = self::fylke( $monstring->getFylke() );
+		} else {
+			$object->fylke = new stdClass();
+			$object->fylke->id = 0;
+			$object->fylke->navn = '';
+		}
 		
 		return $object;
 	}
@@ -189,9 +197,7 @@ class json_export {
 		$object					= new stdClass();
 		$object->id				= (int) $kommune->getId();
 		$object->navn			= $kommune->getNavn();
-		$object->fylke			= new stdClass();
-		$object->fylke->id		= (int) $kommune->getFylke()->getId();
-		$object->fylke->navn	= $kommune->getFylke()->getNavn();
+		$object->fylke			= self::fylke( $kommune->getFylke() );
 		return $object;
 	}
 
@@ -211,6 +217,15 @@ class json_export {
 
 		$object->bilde			= new stdClass();
 		$object->bilde->url		= $kontakt->getBilde();
+
+		return $object;
+	}
+
+
+	public static function fylke( $fylke ) {
+		$object->fylke			= new stdClass();
+		$object->fylke->id		= (int) $fylke->getId();
+		$object->fylke->navn	= $fylke->getNavn();
 
 		return $object;
 	}
