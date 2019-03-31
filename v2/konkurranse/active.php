@@ -1,4 +1,5 @@
 <?php
+header('Cache-Control: no-store');
 
 require('UKM/Konkurranse/config.class.php');
 
