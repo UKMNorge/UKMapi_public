@@ -1,6 +1,5 @@
 <?php
 	
-
 require_once('UKM/monstringer.class.php');
 
 switch( API_FINDBY_SELECTOR ) {
@@ -9,6 +8,9 @@ switch( API_FINDBY_SELECTOR ) {
 		break;		
 	case 'fylke':
 		$monstring = monstringer_v2::fylke( API_FINDBY_ID, API_SEASON );
+		break;
+	case 'land':
+		$monstring = monstringer_v2::land( API_FINDBY_ID );
 		break;
 	case 'id':
 		$monstring = new monstring_v2( API_FINDBY_ID );
