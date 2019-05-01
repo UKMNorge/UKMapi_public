@@ -15,6 +15,10 @@ class json_export {
 		$object 			= self::commons( $monstring );
 		$object->start		= self::dato( $monstring->getStart() );
 		$object->stop		= self::dato( $monstring->getStop() );
+		$object->dager		= [];
+		foreach( $monstring->getDager() as $dag ) {
+			$object->dager[] = self::dato( $dag );
+		}
 		$object->type		= $monstring->getType();
 		$object->url		= $monstring->getLink();
 
