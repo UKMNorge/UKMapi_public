@@ -1,8 +1,10 @@
 <?php
 
 namespace UKMNorge\APIBundle\Util;
-require_once('UKM/sql.class.php');
-use SQL;
+
+use UKMNorge\Database\SQL\Query;
+
+require_once('UKM/Autoloader.php');
 
 class Signer {
 
@@ -51,7 +53,7 @@ class Signer {
 			return false;
 		}
 
-		$qry = new SQL("SELECT secret FROM API_Keys
+		$qry = new Query("SELECT secret FROM API_Keys
 						WHERE `api_key` = '#api_key'", array('api_key' => $api_key));
 		$secret = $qry->run('field', 'secret');
 		if($secret == false) {

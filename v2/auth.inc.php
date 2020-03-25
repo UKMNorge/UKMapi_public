@@ -1,5 +1,7 @@
 <?php
 
+use UKMNorge\Database\SQL\Query;
+
 if( !isset( $_SERVER['PHP_AUTH_USER'] ) || empty( $_SERVER['PHP_AUTH_USER'] ) ) {
     abort('Missing auth.', 0);   
 }
@@ -8,10 +10,10 @@ if( !isset( $_SERVER['PHP_AUTH_PW'] ) || empty( $_SERVER['PHP_AUTH_PW'] ) ) {
     abort('Missing auth.', 0);
 }
 
-require_once('UKM/sql.class.php');
+require_once('UKM/Autoloader.php');
 
 // CHECK API AUTH OK
-$authCheck = new SQL(
+$authCheck = new Query(
     "SELECT * 
     FROM `DipToken`
     WHERE `uuid` = '#uuid'
@@ -26,7 +28,7 @@ $authCheck = new SQL(
 DBread::setDatabase('ukmdelta');
 $res = $authCheck->run();
 
-if( !$res || SQL::numRows( $res ) == 0 ) {
+if( !$res || Query::numRows( $res ) == 0 ) {
     abort('Auth failed.', 1);
 }
 

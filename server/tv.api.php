@@ -1,7 +1,9 @@
 <?php
-	
-require_once('UKM/tv.class.php');
 
-echo tv_v2::hasActiveCache() ? 'true' : 'false';
+use UKMNorge\Filmer\UKMTV\Server\Server;
+
+require_once('UKM/Autoloader.php');
+
+echo !!Server::getActiveCacheUrl() ? 'true' : 'false';
 
 die();

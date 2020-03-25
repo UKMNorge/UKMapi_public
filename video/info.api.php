@@ -1,14 +1,14 @@
 <?php
+
+use UKMNorge\Arrangement\Arrangement;
+use UKMNorge\Innslag\Innslag;
+
+require_once('UKM/Autoloader.php'); 
 	
 $cron_id = $_GET['ID'];
 
-require_once('UKM/sql.class.php');
-require_once('UKM/innslag.class.php');
 require_once('UKM/tv.class.php');
-require_once('UKM/monstring.class.php');
- 
 $tv_file = new tv( false, $cron_id );
-
 
 $infos = new stdClass();
 
@@ -22,7 +22,7 @@ $infos->tv_id = $tv_file->id;
 $infos->pl_id = $tv_file->tag('pl');
 $infos->type = $tv_file->b_id == 0 ? 'Reportasje' : 'Innslag';
 
-$monstring = new monstring( $infos->pl_id );
+$monstring = new Arrangement( $infos->pl_id );
 $type_monstring = $monstring->g('type');
 
 $infos->sesong = $monstring->g('season');
@@ -60,7 +60,7 @@ if( $infos->type == 'Reportasje' ) {
 	$infos->innslag->ID = $tv_file->b_id;
 	$infos->innslag->b_id = $infos->innslag->ID;
 	
-	$innslag = new innslag( $infos->innslag->ID, true );
+	$innslag = new Innslag( $infos->innslag->ID, true );
 	$innslag->loadGEO();
 	
 	$infos->innslag->navn = $innslag->g('b_name');

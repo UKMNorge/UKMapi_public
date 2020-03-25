@@ -4,9 +4,12 @@
 # Version 0.1
 # Author: UKM Norge / A Hustad
 
+use UKMNorge\Database\SQL\Query;
+
+require_once('UKM/Autoloader.php');
+
 error_reporting(0);
 #var_dump($_GET['ID']);
-require_once('UKM/sql.class.php');
 
 ### ROUTER:
 $call = $_GET['ID'];
@@ -53,7 +56,7 @@ function tilgang($api_key, $system, $permission) {
 		return $result;
 	}
 	
-	$qry = new SQL("SELECT COUNT(*) FROM API_Permissions 
+	$qry = new Query("SELECT COUNT(*) FROM API_Permissions 
 					WHERE `api_key` = '#api_key'
 					AND `system` = '#system'
 					AND `permission` = '#permission'", 

@@ -4,6 +4,9 @@
 # POSTSTED #
 ###########
 
+use UKMNorge\Database\SQL\Query;
+require_once('UKM/Autoloader.php');
+
 $id = $_GET['ID'];
 
 header('Content-Type: application/json; charset=utf-8');
@@ -16,9 +19,7 @@ $p["sted"] = mb_convert_encoding($p["sted"], 'UTF-8', mb_detect_encoding($p["ste
 echo json_encode($p);
 
 function poststed($code) {
-	require_once('UKM/sql.class.php');
-
-	$qry = new SQL("SELECT `postalplace` FROM `smartukm_postalplace` WHERE `postalcode` = #code", array("code" => $code));
+	$qry = new Query("SELECT `postalplace` FROM `smartukm_postalplace` WHERE `postalcode` = #code", array("code" => $code));
 
 	$place = $qry->run('field', 'postalplace');
 

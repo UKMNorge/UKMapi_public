@@ -1,6 +1,8 @@
 <?php
 	
-require_once('UKM/monstringer.class.php');
+use UKMNorge\Arrangement\Arrangement;
+
+require_once('UKM/Autoloader.php');
 
 switch( API_FINDBY_SELECTOR ) {
 	case 'kommune':
@@ -13,7 +15,7 @@ switch( API_FINDBY_SELECTOR ) {
 		$monstring = monstringer_v2::land( API_FINDBY_ID );
 		break;
 	case 'id':
-		$monstring = new monstring_v2( API_FINDBY_ID );
+		$monstring = new Arrangement( API_FINDBY_ID );
 		break;
 	default:
 		throw new Exception('Unknown findBy selector '. API_FINDBY_SELECTOR );

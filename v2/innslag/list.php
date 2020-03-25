@@ -1,8 +1,10 @@
 <?php
 
-require_once('UKM/monstringer.class.php');
+use UKMNorge\Arrangement\Arrangement;
 
-$monstring = new monstring_v2( API_MONSTRING );
+require_once('UKM/Autoloader.php');
+
+$monstring = new Arrangement( API_MONSTRING );
 
 $export = [];
 foreach( $monstring->getInnslag()->getAll() as $innslag ) {

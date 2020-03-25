@@ -1,10 +1,12 @@
 <?php
 	
-require_once('UKM/monstringer.class.php');
+use UKMNorge\Arrangement\Arrangement;
+
+require_once('UKM/Autoloader.php');
 
 switch( API_FINDBY_SELECTOR ) {
 	case 'id':
-		$monstring = new monstring_v2( API_MONSTRING );
+		$monstring = new Arrangement( API_MONSTRING );
 		$kontakt = $monstring->getKontaktpersoner()->get( API_FINDBY_ID );
 		
 		$kontaktdata = json_export::kontakt( $kontakt );

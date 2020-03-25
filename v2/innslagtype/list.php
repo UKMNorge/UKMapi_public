@@ -1,11 +1,14 @@
 <?php
-require_once('UKM/innslag_typer.class.php');
+
+use UKMNorge\Innslag\Typer\Typer;
+
+require_once('UKM/Autoloader.php');
 
 $export = [];
 
-foreach( innslag_typer::getAllTyper() as $type ) {
+foreach( Typer::getAllTyper() as $type ) {
 	if( $type->getId() == 1 ) {
-		foreach( innslag_typer::getAllScene() as $scene_type ) {
+		foreach( Typer::getAllScene() as $scene_type ) {
 			$export[] = json_export::innslag_type( $scene_type );
 		}
 	} else {

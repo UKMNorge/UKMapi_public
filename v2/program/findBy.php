@@ -1,11 +1,12 @@
 <?php
 	
+use UKMNorge\Arrangement\Arrangement;
 
-require_once('UKM/monstringer.class.php');
+require_once('UKM/Autoloader.php');
 
 switch( API_FINDBY_SELECTOR ) {
 	case 'id':
-		$monstring = new monstring_v2( API_MONSTRING );
+		$monstring = new Arrangement( API_MONSTRING );
 		$hendelse = $monstring->getProgram()->get( API_FINDBY_ID );
 		
 		$export_hendelse = json_export::hendelse( $hendelse );

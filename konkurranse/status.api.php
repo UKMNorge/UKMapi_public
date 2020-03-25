@@ -1,12 +1,15 @@
 <?php
+
+use UKMNorge\Database\SQL\Query;
+
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 
-require_once('UKM/sql.class.php');
+require_once('UKM/Autoloader.php');
 
 $qryTotal = "(SELECT COUNT(`konkurranse_svar`.`id`) AS `total` FROM `konkurranse_svar` WHERE `konkurranse_svar`.`sporsmal_id` = '#key')";
 
-$sql = new SQL("
+$sql = new Query("
 	SELECT `alternativ`.`id` AS `id`, COUNT(`konkurranse_svar`.`id`) AS `antall`,`alternativ`.`name`,
 		$qryTotal AS `total`,
 		FLOOR((100/$qryTotal * COUNT(`konkurranse_svar`.`id`))) AS `prosent`
@@ -22,9 +25,9 @@ $sql = new SQL("
 );
 
 $res = $sql->run();
-$antall = SQL::fetch( $res );
+$antall = Query::fetch( $res );
 $resultat = [];
-while( $row = SQL::fetch( $res ) ) {
+while( $row = Query::fetch( $res ) ) {
 	$resultat[] = $row;
 }
 

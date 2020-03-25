@@ -1,7 +1,5 @@
 <?php
 
-require_once('UKM/tv_files.class.php');
-
 define('LIMIT', 5);
 $files = new tv_files('place', API_MONSTRING);
 $files->limit( LIMIT );

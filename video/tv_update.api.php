@@ -1,6 +1,9 @@
 <?php
 // http://api.ukm.no/video:updateTV/$id
-require_once('UKM/sql.class.php');
+
+use UKMNorge\Database\SQL\Query;
+
+require_once('UKM/Autoloader.php');
 require_once('UKM/inc/tv/cron.functions.tv.php');
 
 if(!isset($_POST['type'])) {
@@ -11,7 +14,7 @@ switch($_POST['type']) {
 	case 'band_related':
 		die('Missing support for numeric ID');
 		/*
-		$qry = new SQL("SELECT * 
+		$qry = new Query("SELECT * 
 					FROM `ukmno_wp_related`
 					WHERE `post_meta` LIKE '%#file%'
 					AND `post_type` = 'video'
@@ -27,7 +30,7 @@ switch($_POST['type']) {
 		*/
 		break;
 	case 'standalone':
-		$qry = new SQL("SELECT * 
+		$qry = new Query("SELECT * 
 						FROM `ukm_standalone_video` 
 						WHERE `cron_id` = '#cron_id'",
 						array('cron_id' => $_GET['ID']));
