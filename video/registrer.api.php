@@ -67,14 +67,19 @@ try {
     );
 }
 
-error_log('REGISTRER I UKM-TV');
-// FILMEN ER KLAR, REGISTRER I UKM-TV
-try {
-    $tv_id = Converted::sendToUKMTV( $film );
-} catch( Exception $e ) {
-    error_log('TV CAUGHT EXCEPTION (code'. $e->getCode() .':');
-    error_log($e->getMessage());
-    $tv_id = false;
+if( $film->getTvId() > 0 ) {
+    $tv_id = $film->getTvId();
+    error_log('ER ALLEREDE REGISTRER I UKM-TV');
+} else {
+    error_log('REGISTRER I UKM-TV');
+    // FILMEN ER KLAR, REGISTRER I UKM-TV
+    try {
+        $tv_id = Converted::sendToUKMTV( $film );
+    } catch( Exception $e ) {
+        error_log('TV CAUGHT EXCEPTION (code'. $e->getCode() .':');
+        error_log($e->getMessage());
+        $tv_id = false;
+    }
 }
 
 // FEEDBACK TO VIDEOCONVERTER
