@@ -51,7 +51,7 @@ try {
 
 
 // Private funksjoner
-function _generateArrangement(Arrangement $arrangement,) {
+function _generateArrangement(Arrangement $arrangement) {
     return [
         'id' => $arrangement->getId(),
         'navn' => $arrangement->getNavn(),
