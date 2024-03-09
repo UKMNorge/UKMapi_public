@@ -1,29 +1,62 @@
 <?php
 
-############
-# POSTSTED #
-###########
+use UKMNorge\OAuth2\HandleAPICall;
+use UKMNorge\Geografi\Kommune;
+use UKMNorge\Arrangement\Arrangement;
+use UKMNorge\Geografi\Fylker;
+use UKMNorge\Nettverk\Omrade;
 
-use UKMNorge\Database\SQL\Query;
+
 require_once('UKM/Autoloader.php');
 
-$id = $_GET['ID'];
 
-header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
-// ini_set('display_errors', true);
-// error_reporting(E_ALL);
-$p["sted"] = poststed($id);
-$p["sted"] = mb_convert_encoding($p["sted"], 'UTF-8', mb_detect_encoding($p["sted"]));
+$handleCall = new HandleAPICall(['kommune', 'kommunenummer'], [], ['GET', 'POST'], false);
 
-echo json_encode($p);
+$kommuneNavn = $handleCall->getArgument('kommune');
+$kommuneId = $handleCall->getArgument('kommunenummer');
 
-function poststed($code) {
-	$qry = new Query("SELECT `postalplace` FROM `smartukm_postalplace` WHERE `postalcode` = #code", array("code" => $code));
 
-	$place = $qry->run('field', 'postalplace');
+$tilgjengelige_arrangementer = [];
+try {
+    $kommune = new Kommune($kommuneId);
+    
 
-	//var_dump($place);
-	if(empty($place)) return false;
-	return ($place);
+    // If Oslo, returner alle arrangementer i alle bydeler
+    if( $kommuneId == '0301') {
+        $osloFylke = Fylker::getById(3);
+        
+        foreach( $osloFylke->getKommuner()->getAll() as $kommune ) {
+            $alle_arrangementer = Omrade::getByKommune($kommune->getId())->getKommendeArrangementer()->getAll();
+            foreach( $alle_arrangementer as $arrangement ) {
+                $tilgjengelige_arrangementer[] = _generateArrangement($arrangement);
+            }
+        }
+    }
+    else {
+        $alle_arrangementer = Omrade::getByKommune($kommune->getId())->getKommendeArrangementer()->getAll();
+    }
+    
+    foreach ($alle_arrangementer as $arrangement) {
+        $tilgjengelige_arrangementer[] = _generateArrangement($arrangement);
+    }
+
+    $handleCall->sendToClient([
+        'status' => true,
+        'arrangementer' => $tilgjengelige_arrangementer,
+    ]);
+
+} catch( Exception $e ) {
+    $handleCall->sendErrorToClient('Det har oppstått en serverfeil', 500);
+}
+
+
+// Private funksjoner
+function _generateArrangement(Arrangement $arrangement,) {
+    return [
+        'id' => $arrangement->getId(),
+        'navn' => $arrangement->getNavn(),
+        'kommune' => $arrangement->getKommune()->getNavn(),
+        'url' => $arrangement->getLink(),
+        'dato' => $arrangement->getStart()
+    ];
 }
