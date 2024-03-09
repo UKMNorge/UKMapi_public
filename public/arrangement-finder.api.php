@@ -9,6 +9,8 @@ use UKMNorge\Nettverk\Omrade;
 
 require_once('UKM/Autoloader.php');
 
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *');
 
 $handleCall = new HandleAPICall(['kommune', 'kommunenummer'], [], ['GET', 'POST'], false);
 
