@@ -1,5 +1,7 @@
 <?php
 
+use UKMNorge\Filmer\UKMTV\CloudflareFilm;
+use UKMNorge\Filmer\UKMTV\Film;
 use UKMNorge\OAuth2\HandleAPICall;
 // use UKMNorge\Geografi\Kommune;
 // use UKMNorge\Arrangement\Arrangement;
@@ -12,12 +14,27 @@ require_once('UKM/Autoloader.php');
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 
-$handleCall = new HandleAPICall(['cfid'], [], ['GET', 'POST'], false, false, true);
+$handleCall = new HandleAPICall(['cloudflare_id'], [], ['GET', 'POST'], false, false, true);
 
+$cloudflare_id = $handleCall->getArgument('cloudflare_id') ?? '';
+
+if (empty($cloudflare_id)) {
+    $handleCall->sendErrorToClient('Ingen cloudflare_id oppgitt', 400);
+}
+
+$cloudflareFilm = null;
+
+try{ 
+    $cloudflareFilm = CloudflareFilm::getById($cloudflare_id);
+} catch (Exception $e) {
+    $handleCall->sendErrorToClient('Fant ikke film med id ' . $cloudflare_id, 404);
+}
+
+
+$convertedFilm = Film::convertFromCloudflare($cloudflareFilm);
 
 $handleCall->sendToClient([
-    'status' => true,
-    'arrangementer' => $tilgjengelige_arrangementer,
+    'status' => $convertedFilm->getId() == $cloudflareFilm->getId(),
 ]);
 
 // $kommuneNavn = $handleCall->getArgument('kommune');
