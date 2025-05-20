@@ -1,7 +1,8 @@
 <?php
 
-use UKMNorge\Filmer\UKMTV\CloudflareFilm;
 use UKMNorge\Filmer\UKMTV\Film;
+use UKMNorge\Filmer\UKMTV\Filmer;
+use UKMNorge\Filmer\UKMTV\Write;
 use UKMNorge\OAuth2\HandleAPICall;
 
 require_once('UKM/Autoloader.php');
@@ -19,9 +20,8 @@ if (empty($cloudflare_id)) {
 
 $cloudflareFilm = null;
 
-
 try{ 
-    $cloudflareFilm = new CloudflareFilm([], $cloudflare_id);
+    $cloudflareFilm = Filmer::getByCFId($cloudflare_id);
 } catch (Exception $e) {
     $handleCall->sendErrorToClient('Fant ikke film med id ' . $cloudflare_id, 404);
 }
@@ -30,8 +30,13 @@ if (empty($cloudflareFilm)) {
     $handleCall->sendErrorToClient('Fant ikke film med id ' . $cloudflare_id, 404);
 }
 
+// Konverter filmen fra CloudflareFilm til Film
 $convertedFilm = Film::convertFromCloudflare($cloudflareFilm);
 
+// Marker Cloudflare filmen som slettet
+Write::slett($cloudflareFilm);
+
+// Returnere status
 $handleCall->sendToClient([
     'status' => $convertedFilm->getId() == $cloudflareFilm->getId(),
 ]);
