@@ -10,7 +10,7 @@ Offentlig API som brukes fra UKM nettside for å innhente data fra arrangørsyst
 
 Hent listen av alle fylker
 
-- **URL:** `/nettside:fylker`
+- **URL:** `/nettside:alle_fylker`
 - **Method:** `GET`
 - **Auth required:** NO
 
