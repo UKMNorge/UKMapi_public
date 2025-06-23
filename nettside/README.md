@@ -154,3 +154,42 @@ Hent listen av alle arrangementer som tilhører et fylke
   },
 ]
 ```
+
+
+### 4. `GET alle hendelser (program) i et arrangement`
+
+Hent listen av alle hendelser som tilhører programmet i et arrangement
+
+- **URL:** `/nettside:arrangement_program`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name       | Type     | Required | Description              |
+|-------------------|----------|----------|-------------------------|
+| `arrangement_id`  | int      | Yes      | Arrangement id          |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+      "id": "7047",
+      "navn": "Først hendelse",
+      "start": 1646461200,
+      "synlig_i_rammeprogram": true,
+      "synlig_detaljprogram": false,
+      "sted": "Spektrum"
+  },
+  {
+      "id": "7105",
+      "navn": "Andre hendelse",
+      "start": 1646546400,
+      "synlig_i_rammeprogram": true,
+      "synlig_detaljprogram": false,
+      "sted": "Nebula"
+  },
+]
+```
