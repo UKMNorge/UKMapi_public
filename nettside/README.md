@@ -1,5 +1,5 @@
 # UKM Nettside - API
-Offentlig API som brukes fra UKM nettside for å innhente data fra arrangørsystemet
+Offentlig API brukt av UKM-nettsiden for å hente data fra arrangørsystemet
 
 
 # Endpoints
@@ -8,7 +8,7 @@ Offentlig API som brukes fra UKM nettside for å innhente data fra arrangørsyst
 
 ### 1. `GET alle fylker`
 
-Hent listen av alle fylker i Norge som er registrert i arrangørsystemet
+Hent listen over alle fylker i Norge som er registrert i arrangørsystemet
 
 - **URL:** `/nettside:alle_fylker`
 - **Method:** `GET`
@@ -55,7 +55,7 @@ Ingen argument
 
 ### 1. `GET alle arrangementer i en sesong`
 
-Hent listen av alle synlige arrangementer i en sesong
+Hent listen over alle synlige arrangementer i en sesong
 
 - **URL:** `/nettside:alle_arrangementer`
 - **Method:** `GET`
@@ -89,7 +89,7 @@ Hent listen av alle synlige arrangementer i en sesong
 
 ### 2. `GET alle arrangementer i en kommune`
 
-Hent listen av alle arrangementer som tilhører en kommune
+Hent listen over alle arrangementer som tilhører en kommune
 
 - **URL:** `/nettside:arrangementer_kommune`
 - **Method:** `GET`
@@ -123,7 +123,7 @@ Hent listen av alle arrangementer som tilhører en kommune
 
 ### 3. `GET alle arrangementer i et fylke`
 
-Hent listen av alle arrangementer som tilhører et fylke
+Hent listen over alle arrangementer som tilhører et fylke
 
 - **URL:** `/nettside:arrangementer_fylke`
 - **Method:** `GET`
@@ -160,7 +160,7 @@ Hent listen av alle arrangementer som tilhører et fylke
 
 ### 1. `GET alle hendelser (program) i et arrangement`
 
-Hent listen av alle hendelser som tilhører programmet i et arrangement
+Hent listen over alle hendelser som tilhører programmet i et arrangement
 
 - **URL:** `/nettside:arrangement_program`
 - **Method:** `GET`
@@ -192,6 +192,57 @@ Hent listen av alle hendelser som tilhører programmet i et arrangement
       "synlig_i_rammeprogram": true,
       "synlig_detaljprogram": false,
       "sted": "Nebula"
+  },
+]
+```
+
+
+## Innslag
+
+### 1. `GET alle innslag i et arrangement`
+
+Hent listen over alle innslag som tilhører et arrangement
+
+- **URL:** `/nettside:arrangement_innslag`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name       | Type     | Required | Description              |
+|-------------------|----------|----------|-------------------------|
+| `arrangement_id`  | int      | Yes      | Arrangement id          |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+      "id": 93630,
+      "navn": "Teaterteamet",
+      "type": "Teater",
+      "personer": [
+          {
+              "id": "107496",
+              "navn": "Kurre Spøtt",
+              "fornavn": "Kurre",
+              "etternavn": "Spøtt"
+          }
+      ]
+  },
+  {
+      "id": 93632,
+      "navn": "Utestilling",
+      "type": "Utstilling",
+      "personer": [
+          {
+              "id": "107535",
+              "navn": "Maximus Narsion",
+              "fornavn": "Maximus",
+              "etternavn": "Narsion"
+          }
+      ]
   },
 ]
 ```
