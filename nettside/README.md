@@ -156,7 +156,9 @@ Hent listen av alle arrangementer som tilhører et fylke
 ```
 
 
-### 4. `GET alle hendelser (program) i et arrangement`
+## Arrangement program
+
+### 1. `GET alle hendelser (program) i et arrangement`
 
 Hent listen av alle hendelser som tilhører programmet i et arrangement
 
