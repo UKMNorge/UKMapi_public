@@ -59,7 +59,7 @@ Hent listen av alle synlige arrangementer i en sesong
 
 - **URL:** `/nettside:alle_arrangementer`
 - **Method:** `GET`
-- **Auth required:** NO
+- **Auth required:** Yes
 
 ### Required Parameters
 | Name       | Type     | Required | Description              |
@@ -84,5 +84,39 @@ Hent listen av alle synlige arrangementer i en sesong
       "url": "https://ukm.dev/2025-akershus-ukm-festivaleniakershus2025a/",
       "start": 1735837200
   }
+]
+```
+
+### 2. `GET alle arrangementer i en kommune`
+
+Hent listen av alle synlige arrangementer i en sesong
+
+- **URL:** `/nettside:arrangementer_kommune`
+- **Method:** `GET`
+- **Auth required:** Yes
+
+### Required Parameters
+| Name       | Type     | Required | Description              |
+|-------------|----------|----------|--------------------------|
+| `kommune_id`| int      | Yes      | Kommune id               |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+      "id": 3620,
+      "navn": "Nordalliansen?",
+      "url": "https://ukm.dev/nordalliansen/",
+      "start": 1707152400
+  },
+  {
+      "id": 3654,
+      "navn": "Deatnu-Tana",
+      "url": "https://ukm.dev/deatnu-tana-lokal-1/",
+      "start": 1587398400
+  },
 ]
 ```
