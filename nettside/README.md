@@ -8,11 +8,11 @@ Offentlig API som brukes fra UKM nettside for å innhente data fra arrangørsyst
 
 ### 1. `GET alle fylker`
 
-Hent listen av alle fylker
+Hent listen av alle fylker i Norge som er registrert i arrangørsystemet
 
 - **URL:** `/nettside:alle_fylker`
 - **Method:** `GET`
-- **Auth required:** NO
+- **Auth required:** No
 
 ### Required Parameters
 Ingen argument
@@ -59,7 +59,7 @@ Hent listen av alle synlige arrangementer i en sesong
 
 - **URL:** `/nettside:alle_arrangementer`
 - **Method:** `GET`
-- **Auth required:** Yes
+- **Auth required:** No
 
 ### Required Parameters
 | Name       | Type     | Required | Description              |
@@ -89,11 +89,11 @@ Hent listen av alle synlige arrangementer i en sesong
 
 ### 2. `GET alle arrangementer i en kommune`
 
-Hent listen av alle synlige arrangementer i en sesong
+Hent listen av alle arrangementer som tilhører en kommune
 
 - **URL:** `/nettside:arrangementer_kommune`
 - **Method:** `GET`
-- **Auth required:** Yes
+- **Auth required:** No
 
 ### Required Parameters
 | Name       | Type     | Required | Description              |
@@ -117,6 +117,40 @@ Hent listen av alle synlige arrangementer i en sesong
       "navn": "Deatnu-Tana",
       "url": "https://ukm.dev/deatnu-tana-lokal-1/",
       "start": 1587398400
+  },
+]
+```
+
+### 3. `GET alle arrangementer i et fylke`
+
+Hent listen av alle arrangementer som tilhører et fylke
+
+- **URL:** `/nettside:arrangementer_fylke`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name       | Type     | Required | Description              |
+|-------------|----------|----------|-------------------------|
+| `fylke_id`  | int      | Yes      | Fylke id                |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+      "id": 3656,
+      "navn": "Dyrøy",
+      "url": "https://ukm.dev/Dyrøy-arrangement-1/",
+      "start": 1577034000
+  },
+  {
+      "id": 3657,
+      "navn": "Dyrøy",
+      "url": "https://ukm.dev/dyroy-dyroy/",
+      "start": 1577034000
   },
 ]
 ```
