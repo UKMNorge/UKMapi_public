@@ -247,9 +247,9 @@ Hent listen over alle innslag som tilhører et arrangement
 ]
 ```
 
-### 2. `GET  bilder i innslag`
+### 2. `GET bilder i innslag`
 
-Hent listen over alle bilder som tilhører et innslag. Siden et innslag kan være del av flere arrangementer (pga videresending), kan man hente filmer kun på et arrangement hvis `arrangement_id` er oppgitt, ellers blir det alle bilder uansett arrangement.
+Hent listen over alle bilder som tilhører et innslag. Siden et innslag kan være del av flere arrangementer (pga videresending), kan man hente bilder kun på et arrangement hvis `arrangement_id` er oppgitt, ellers blir det alle bilder uansett arrangement.
 
 - **URL:** `/nettside:innslag_bilder`
 - **Method:** `GET`
@@ -318,5 +318,36 @@ Hent listen over alle bilder som tilhører et innslag. Siden et innslag kan vær
       }
     }
   },
+]
+```
+
+
+### 2. `GET filmer i innslag`
+
+Hent listen over alle filmer som tilhører et innslag. Siden et innslag kan være del av flere arrangementer (pga videresending), kan man hente filmer kun på et arrangement hvis `arrangement_id` er oppgitt, ellers blir det alle filmer uansett arrangement.
+
+- **URL:** `/nettside:innslag_filmer`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name              | Type     | Required | Description             |
+|-------------------|----------|----------|-------------------------|
+| `innslag_id`      | int      | Yes      | Arrangement id          |
+| `arrangement_id`  | int      | No       | Arrangement id          |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+    "id": 1,
+    "title": "Deep Lake",
+    "description": "bb",
+    "thumbnail_url": "https://customer-554chiv4hi7wraol.cloudflarestream.com/8c09c6f8bb3ef19f2109c3fd1d79d2a6/thumbnails/thumbnail.jpg?time=3s",
+    "embed_url": "https://customer-554chiv4hi7wraol.cloudflarestream.com/8c09c6f8bb3ef19f2109c3fd1d79d2a6/watch"
+  }
 ]
 ```
