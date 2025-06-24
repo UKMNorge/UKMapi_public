@@ -246,3 +246,77 @@ Hent listen over alle innslag som tilhører et arrangement
   },
 ]
 ```
+
+### 2. `GET  bilder i innslag`
+
+Hent listen over alle bilder som tilhører et innslag. Siden et innslag kan være del av flere arrangementer (pga videresending), kan man hente filmer kun på et arrangement hvis `arrangement_id` er oppgitt, ellers blir det alle bilder uansett arrangement.
+
+- **URL:** `/nettside:innslag_bilder`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name              | Type     | Required | Description             |
+|-------------------|----------|----------|-------------------------|
+| `innslag_id`      | int      | Yes      | Arrangement id          |
+| `arrangement_id`  | int      | No       | Arrangement id          |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+    "id": 49844,
+    "album_id": "6982",
+    "sizes": {
+      "thumbnail": {
+        "file": "2020/03/2020_3620_49844-150x150.jpg",
+        "width": 150,
+        "height": 150,
+        "mimetype": "image/jpeg",
+        "basepath": "/var/www/wordpress/",
+        "path_internal": "wp-content/uploads/sites/201/",
+        "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+      },
+      "medium": {
+        "file": "2020/03/2020_3620_49844-600x411.jpg",
+        "width": 600,
+        "height": 411,
+        "mimetype": "image/jpeg",
+        "basepath": "/var/www/wordpress/",
+        "path_internal": "wp-content/uploads/sites/201/",
+        "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+      },
+      "large": {
+        "file": "2020/03/2020_3620_49844-1200x821.jpg",
+        "width": 1200,
+        "height": 821,
+        "mimetype": "image/jpeg",
+        "basepath": "/var/www/wordpress/",
+        "path_internal": "wp-content/uploads/sites/201/",
+        "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+      },
+      "lite": {
+        "file": "2020/03/2020_3620_49844-350x240.jpg",
+        "width": 350,
+        "height": 240,
+        "mimetype": "image/jpeg",
+        "basepath": "/var/www/wordpress/",
+        "path_internal": "wp-content/uploads/sites/201/",
+        "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+      },
+      "original": {
+        "file": "2020/03/2020_3620_49844.jpg",
+        "width": 0,
+        "height": 0,
+        "mimetype": "",
+        "basepath": "/var/www/wordpress/",
+        "path_internal": "wp-content/uploads/sites/201/",
+        "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+      }
+    }
+  },
+]
+```
