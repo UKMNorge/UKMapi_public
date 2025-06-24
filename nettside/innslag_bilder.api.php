@@ -42,8 +42,10 @@ $retBilder = [];
 try{ 
     $innslag = Innslag::getById($innslagId);
     
-    if(count($innslag->getBilder()->getAll()) > 0) {
-        foreach($innslag->getBilder()->getAll() as $bilde) {
+    $bilder = $innslag->getBilder()->getAll();
+
+    if(count($bilder) > 0) {
+        foreach($bilder as $bilde) {
             if($arrangement != null && $bilde->getMonstring()->getId() != $arrangement->getId()) {
                 continue; // Bilde tilhører ikke dette arrangementet
             }
