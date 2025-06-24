@@ -21,7 +21,7 @@ if (!is_numeric($arrangementIdArg)) {
 }
 $arrangementId = intval($arrangementIdArg);
 
-// Hent område for arrangementet
+
 $arrangement = null;
 try {
     $arrangement = new Arrangement($arrangementId);
