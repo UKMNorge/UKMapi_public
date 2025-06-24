@@ -322,7 +322,7 @@ Hent listen over alle bilder som tilhører et innslag. Siden et innslag kan vær
 ```
 
 
-### 2. `GET filmer i innslag`
+### 3. `GET filmer i innslag`
 
 Hent listen over alle filmer som tilhører et innslag. Siden et innslag kan være del av flere arrangementer (pga videresending), kan man hente filmer kun på et arrangement hvis `arrangement_id` er oppgitt, ellers blir det alle filmer uansett arrangement.
 
