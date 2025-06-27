@@ -258,7 +258,7 @@ Hent listen over alle bilder som tilhører et innslag. Siden et innslag kan vær
 ### Required Parameters
 | Name              | Type     | Required | Description             |
 |-------------------|----------|----------|-------------------------|
-| `innslag_id`      | int      | Yes      | Arrangement id          |
+| `innslag_id`      | int      | Yes      | Innslag id          |
 | `arrangement_id`  | int      | No       | Arrangement id          |
 
 #### ✅ Success Response:
@@ -333,7 +333,7 @@ Hent listen over alle filmer som tilhører et innslag. Siden et innslag kan vær
 ### Required Parameters
 | Name              | Type     | Required | Description             |
 |-------------------|----------|----------|-------------------------|
-| `innslag_id`      | int      | Yes      | Arrangement id          |
+| `innslag_id`      | int      | Yes      | Innslag id          |
 | `arrangement_id`  | int      | No       | Arrangement id          |
 
 #### ✅ Success Response:
