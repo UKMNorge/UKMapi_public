@@ -12,10 +12,7 @@ $handleCall = new HandleAPICall([], [], ['GET', 'POST'], false);
 
 $retKommuner = [];
 try{
-    $kommuner = Kommuner::getAll();
-    foreach($kommuner as $kommune) {
-        $retKommuner[] = $kommune;
-    }
+    $retKommuner = Kommuner::getKeyValArray();
 } catch( Exception $e ) {
     $handleCall->sendErrorToClient('Det har oppstått en serverfeil', 500);
     return;
