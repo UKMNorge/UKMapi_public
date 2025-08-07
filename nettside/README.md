@@ -51,6 +51,34 @@ Ingen argument
 ]
 ```
 
+## Kommuner
+
+### 1. `GET alle kommuner`
+
+Hent listen over alle kommuner i Norge som er registrert i arrangørsystemet
+
+- **URL:** `/nettside:alle_kommuner`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+Ingen argument
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+    {
+        "id": 4203,
+        "navn": "Arendal",
+        "fylke_id": 42,
+        "fylke_navn": "Agder"
+    },
+]
+```
+
 ## Arrangementer (events)
 
 ### 1. `GET alle arrangementer i en sesong`
