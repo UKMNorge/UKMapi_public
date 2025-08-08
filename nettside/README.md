@@ -408,7 +408,6 @@ Ingen argument
         "id": 21,
         "fornavn": "Kushtrim",
         "etternavn": "Aliu",
-        "navn": "Kushtrim Aliu",
         "epost": "kushtrimaliu19@gmail.com",
         "telefon": "46516257",
         "tittel": ""
@@ -419,12 +418,13 @@ Ingen argument
     "omrade_id": 4203,
     "omrade_type": "kommune",
     "omrade_navn": "Arendal",
+    "fylke_id": 42,
+    "fylke_navn": "Agder",
     "kontaktpersoner": [
       {
         "id": 349,
         "fornavn": "kjghdsagjkhdsajkg",
         "etternavn": "kjdhjkghdj",
-        "navn": "kjghdsagjkhdsajkg kjdhjkghdj",
         "epost": "dkjhgjk@kjdahg.jkhsg",
         "telefon": "45645615",
         "tittel": ""
