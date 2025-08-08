@@ -379,3 +379,57 @@ Hent listen over alle filmer som tilhører et innslag. Siden et innslag kan vær
   }
 ]
 ```
+
+## Kontaktpersoner
+
+### 1. `GET alle kontaktpersoner`
+
+Hent listen over alle kontaktpersoner på alle fylker og kommuner. HUSK at kontaktpersoner på arrangementer blir ikke med
+
+- **URL:** `/nettside:alle_kontaktpersoner`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+Ingen argument
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+{
+  "fylke_42": {
+    "omrade_id": 42,
+    "omrade_type": "fylke",
+    "omrade_navn": "Agder",
+    "kontaktpersoner": [
+      {
+        "id": 21,
+        "fornavn": "Kushtrim",
+        "etternavn": "Aliu",
+        "navn": "Kushtrim Aliu",
+        "epost": "kushtrimaliu19@gmail.com",
+        "telefon": "46516257",
+        "tittel": ""
+      },
+    ]
+  },
+  "kommune_4203": {
+    "omrade_id": 4203,
+    "omrade_type": "kommune",
+    "omrade_navn": "Arendal",
+    "kontaktpersoner": [
+      {
+        "id": 349,
+        "fornavn": "kjghdsagjkhdsajkg",
+        "etternavn": "kjdhjkghdj",
+        "navn": "kjghdsagjkhdsajkg kjdhjkghdj",
+        "epost": "dkjhgjk@kjdahg.jkhsg",
+        "telefon": "45645615",
+        "tittel": ""
+      },
+    ]
+  },
+}
+```
