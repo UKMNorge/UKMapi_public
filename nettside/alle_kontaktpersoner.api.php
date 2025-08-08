@@ -46,6 +46,8 @@ foreach(Fylker::getAll() as $fylke) {
                 'omrade_id' => $kommuneId,
                 'omrade_type' => $kommuneType,
                 'omrade_navn' => $kommune->getNavn(),
+                'fylke_id' => $fylke->getId(),
+                'fylke_navn' => $fylke->getNavn(),
                 'kontaktpersoner' => []
             ];
         }
