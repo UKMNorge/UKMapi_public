@@ -1,11 +1,4 @@
 <?php
-// Show all errors, warnings, and notices
-// error_reporting(E_ALL); 
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-
-// Optional: Force errors to be shown even in production environments
-// ini_set('log_errors', 0);
 
 use UKMNorge\Geografi\Fylker;
 use UKMNorge\Nettverk\Omrade;
@@ -16,14 +9,6 @@ use UKMNorge\Database\SQL\Query;
 use UKMNorge\Nettverk\Administratorer;
 
 
-// require_once '/full/path/to/wp-blog-header.php';
-
-// dev-parellels/dev-html
-
-
-// require_once( dirname(dirname(dirname(dirname( __FILE__ )))) . '/wp-blog-header.php' );
-
-// die;
 require_once('UKM/Autoloader.php');
 
 header('Content-Type: application/json; charset=utf-8');
@@ -64,8 +49,13 @@ foreach(Fylker::getAll() as $fylke) {
         }
 
         $admin = getAdminInfoFromWP($kontaktpersonAdmin->getId());
+        
         if($admin != null) {
-            $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin);
+            // legg til bare hvis navnet ikke finnes
+            $adminName = $admin['display_name'];
+            if (!isNameAlreadyAdded($retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'], $adminName)) {
+                $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
+            }
         }
     }
 
@@ -102,8 +92,11 @@ foreach(Fylker::getAll() as $fylke) {
             }
             $admin = getAdminInfoFromWP($kontaktpersonAdmin->getId());
             if($admin != null) {
-                // Add admin contact person to the kommune
-                $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin);
+                // Add admin contact person to the kommune only if name doesn't already exist
+                $adminName = $admin['display_name'];
+                if (!isNameAlreadyAdded($retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'], $adminName)) {
+                    $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
+                }
             }
         }
     }
@@ -113,7 +106,28 @@ $handleCall->sendToClient(
     $retOmradeKontakpersoner
 );
 
+/**
+ * Check if a contact person with the given name already exists in the array
+ * 
+ * @param array $kontaktpersoner Array of contact persons
+ * @param string $name Name to check for
+ * @return bool True if name already exists, false otherwise
+ */
+function isNameAlreadyAdded($kontaktpersoner, $name) {
+    foreach ($kontaktpersoner as $kontaktperson) {
+        if (isset($kontaktperson['navn']) && $kontaktperson['navn'] === $name) {
+            return true;
+        }
+    }
+    return false;
+}
 
+/**
+ * Get admin information from WordPress database
+ * 
+ * @param int $adminId ID of the admin
+ * @return array|null Returns an array with admin info or null if not found
+ */
 function getAdminInfoFromWP($adminId) {
     $query = new Query(
         "SELECT
@@ -133,4 +147,26 @@ function getAdminInfoFromWP($adminId) {
     
     $query->setDatabase('wordpress');
     return $query->run('array');
+}
+
+/**
+ * Get the profile image URL of an admin from the database
+ * 
+ * @param int $adminId ID of the admin
+ * @return string|null Returns the image URL or null if not found
+ */
+function getAdminBilde($adminId) {
+    $sql = new Query(
+        "SELECT `bilde_url`
+        FROM `wp_user_bilde`
+        WHERE `wp_user` = '#userid'",
+        [
+            'userid' => $adminId
+        ]
+    );
+
+    $row = $sql->run('array');
+    if($row) {
+        return $row['bilde_url'];
+    }
 }
