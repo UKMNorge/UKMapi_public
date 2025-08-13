@@ -114,9 +114,13 @@ $handleCall->sendToClient(
  * @return bool True if name already exists, false otherwise
  */
 function isNameAlreadyAdded($kontaktpersoner, $name) {
+    $normalizedName = strtolower(str_replace(' ', '', $name));
     foreach ($kontaktpersoner as $kontaktperson) {
-        if (isset($kontaktperson['navn']) && $kontaktperson['navn'] === $name) {
-            return true;
+        if (isset($kontaktperson['navn'])) {
+            $normalizedKontaktpersonName = strtolower(str_replace(' ', '', $kontaktperson['navn']));
+            if ($normalizedKontaktpersonName === $normalizedName) {
+                return true;
+            }
         }
     }
     return false;
