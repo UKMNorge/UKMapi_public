@@ -18,93 +18,99 @@ $handleCall = new HandleAPICall([], [], ['GET', 'POST'], false);
 
 $retOmradeKontakpersoner = [];
 
-// For hvert fylke, legg til kontaktpersoner
-foreach(Fylker::getAll() as $fylke) {
-    $omradeId = $fylke->getId();
-    $omradeType = 'fylke';
-    
-    $oKFylke = new OmradeKontaktpersoner($omradeId, $omradeType);
-    $omradeFylke = new Omrade($omradeType, $omradeId);    
+try {
 
-    if(!isset($retOmradeKontakpersoner[$omradeType. '_' .$omradeId])) {
-        $retOmradeKontakpersoner[$omradeType. '_' .$omradeId] = [
-            'omrade_id' => $omradeId,
-            'omrade_type' => $omradeType,
-            'omrade_navn' => $fylke->getNavn(),
-            'kontaktpersoner' => []
-        ];
-    }
-    
-
-    foreach($oKFylke->getAll() as $kontaktperson) {
-        $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = ObjectTransformer::kontaktperson($kontaktperson);
-    }
-
-
-    // Get alle administratorer som er kontaktpersoner for fylket
-    $adminer = new Administratorer($omradeType, $omradeId);
-    foreach($adminer->getAll() as $kontaktpersonAdmin) {
-        if($kontaktpersonAdmin->erKontaktperson($omradeFylke) != true) {
-            continue; // Hopper over hvis admin ikke er kontaktperson for fylket
-        }
-
-        $admin = getAdminInfoFromWP($kontaktpersonAdmin->getId());
+    // For hvert fylke, legg til kontaktpersoner
+    foreach(Fylker::getAll() as $fylke) {
+        $omradeId = $fylke->getId();
+        $omradeType = 'fylke';
         
-        if($admin != null) {
-            // legg til bare hvis navnet ikke finnes
-            $adminName = $admin['display_name'];
-            if (!isNameAlreadyAdded($retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'], $adminName)) {
-                $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
-            }
-        }
-    }
-
-
-    // For hver kommune i fylket, legg til kontaktpersoner
-    foreach($fylke->getKommuner()->getAll() as $kommune) {
-        $kommuneId = $kommune->getId();
-        $kommuneType = 'kommune';
-        
-        if(!isset($retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId])) {
-            $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId] = [
-                'omrade_id' => $kommuneId,
-                'omrade_type' => $kommuneType,
-                'omrade_navn' => $kommune->getNavn(),
-                'fylke_id' => $fylke->getId(),
-                'fylke_navn' => $fylke->getNavn(),
+        $oKFylke = new OmradeKontaktpersoner($omradeId, $omradeType);
+        $omradeFylke = new Omrade($omradeType, $omradeId);    
+    
+        if(!isset($retOmradeKontakpersoner[$omradeType. '_' .$omradeId])) {
+            $retOmradeKontakpersoner[$omradeType. '_' .$omradeId] = [
+                'omrade_id' => $omradeId,
+                'omrade_type' => $omradeType,
+                'omrade_navn' => $fylke->getNavn(),
                 'kontaktpersoner' => []
             ];
         }
         
-        $oKKommune = new OmradeKontaktpersoner($kommuneId, $kommuneType);
-        $omradeKommune = new Omrade($kommuneType, $kommuneId);    
-
-        
-        foreach($oKKommune->getAll() as $kontaktperson) {
-            $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'][] = ObjectTransformer::kontaktperson($kontaktperson);
+    
+        foreach($oKFylke->getAll() as $kontaktperson) {
+            $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = ObjectTransformer::kontaktperson($kontaktperson);
         }
-
-        // Get alle administratorer som er kontaktpersoner for kommunen
-        $adminer = new Administratorer($kommuneType, $kommuneId);
+    
+    
+        // Get alle administratorer som er kontaktpersoner for fylket
+        $adminer = new Administratorer($omradeType, $omradeId);
         foreach($adminer->getAll() as $kontaktpersonAdmin) {
-            if($kontaktpersonAdmin->erKontaktperson($omradeKommune) != true) {
-                continue; // Hopper over hvis admin ikke er kontaktperson for kommunen
+            if($kontaktpersonAdmin->erKontaktperson($omradeFylke) != true) {
+                continue; // Hopper over hvis admin ikke er kontaktperson for fylket
             }
+    
             $admin = getAdminInfoFromWP($kontaktpersonAdmin->getId());
+            
             if($admin != null) {
-                // Add admin contact person to the kommune only if name doesn't already exist
+                // legg til bare hvis navnet ikke finnes
                 $adminName = $admin['display_name'];
-                if (!isNameAlreadyAdded($retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'], $adminName)) {
-                    $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
+                if (!isNameAlreadyAdded($retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'], $adminName)) {
+                    $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
+                }
+            }
+        }
+    
+    
+        // For hver kommune i fylket, legg til kontaktpersoner
+        foreach($fylke->getKommuner()->getAll() as $kommune) {
+            $kommuneId = $kommune->getId();
+            $kommuneType = 'kommune';
+            
+            if(!isset($retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId])) {
+                $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId] = [
+                    'omrade_id' => $kommuneId,
+                    'omrade_type' => $kommuneType,
+                    'omrade_navn' => $kommune->getNavn(),
+                    'fylke_id' => $fylke->getId(),
+                    'fylke_navn' => $fylke->getNavn(),
+                    'kontaktpersoner' => []
+                ];
+            }
+            
+            $oKKommune = new OmradeKontaktpersoner($kommuneId, $kommuneType);
+            $omradeKommune = new Omrade($kommuneType, $kommuneId);    
+    
+            
+            foreach($oKKommune->getAll() as $kontaktperson) {
+                $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'][] = ObjectTransformer::kontaktperson($kontaktperson);
+            }
+    
+            // Get alle administratorer som er kontaktpersoner for kommunen
+            $adminer = new Administratorer($kommuneType, $kommuneId);
+            foreach($adminer->getAll() as $kontaktpersonAdmin) {
+                if($kontaktpersonAdmin->erKontaktperson($omradeKommune) != true) {
+                    continue; // Hopper over hvis admin ikke er kontaktperson for kommunen
+                }
+                $admin = getAdminInfoFromWP($kontaktpersonAdmin->getId());
+                if($admin != null) {
+                    // Add admin contact person to the kommune only if name doesn't already exist
+                    $adminName = $admin['display_name'];
+                    if (!isNameAlreadyAdded($retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'], $adminName)) {
+                        $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
+                    }
                 }
             }
         }
     }
+    
+    $handleCall->sendToClient(
+        $retOmradeKontakpersoner
+    );
+} catch(Exception $e) {
+    $handleCall->sendErrorToClient('Det har oppstått en serverfeil', 500);
+    return;
 }
-
-$handleCall->sendToClient(
-    $retOmradeKontakpersoner
-);
 
 /**
  * Check if a contact person with the given name already exists in the array
