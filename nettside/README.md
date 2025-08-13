@@ -83,16 +83,17 @@ Ingen argument
 
 ### 1. `GET alle arrangementer i en sesong`
 
-Hent listen over alle synlige arrangementer i en sesong
+Hent listen over alle synlige arrangementer i en sesong.
 
 - **URL:** `/nettside:alle_arrangementer`
 - **Method:** `GET`
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type     | Required | Description              |
-|------------|----------|----------|--------------------------|
-| `season`   | int      | Yes      | Sesong må være > 2019    |
+| Name       | Type                       | Required | Description              |
+|------------|----------                  |----------|--------------------------|
+| `season`   | int                        | Yes      | Sesong må være > 2019    |
+| `type`     | 'fylke', 'kommune', 'land' | No       | Arrangement type         |
 
 #### ✅ Success Response:
 
@@ -101,17 +102,27 @@ Hent listen over alle synlige arrangementer i en sesong
 ```json
 [
   {
-      "id": 3799,
-      "navn": "Lillestrøm Festivalen 2025",
-      "url": "https://ukm.dev/2025-lillestrom-lillestromfestivalen2025/",
-      "start": 1705683600
+    "id": 3745,
+    "navn": "-festivalen i Akershus Videresending",
+    "url": "https://ukm.dev/2024-akershus-ukm-festivaleniakershusvideresending/",
+    "sted": "",
+    "start": -3600,
+    "stop": 1581872400,
+    "path": "2024-akershus-ukm-festivaleniakershusvideresending",
+    "kommuner": [],
+    "fylke": {
+        "id": 32,
+        "link": "akershus",
+        "navn": "Akershus",
+        "attributes": null,
+        "kommuner": {
+            "id": null
+        },
+        "nettverk_omrade": null,
+        "fake": false,
+        "active": true
+    }
   },
-  {
-      "id": 4016,
-      "navn": "Festivalen i Akershus 2025",
-      "url": "https://ukm.dev/2025-akershus-ukm-festivaleniakershus2025a/",
-      "start": 1735837200
-  }
 ]
 ```
 
