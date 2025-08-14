@@ -70,12 +70,13 @@ Ingen argument
 - **Content:**
 ```json
 [
-    {
-        "id": 4203,
-        "navn": "Arendal",
-        "fylke_id": 42,
-        "fylke_navn": "Agder"
-    },
+  {
+    "id": 4203,
+    "navn": "Arendal",
+    "fylke_id": 42,
+    "fylke_navn": "Agder",
+    "path": "/arendal/"
+  },
 ]
 ```
 
