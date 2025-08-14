@@ -111,16 +111,16 @@ Hent listen over alle synlige arrangementer i en sesong.
     "path": "2024-akershus-ukm-festivaleniakershusvideresending",
     "kommuner": [],
     "fylke": {
-        "id": 32,
-        "link": "akershus",
-        "navn": "Akershus",
-        "attributes": null,
-        "kommuner": {
-            "id": null
-        },
-        "nettverk_omrade": null,
-        "fake": false,
-        "active": true
+      "id": 32,
+      "link": "akershus",
+      "navn": "Akershus",
+      "attributes": null,
+      "kommuner": {
+        "id": null
+      },
+      "nettverk_omrade": null,
+      "fake": false,
+      "active": true
     }
   },
 ]
@@ -443,4 +443,67 @@ Ingen argument
     ]
   },
 }
+```
+
+
+
+## Aktiviteter på arrangement
+
+### 1. `GET alle aktiviteter på et arrangement`
+
+Hent listen over alle aktiviteter på et arrangement. Aktiviteter har en liste av  tags og en liste av tidspunkter hvor deltakere kan melde seg på 
+###### Husak at `deltakere` blir ikke synlig gjennom dette API-et.
+
+- **URL:** `/nettside:alle_aktiviteter`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name              | Type     | Required | Description       |
+|-------------------|----------|----------|-------------------|
+| `arrangement_id`  | int      | Yes      | Arrangement id    |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+    "id": 155,
+    "navn": "Nordli Senere",
+    "sted": "Nord",
+    "beskrivelse": "%3Cp%3Eaa%3C%2Fp%3E",
+    "beskrivelseLeder": "%3Cp%3Ebb%3C%2Fp%3E",
+    "kursholder": "Nordingus Nordlinger",
+    "image": null,
+    "plId": 3724,
+    "tidspunkter": [
+      {
+        "id": 226,
+        "start": "2025-06-24 11:00:00",
+        "slutt": "2025-06-24 12:00:00",
+        "sted": "",
+        "varighet": 0,
+        "maksAntall": 100,
+        "antallDeltakere": 0,
+        "deltakere": [],
+        "hendelseId": 7122,
+        "harPaamelding": true,
+        "erSammeStedSomAktivitet": true,
+        "erKunInterne": true,
+        "klokkeslett": null
+      }
+    ],
+    "tags": [
+      {
+        "id": 54,
+        "navn": "Tag 1",
+        "beskrivelse": "asgsag",
+        "plId": 3724
+      }
+    ],
+    "isProgramSynlig": true
+  },
+]
 ```
