@@ -195,6 +195,31 @@ Hent listen over alle arrangementer som tilhører et fylke
 ]
 ```
 
+### 2. `GET arrangement banner`
+
+Hent arrangement banner (nettside bilde)
+
+- **URL:** `/nettside:arrangement_banner`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name             | Type     | Required | Description              |
+|------------------|----------|----------|--------------------------|
+| `arrangement_id` | int      | Yes      | Arrangement id           |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+{
+    "UKM_banner_image": "https://ukm.dev/nordalliansen/wp-content/uploads/sites/201/2020/03/2020_3620_49849-1200x800.jpg",
+    "UKM_banner_image_large": "https://ukm.dev/nordalliansen/wp-content/uploads/sites/201/2020/03/2020_3620_49849-1800x1200.jpg",
+    "UKM_banner_image_position_y": "top"
+}
+```
+
 
 ## Arrangement program
 
