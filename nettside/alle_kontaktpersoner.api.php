@@ -53,10 +53,9 @@ try {
             $admin = getAdminInfoFromWP($kontaktpersonAdmin->getId());
             
             if($admin != null) {
-                // legg til bare hvis navnet ikke finnes
-                $adminName = $admin['display_name'];
-                if (!isNameAlreadyAdded($retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'], $adminName)) {
-                    $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
+                $retAdminObj = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
+                if (!isNameAlreadyAdded($retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'], $retAdminObj)) {
+                    $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = $retAdminObj;
                 }
             }
         }
@@ -95,9 +94,9 @@ try {
                 $admin = getAdminInfoFromWP($kontaktpersonAdmin->getId());
                 if($admin != null) {
                     // Add admin contact person to the kommune only if name doesn't already exist
-                    $adminName = $admin['display_name'];
-                    if (!isNameAlreadyAdded($retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'], $adminName)) {
-                        $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'][] = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
+                    $retAdminObj = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
+                    if (!isNameAlreadyAdded($retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'], $retAdminObj)) {
+                        $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'][] = $retAdminObj;
                     }
                 }
             }
@@ -116,17 +115,13 @@ try {
  * Check if a contact person with the given name already exists in the array
  * 
  * @param array $kontaktpersoner Array of contact persons
- * @param string $name Name to check for
- * @return bool True if name already exists, false otherwise
+ * @param string $retKontaktperson Returned contact person object
+ * @return bool True if kontaktperson exists, false otherwise
  */
-function isNameAlreadyAdded($kontaktpersoner, $name) {
-    $normalizedName = strtolower(str_replace(' ', '', $name));
+function isNameAlreadyAdded($kontaktpersoner, $retKontaktperson) {
     foreach ($kontaktpersoner as $kontaktperson) {
-        if (isset($kontaktperson['navn'])) {
-            $normalizedKontaktpersonName = strtolower(str_replace(' ', '', $kontaktperson['navn']));
-            if ($normalizedKontaktpersonName === $normalizedName) {
-                return true;
-            }
+        if ($kontaktperson['id'] == $retKontaktperson['id']) {
+            return true;
         }
     }
     return false;
