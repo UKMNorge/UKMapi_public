@@ -442,13 +442,17 @@ Ingen argument
     "omrade_navn": "Agder",
     "kontaktpersoner": [
       {
-        "id": 21,
-        "fornavn": "Kushtrim",
-        "etternavn": "Aliu",
-        "epost": "kushtrimaliu19@gmail.com",
-        "telefon": "46516257",
-        "tittel": ""
+        "id": "41ead42e3f1fd4f1b00b44f131e8eb66",
+        "navn": "Tonje Eikrem Jacobsen",
+        "tel": "47381761",
+        "bilde": "http://ukm.no/wp-content/uploads/kontaktpersoner_bilder/394aecf3104599631739870427.jpg"
       },
+      {
+        "id": "cdfb358e20727e134c29e9d9fe86e28a",
+        "navn": "Harald Stensland",
+        "tel": "90975600",
+        "bilde": "http://ukm.no/wp-content/uploads/2025/01/1736375770-scaled.jpg"
+      }
     ]
   },
   "kommune_4203": {
@@ -459,12 +463,10 @@ Ingen argument
     "fylke_navn": "Agder",
     "kontaktpersoner": [
       {
-        "id": 349,
-        "fornavn": "kjghdsagjkhdsajkg",
-        "etternavn": "kjdhjkghdj",
-        "epost": "dkjhgjk@kjdahg.jkhsg",
-        "telefon": "45645615",
-        "tittel": ""
+        "id": "7088a8fc3ac2ad712c00452f19e2cfb7",
+        "navn": "Bård Torstensen",
+        "tel": "94162363",
+        "bilde": ""
       },
     ]
   },
