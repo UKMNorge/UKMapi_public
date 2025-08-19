@@ -9,9 +9,9 @@ require_once('UKM/Autoloader.php');
 header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 
-$handleCall = new HandleAPICall(['pl_id'], [], ['GET', 'POST'], false);
+$handleCall = new HandleAPICall(['arrangement_id'], [], ['GET', 'POST'], false);
 
-$arrangementIdArg = $handleCall->getArgument('pl_id');
+$arrangementIdArg = $handleCall->getArgument('arrangement_id');
 
 if (!is_numeric($arrangementIdArg)) {
     $handleCall->sendErrorToClient('Sesong må være tall', 400);
