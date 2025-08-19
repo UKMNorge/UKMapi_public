@@ -54,7 +54,7 @@ try {
             
             if($admin != null) {
                 $retAdminObj = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
-                if (!isNameAlreadyAdded($retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'], $retAdminObj)) {
+                if (!isKontaktpersonAdded($retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'], $retAdminObj)) {
                     $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = $retAdminObj;
                 }
             }
@@ -95,7 +95,7 @@ try {
                 if($admin != null) {
                     // Add admin contact person to the kommune only if name doesn't already exist
                     $retAdminObj = ObjectTransformer::adminKontaktperson($admin, getAdminBilde($kontaktpersonAdmin->getId()));
-                    if (!isNameAlreadyAdded($retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'], $retAdminObj)) {
+                    if (!isKontaktpersonAdded($retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'], $retAdminObj)) {
                         $retOmradeKontakpersoner[$kommuneType. '_' .$kommuneId]['kontaktpersoner'][] = $retAdminObj;
                     }
                 }
@@ -118,7 +118,7 @@ try {
  * @param string $retKontaktperson Returned contact person object
  * @return bool True if kontaktperson exists, false otherwise
  */
-function isNameAlreadyAdded($kontaktpersoner, $retKontaktperson) {
+function isKontaktpersonAdded($kontaktpersoner, $retKontaktperson) {
     foreach ($kontaktpersoner as $kontaktperson) {
         if ($kontaktperson['id'] == $retKontaktperson['id']) {
             return true;
