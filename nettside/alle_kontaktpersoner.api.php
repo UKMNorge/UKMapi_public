@@ -137,7 +137,8 @@ function getAdminInfoFromWP($adminId) {
     $query = new Query(
         "SELECT
             u.display_name,
-            um.meta_value AS user_phone
+            um.meta_value AS user_phone,
+            u.user_email AS user_email
         FROM wpms2012_users AS u
         LEFT JOIN wpms2012_usermeta AS um
         ON um.user_id = u.ID
