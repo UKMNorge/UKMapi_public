@@ -132,7 +132,7 @@ Hent listen over alle synlige arrangementer i en sesong.
     "paamelding_lenker": [
       {
         "id": 2025,
-        "type": "kommune",
+        "type": "kommune", // eller 'fylke' 
         "lenke": "https://delta.ukm.dev/ukmid/pamelding/2025-4033/"
       },
     ]
@@ -189,7 +189,7 @@ Hent listen over alle arrangementer som tilhører en kommune
     "paamelding_lenker": [
       {
         "id": 2025,
-        "type": "kommune",
+        "type": "kommune", // eller 'fylke'
         "lenke": "https://delta.ukm.dev/ukmid/pamelding/2025-4033/"
       },
     ]
@@ -240,7 +240,7 @@ Hent listen over alle arrangementer som tilhører et fylke
     "paamelding_lenker": [
       {
         "id": 56,
-        "type": "fylke",
+        "type": "fylke", // eller kommune
         "lenke": "https://delta.ukm.dev/ukmid/pamelding/fylke-4034/"
       }
     ]
