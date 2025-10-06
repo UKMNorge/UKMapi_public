@@ -21,7 +21,9 @@ $retOmradeKontakpersoner = [];
 try {
 
     // For hvert fylke, legg til kontaktpersoner
-    foreach(Fylker::getAll() as $fylke) {
+    $alleFylker = Fylker::getAll();
+    $alleFylker[] = Fylker::getById(9999); // Legg til UKM Norge som fylke
+    foreach($alleFylker as $fylke) {
         $omradeId = $fylke->getId();
         $omradeType = 'fylke';
         
@@ -31,7 +33,7 @@ try {
         if(!isset($retOmradeKontakpersoner[$omradeType. '_' .$omradeId])) {
             $retOmradeKontakpersoner[$omradeType. '_' .$omradeId] = [
                 'omrade_id' => $omradeId,
-                'omrade_type' => $omradeType,
+                'omrade_type' => $fylke->getId() == 9999 ? 'ukmnorge' : $omradeType,
                 'omrade_navn' => $fylke->getNavn(),
                 'kontaktpersoner' => []
             ];
