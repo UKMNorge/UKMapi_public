@@ -103,26 +103,39 @@ Hent listen over alle synlige arrangementer i en sesong.
 ```json
 [
   {
-    "id": 3745,
-    "navn": "-festivalen i Akershus Videresending",
-    "url": "https://ukm.dev/2024-akershus-ukm-festivaleniakershusvideresending/",
-    "sted": "",
-    "start": -3600,
-    "stop": 1581872400,
-    "path": "2024-akershus-ukm-festivaleniakershusvideresending",
-    "kommuner": [],
+    "id": 157,
+    "navn": "Tana",
+    "url": "https://ukm.no/pl157/",
+    "sted": "Tana miljøbygg",
+    "start": 1236427200,
+    "stop": 1236438000,
+    "path": "pl157",
+    "kommuner": [
+      {
+        "id": 2025,
+        "navn": "Tana",
+        "fylke_id": 20,
+        "fylke_navn": "Finnmark",
+        "path": "/tana/"
+      }
+    ],
     "fylke": {
-      "id": 32,
-      "link": "akershus",
-      "navn": "Akershus",
+      "id": 20,
+      "link": "finnmark",
+      "navn": "Finnmark",
       "attributes": null,
-      "kommuner": {
-        "id": null
-      },
+      "kommuner": null,
       "nettverk_omrade": null,
       "fake": false,
-      "active": true
-    }
+      "active": false
+    },
+    "paamelding_lenker": [
+      {
+        "id": 2025,
+        "type": "kommune",
+        "lenke": "https://delta.ukm.dev/ukmid/pamelding/2025-4033/"
+      },
+    ]
   },
 ]
 ```
@@ -147,16 +160,39 @@ Hent listen over alle arrangementer som tilhører en kommune
 ```json
 [
   {
-      "id": 3620,
-      "navn": "Nordalliansen?",
-      "url": "https://ukm.dev/nordalliansen/",
-      "start": 1707152400
-  },
-  {
-      "id": 3654,
-      "navn": "Deatnu-Tana",
-      "url": "https://ukm.dev/deatnu-tana-lokal-1/",
-      "start": 1587398400
+    "id": 157,
+    "navn": "Tana",
+    "url": "https://ukm.no/pl157/",
+    "sted": "Tana miljøbygg",
+    "start": 1236427200,
+    "stop": 1236438000,
+    "path": "pl157",
+    "kommuner": [
+      {
+        "id": 2025,
+        "navn": "Tana",
+        "fylke_id": 20,
+        "fylke_navn": "Finnmark",
+        "path": "/tana/"
+      }
+    ],
+    "fylke": {
+      "id": 20,
+      "link": "finnmark",
+      "navn": "Finnmark",
+      "attributes": null,
+      "kommuner": null,
+      "nettverk_omrade": null,
+      "fake": false,
+      "active": false
+    },
+    "paamelding_lenker": [
+      {
+        "id": 2025,
+        "type": "kommune",
+        "lenke": "https://delta.ukm.dev/ukmid/pamelding/2025-4033/"
+      },
+    ]
   },
 ]
 ```
@@ -181,16 +217,33 @@ Hent listen over alle arrangementer som tilhører et fylke
 ```json
 [
   {
-      "id": 3656,
-      "navn": "Dyrøy",
-      "url": "https://ukm.dev/Dyrøy-arrangement-1/",
-      "start": 1577034000
-  },
-  {
-      "id": 3657,
-      "navn": "Dyrøy",
-      "url": "https://ukm.dev/dyroy-dyroy/",
-      "start": 1577034000
+    "id": 4034,
+    "navn": "Finnmark 2026",
+    "url": "https://ukm.dev/2026-finnmark-finnmrku-finmarkku-finnmark2026/",
+    "sted": "",
+    "start": 1796576400,
+    "stop": 1796590800,
+    "path": "2026-finnmark-finnmrku-finmarkku-finnmark2026",
+    "kommuner": [],
+    "fylke": {
+      "id": 56,
+      "link": "finnmark",
+      "navn": "Finnmark - Finnmárku - Finmarkku",
+      "attributes": null,
+      "kommuner": {
+        "id": null
+      },
+      "nettverk_omrade": null,
+      "fake": false,
+      "active": true
+    },
+    "paamelding_lenker": [
+      {
+        "id": 56,
+        "type": "fylke",
+        "lenke": "https://delta.ukm.dev/ukmid/pamelding/fylke-4034/"
+      }
+    ]
   },
 ]
 ```
