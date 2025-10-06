@@ -111,6 +111,7 @@ Hent listen over alle synlige arrangementer i en sesong.
     "stop": 1236438000,
     "paameldingsfrist_1": 1796576400, // delta
     "paameldingsfrist_2": 1796576400, // jobbe med
+    "type": "kommune", // 'kommune', 'fylke' eller 'land'
     "path": "pl157",
     "kommuner": [
       {
@@ -170,6 +171,7 @@ Hent listen over alle arrangementer som tilhører en kommune
     "stop": 1236438000,
     "paameldingsfrist_1": 1796576400, // delta
     "paameldingsfrist_2": 1796576400, // jobbe med
+    "type": "kommune", // 'kommune', 'fylke' eller 'land'
     "path": "pl157",
     "kommuner": [
       {
@@ -229,6 +231,7 @@ Hent listen over alle arrangementer som tilhører et fylke
     "stop": 1796590800,
     "paameldingsfrist_1": 1796576400, // delta
     "paameldingsfrist_2": 1796576400, // jobbe med
+    "type": "fylke", // 'kommune', 'fylke' eller 'land'
     "path": "2026-finnmark-finnmrku-finmarkku-finnmark2026",
     "kommuner": [],
     "fylke": {
