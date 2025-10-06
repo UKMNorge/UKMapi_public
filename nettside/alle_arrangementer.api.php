@@ -33,7 +33,7 @@ if( $season < 2020 ) {
 
 $retArrangementer = [];
 try{ 
-    $arrangementer = Load::bySesong($season)->getAll();
+    $arrangementer = Load::bySesong($season)->getAllSynlige();
     if( $typeArg ) {
         $arrangementer = array_filter($arrangementer, function($arrangement) use ($typeArg) {
             return $arrangement->getType() == $typeArg;

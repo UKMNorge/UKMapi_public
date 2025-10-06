@@ -36,7 +36,7 @@ try{
         return;
     }
 
-    $arrangementer = Load::byOmrade($omrade)->getAll();
+    $arrangementer = Load::byOmrade($omrade)->getAllSynlige();
     foreach($arrangementer as $arrangement) {
         $retArrangementer[] = ObjectTransformer::arrangement($arrangement);
     }
