@@ -109,6 +109,8 @@ Hent listen over alle synlige arrangementer i en sesong.
     "sted": "Tana miljøbygg",
     "start": 1236427200,
     "stop": 1236438000,
+    "paameldingsfrist_1": 1796576400, // delta
+    "paameldingsfrist_2": 1796576400, // jobbe med
     "path": "pl157",
     "kommuner": [
       {
@@ -166,6 +168,8 @@ Hent listen over alle arrangementer som tilhører en kommune
     "sted": "Tana miljøbygg",
     "start": 1236427200,
     "stop": 1236438000,
+    "paameldingsfrist_1": 1796576400, // delta
+    "paameldingsfrist_2": 1796576400, // jobbe med
     "path": "pl157",
     "kommuner": [
       {
@@ -223,6 +227,8 @@ Hent listen over alle arrangementer som tilhører et fylke
     "sted": "",
     "start": 1796576400,
     "stop": 1796590800,
+    "paameldingsfrist_1": 1796576400, // delta
+    "paameldingsfrist_2": 1796576400, // jobbe med
     "path": "2026-finnmark-finnmrku-finmarkku-finnmark2026",
     "kommuner": [],
     "fylke": {
