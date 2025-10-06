@@ -500,7 +500,7 @@ Ingen argument
 {
   "fylke_42": {
     "omrade_id": 42,
-    "omrade_type": "fylke",
+    "omrade_type": "fylke", // 'kommune', 'fylke' eller 'ukmnorge'
     "omrade_navn": "Agder",
     "kontaktpersoner": [
       {
@@ -519,7 +519,7 @@ Ingen argument
   },
   "kommune_4203": {
     "omrade_id": 4203,
-    "omrade_type": "kommune",
+    "omrade_type": "kommune", // 'kommune', 'fylke' eller 'ukmnorge'
     "omrade_navn": "Arendal",
     "fylke_id": 42,
     "fylke_navn": "Agder",
@@ -532,6 +532,53 @@ Ingen argument
       },
     ]
   },
+    "fylke_9999": {
+      "omrade_id": 9999,
+      "omrade_type": "ukmnorge", // 'kommune', 'fylke' eller 'ukmnorge'
+      "omrade_navn": "UKM Norge",
+      "kontaktpersoner": [
+        {
+          "id": "5d529f83cd5671f41a60fb9d7dc37703",
+          "navn": "Torstein Siegel",
+          "beskrivelse": "",
+          "epost": "torstein@ukm.no",
+          "tel": "90755685",
+          "bilde": "http://ukm.no/wp-content/uploads/2023/10/1696925780.jpg"
+        },
+        {
+          "id": "5d5d617e087443314bec67b13f4d49b1",
+          "navn": "Kushtrim Aliu",
+          "beskrivelse": "",
+          "epost": "kushtrimaliu19@gmail.com",
+          "tel": "46516256",
+          "bilde": "http://ukm.no/wp-content/uploads/kontaktpersoner_bilder/4f7d47bf9883566b1734984422.jpg"
+        },
+        {
+          "id": "92dfaa538012fd5c1886a13ce7f8ba6b",
+          "navn": "Karoline Amb",
+          "beskrivelse": "",
+          "epost": "Karoline@ukm.no",
+          "tel": "93883875",
+          "bilde": "http://ukm.no/wp-content/uploads/2023/10/1696938496.jpg"
+        },
+        {
+          "id": "49b453e1d6aea54d9e8b71e480f853dd",
+          "navn": "Yrja Flem",
+          "beskrivelse": "Daglig leder i UKM Norge",
+          "epost": "yrja@ukm.no",
+          "tel": "40555410",
+          "bilde": ""
+        },
+        {
+          "id": "04ccb7d628548631d4bd25644e18b185",
+          "navn": "Jardar Nordbø",
+          "beskrivelse": "",
+          "epost": "jardar@ukm.no",
+          "tel": "93665540",
+          "bilde": ""
+        }
+    ]
+  }
 }
 ```
 
