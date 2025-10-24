@@ -113,6 +113,7 @@ Hent listen over alle synlige arrangementer i en sesong.
     "paameldingsfrist_2": 1796576400, // jobbe med
     "type": "kommune", // 'kommune', 'fylke' eller 'land'
     "path": "pl157",
+    "utvidet_gui": true,
     "kommuner": [
       {
         "id": 2025,
@@ -173,6 +174,7 @@ Hent listen over alle arrangementer som tilhører en kommune
     "paameldingsfrist_2": 1796576400, // jobbe med
     "type": "kommune", // 'kommune', 'fylke' eller 'land'
     "path": "pl157",
+    "utvidet_gui": true,
     "kommuner": [
       {
         "id": 2025,
@@ -233,6 +235,7 @@ Hent listen over alle arrangementer som tilhører et fylke
     "paameldingsfrist_2": 1796576400, // jobbe med
     "type": "fylke", // 'kommune', 'fylke' eller 'land'
     "path": "2026-finnmark-finnmrku-finmarkku-finnmark2026",
+    "utvidet_gui": true,
     "kommuner": [],
     "fylke": {
       "id": 56,
