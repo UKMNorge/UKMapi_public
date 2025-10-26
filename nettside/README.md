@@ -647,3 +647,33 @@ Hent listen over alle aktiviteter på et arrangement. Aktiviteter har en liste a
   },
 ]
 ```
+
+
+
+## Meld interesse
+
+### 1. `Registrer interesse`
+
+Registrer interesse skjema for brukere uten autentisering 
+
+- **URL:** `/nettside:registrer_interesse`
+- **Method:** `POST`
+- **Auth required:** No
+
+### Required Parameters
+| Name              | Type     | Required | Description       |
+|-----------------------|----------|----------|-------------------|
+| `navn`                | string   | Yes      | Deltaker navn og etternavn    |
+| `beskrivelse`         | string   | Yes      | Beskrivelse av interessen    |
+| `mobil`               | string   | Yes/no   | Mobiltelefonnummer, obligatorisk hvis epost ikke sendes |
+| `epost`               | string   | Yes/no   | Epost, obligatorisk hvis mobil ikke sendes    |
+| `arrangor_interesse`  | boolean  | no       | Har brukeren arrangør interesse    |
+| `kommuner`            | array    | no       | Liste av alle ID av kommuner    |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+{"status":"lagret"}
+```
