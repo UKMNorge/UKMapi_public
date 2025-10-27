@@ -29,7 +29,7 @@ $mobil = $handleCall->getOptionalArgument('mobil') ?? null;
 $arrangorInteresse = $handleCall->getOptionalArgument('arrangor_interesse') ?? false;
 $kommuner = $handleCall->getOptionalArgument('kommuner') ?? [];
 
-if(!$post && !$mobil) {
+if(!$epost && !$mobil) {
     $handleCall->sendErrorToClient('Du må oppgi enten epost eller mobilnummer for å registrere din interesse.', 400);
     return;
 }
@@ -38,8 +38,8 @@ $interesse = new Interesse(
     -1,
     $navn,
     $beskrivelse,
-    $epost,
-    $mobil,
+    $epost ?? '',
+    $mobil ?? '',
     $arrangorInteresse,
     $kommuner
 );
