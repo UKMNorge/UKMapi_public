@@ -20,7 +20,7 @@ $optionalArguments = [
 $handleCall = new HandleAPICall($requiredArguments, $optionalArguments, ['POST'], false);
 
 // Returns early if rate limit is exceeded for this endpoint and same IP
-$handleCall->limitRequestsFromIP('nettside:registrer_interesse');
+$handleCall->limitRequestsFromIP(10, 60, 'nettside:registrer_interesse');
 
 $navn = $handleCall->getArgument('navn');
 $beskrivelse = $handleCall->getArgument('beskrivelse');
