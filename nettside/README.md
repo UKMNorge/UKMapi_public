@@ -82,6 +82,66 @@ Ingen argument
 
 ## Arrangementer (events)
 
+### 1. `GET alle kommende eller aktive arrangementer`
+
+Hent listen over alle kommende eller aktive arrangementer. Kommende arrangementer er arrangementer som ennå ikke har startet, men som heller ikke er avsluttet.
+Aktive arrangementer er arrangementer som har startet, men ikke er avsluttet.
+
+- **URL:** `/nettside:alle_kommende_arrangementer`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+Ingen
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+    "id": 157,
+    "navn": "Tana",
+    "url": "https://ukm.no/pl157/",
+    "sted": "Tana miljøbygg",
+    "start": 1236427200,
+    "stop": 1236438000,
+    "paameldingsfrist_1": 1796576400, // delta
+    "paameldingsfrist_2": 1796576400, // jobbe med
+    "type": "kommune", // 'kommune', 'fylke' eller 'land'
+    "path": "pl157",
+    "utvidet_gui": true,
+    "kommuner": [
+      {
+        "id": 2025,
+        "navn": "Tana",
+        "fylke_id": 20,
+        "fylke_navn": "Finnmark",
+        "path": "/tana/"
+      }
+    ],
+    "fylke": {
+      "id": 20,
+      "link": "finnmark",
+      "navn": "Finnmark",
+      "attributes": null,
+      "kommuner": null,
+      "nettverk_omrade": null,
+      "fake": false,
+      "active": false
+    },
+    "paamelding_lenker": [
+      {
+        "id": 2025,
+        "type": "kommune", // eller 'fylke' 
+        "lenke": "https://delta.ukm.dev/ukmid/pamelding/2025-4033/"
+      },
+    ]
+  },
+]
+```
+
 ### 1. `GET alle arrangementer i en sesong`
 
 Hent listen over alle synlige arrangementer i en sesong.
