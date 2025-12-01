@@ -105,6 +105,7 @@ Ingen
     "navn": "Tana",
     "url": "https://ukm.no/pl157/",
     "sted": "Tana miljøbygg",
+    "beskrivelse": "beskrivelse...",
     "start": 1236427200,
     "stop": 1236438000,
     "paameldingsfrist_1": 1796576400, // delta
@@ -167,6 +168,7 @@ Hent listen over alle synlige arrangementer i en sesong.
     "navn": "Tana",
     "url": "https://ukm.no/pl157/",
     "sted": "Tana miljøbygg",
+    "beskrivelse": "beskrivelse...",
     "start": 1236427200,
     "stop": 1236438000,
     "paameldingsfrist_1": 1796576400, // delta
@@ -228,6 +230,7 @@ Hent listen over alle arrangementer som tilhører en kommune
     "navn": "Tana",
     "url": "https://ukm.no/pl157/",
     "sted": "Tana miljøbygg",
+    "beskrivelse": "beskrivelse...",
     "start": 1236427200,
     "stop": 1236438000,
     "paameldingsfrist_1": 1796576400, // delta
@@ -289,6 +292,7 @@ Hent listen over alle arrangementer som tilhører et fylke
     "navn": "Finnmark 2026",
     "url": "https://ukm.dev/2026-finnmark-finnmrku-finmarkku-finnmark2026/",
     "sted": "",
+    "beskrivelse": "beskrivelse...",
     "start": 1796576400,
     "stop": 1796590800,
     "paameldingsfrist_1": 1796576400, // delta
