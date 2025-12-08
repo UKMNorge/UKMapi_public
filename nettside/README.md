@@ -84,7 +84,7 @@ Ingen argument
 
 ### `GET single arrangement`
 
-Hent en enkelt arrangement ved bruk av path som argument
+Hent et enkelt arrangement ved bruk av path som argument
 
 - **URL:** `/nettside:single_arrangement`
 - **Method:** `GET`
