@@ -609,7 +609,48 @@ Hent listen over alle filmer som tilhører et innslag. Siden et innslag kan vær
 
 ## Kontaktpersoner
 
-### 1. `GET alle kontaktpersoner`
+
+### 1. `GET alle kontaktpersoner i et arrangement`
+
+Hent listen over alle kontaktpersoner som er del av et arrangement
+
+- **URL:** `/nettside:arrangement_kontaktpersoner`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name              | Type     | Required | Description       |
+|-------------------|----------|----------|-------------------|
+| `arrangement_id`  | int      | Yes      | Arrangement id    |
+
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+    "id": "df25d26ce22fbecf6732bd103378695e",
+    "navn": "Busker Buskerud",
+    "beskrivelse": "",
+    "epost": "bus_ke_rud@ukm.no",
+    "tel": "11100121",
+    "bilde": "http://sys.ukm.no/wp-content/uploads/kontaktpersoner_bilder/d2455c571f8bfd3d1736247692.png"
+  },
+  {
+    "id": "b167261c7e3025e8817a9d6a1919f813",
+    "navn": "Maximus Decimus Meridius",
+    "beskrivelse": "",
+    "epost": "maxdecmer@ukm.no",
+    "tel": "11100122",
+    "bilde": "http://sys.ukm.no/wp-content/uploads/kontaktpersoner_bilder/36b527bae74cd36c1736249066.png"
+  }
+]
+```
+
+
+### 2. `GET alle kontaktpersoner`
 
 Hent listen over alle kontaktpersoner på alle fylker og kommuner. HUSK at kontaktpersoner på arrangementer blir ikke med
 
