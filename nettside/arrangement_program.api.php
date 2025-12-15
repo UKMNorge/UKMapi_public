@@ -26,7 +26,7 @@ $arrangement = null;
 try {
     $arrangement = new Arrangement($arrangementId);
 } catch (Exception $e) {
-    $handleCall->sendErrorToClient('Ugyldig kommune ID', 400);
+    $handleCall->sendErrorToClient('Ugyldig arrangement ID', 400);
     return;
 }
 
