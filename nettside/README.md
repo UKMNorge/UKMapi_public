@@ -451,6 +451,37 @@ Hent listen over alle hendelser som tilhører programmet i et arrangement
 ]
 ```
 
+## Arrangement filmer
+
+### 1. `GET alle filmer i et arrangement`
+
+Hent listen over alle filmer (inkludering reportasjefilmer) som tilhører et arrangement.
+
+- **URL:** `/nettside:arrangement_filmer`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name       | Type     | Required | Description              |
+|-------------------|----------|----------|-------------------------|
+| `arrangement_id`  | int      | Yes      | Arrangement id          |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+    {
+        "id": 8,
+        "title": "Film navn",
+        "description": "Beskrivelse av filmen",
+        "thumbnail_url": "https://customer-554chiv4hi7wraol.cloudflarestream.com/fd47db602bffeedd73f5ed6dde2614de/thumbnails/thumbnail.jpg?time=3s?time=3s",
+        "embed_url": "https://customer-554chiv4hi7wraol.cloudflarestream.com/fd47db602bffeaad73f5ed6dde2614de/watch"
+    },
+]
+```
+
 
 ## Innslag
 
