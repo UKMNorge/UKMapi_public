@@ -482,6 +482,81 @@ Hent listen over alle filmer (inkludering reportasjefilmer) som tilhører et arr
 ]
 ```
 
+## Arrangement bilder
+
+### 1. `GET alle bilder i et arrangement`
+
+Hent listen over alle bilder som tilhører et arrangement.
+
+- **URL:** `/nettside:arrangement_bilder`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name       | Type     | Required | Description              |
+|-------------------|----------|----------|-------------------------|
+| `arrangement_id`  | int      | Yes      | Arrangement id          |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+    "id": 49835,
+    "album_id": "6975",
+    "sizes": {
+        "thumbnail": {
+            "file": "2020/02/2020_3620_49835-150x150.jpg",
+            "width": 150,
+            "height": 150,
+            "mimetype": "image/jpeg",
+            "basepath": "/var/www/wordpress/",
+            "path_internal": "wp-content/uploads/sites/201/",
+            "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+        },
+        "medium": {
+            "file": "2020/02/2020_3620_49835-600x600.jpg",
+            "width": 600,
+            "height": 600,
+            "mimetype": "image/jpeg",
+            "basepath": "/var/www/wordpress/",
+            "path_internal": "wp-content/uploads/sites/201/",
+            "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+        },
+        "large": {
+            "file": "2020/02/2020_3620_49835-1200x1200.jpg",
+            "width": 1200,
+            "height": 1200,
+            "mimetype": "image/jpeg",
+            "basepath": "/var/www/wordpress/",
+            "path_internal": "wp-content/uploads/sites/201/",
+            "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+        },
+        "lite": {
+            "file": "2020/02/2020_3620_49835-350x350.jpg",
+            "width": 350,
+            "height": 350,
+            "mimetype": "image/jpeg",
+            "basepath": "/var/www/wordpress/",
+            "path_internal": "wp-content/uploads/sites/201/",
+            "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+        },
+        "original": {
+            "file": "2020/02/2020_3620_49835.jpg",
+            "width": 0,
+            "height": 0,
+            "mimetype": "",
+            "basepath": "/var/www/wordpress/",
+            "path_internal": "wp-content/uploads/sites/201/",
+            "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+        }
+    }
+  },
+]
+```
+
 
 ## Innslag
 
