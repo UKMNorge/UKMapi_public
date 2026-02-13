@@ -18,6 +18,7 @@ $kommuneNavn = $handleCall->getArgument('kommune');
 $kommuneId = $handleCall->getArgument('kommunenummer');
 
 
+
 $tilgjengelige_arrangementer = [];
 try {
     $kommune = new Kommune($kommuneId);
@@ -57,7 +58,7 @@ function _generateArrangement(Arrangement $arrangement) {
     return [
         'id' => $arrangement->getId(),
         'navn' => $arrangement->getNavn(),
-        'url' => $arrangement->getLink(),
+        'url' => $arrangement->getArrangementNettsideURL(),
         'dato' => $arrangement->getStart()
     ];
 }
