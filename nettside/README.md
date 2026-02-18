@@ -506,6 +506,7 @@ Hent listen over alle bilder som tilhører et arrangement.
   {
     "id": 49835,
     "album_id": "6975",
+    "alt": "Arrangement: Nordalliansen? | Innslag type: Media",
     "sizes": {
         "thumbnail": {
             "file": "2020/02/2020_3620_49835-150x150.jpg",
@@ -554,6 +555,52 @@ Hent listen over alle bilder som tilhører et arrangement.
         }
     }
   },
+]
+```
+
+### 1. `GET alle innlegg i et arrangement`
+
+Hent listen over alle innlegg som tilhører et arrangement.
+
+- **URL:** `/nettside:arrangement_innlegg`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name       | Type     | Required | Description              |
+|-------------------|----------|----------|-------------------------|
+| `arrangement_id`  | int      | Yes      | Arrangement id          |
+| `category`        | string   | no       | Filtrerer basert på kategori: `innlegg-info-til-deltakere` eller `innlegg-info-til-publikum` eller `innlegg-info-til-reiseleder` |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+[
+  {
+    "id": 10023,
+    "title": "Info til deltakere - innlegg fra UKM-festivalen 2025 TEST",
+    "content": "<!-- wp:heading {\"level\":1} -->\n<h1 class=\"wp-block-heading\">Info til deltakere – UKM-festivalen</h1>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Gratulerer med deltakelse på UKM-festivalen! 🎉<br>Vi gleder oss til å samle engasjerte og talentfulle ungdommer fra hele landet til en inspirerende og minnerik festival.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>Her finner du viktig informasjon som hjelper deg å forberede deg til festivalen.</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">📍 Tid og sted<br>Adresse: UKM</h2>\n<!-- /wp:heading -->\n\n<!-- wp:paragraph -->\n<p>Oppmøte og registrering skjer ved ankomst. Du vil få utdelt deltakerbånd og nødvendig informasjon ved innsjekk.</p>\n<!-- /wp:paragraph -->",
+    "excerpt": "Gratulerer med deltakelse på UKM-festivalen!",
+    "status": "publish",
+    "date": "2026-02-18 20:36:58",
+    "modified_date": "2026-02-18 20:51:32",
+    "slug": "info-til-deltakere-innlegg-fra-ukm-festivalen-2025-test",
+    "type": "innlegg",
+    "author_id": 13001,
+    "category_ids": [
+      51
+    ],
+    "category_names": [
+      "Info til deltakere"
+    ],
+    "category_slugs": [
+      "innlegg-info-til-deltakere"
+    ],
+    "thumbnail_id": 10026,
+    "thumbnail_url": "https://sys.ukm.no/festivalen-arkiv-2025/wp-content/uploads/sites/7708/2026/02/Screenshot-2026-02-18-at-20.51.16.png"
+  }
 ]
 ```
 
