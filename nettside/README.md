@@ -415,7 +415,8 @@ Hent arrangement banner (nettside bilde)
 
 ### 1. `GET alle hendelser (program) i et arrangement`
 
-Hent listen over alle hendelser som tilhører programmet i et arrangement
+Hent listen over alle hendelser som tilhører programmet i et arrangement. Hver hendelse kan ha items. Det finnes to typer objekter som støttes: [`innslag`, `aktivitet`]. 
+**Viktig å huske** at rekkefølgen på `items` representerer rekkefølgen på elementene i en hendelse.
 
 - **URL:** `/nettside:arrangement_program`
 - **Method:** `GET`
@@ -433,20 +434,35 @@ Hent listen over alle hendelser som tilhører programmet i et arrangement
 ```json
 [
   {
-      "id": "7047",
-      "navn": "Først hendelse",
-      "start": 1646461200,
-      "synlig_i_rammeprogram": true,
-      "synlig_detaljprogram": false,
-      "sted": "Spektrum"
-  },
-  {
-      "id": "7105",
-      "navn": "Andre hendelse",
-      "start": 1646546400,
-      "synlig_i_rammeprogram": true,
-      "synlig_detaljprogram": false,
-      "sted": "Nebula"
+    "id": "7130",
+    "navn": "Hendelse A",
+    "start": 1771347600,
+    "synlig_i_rammeprogram": true,
+    "synlig_detaljprogram": true,
+    "sted": "A Stedet",
+    "items": [
+      {
+        "object_type": "innslag",
+        "id": 94043,
+        "navn": "Innslag ABC",
+        "type": "Dans",
+        "sjanger": "Rock",
+        "beskrivelse": "Rock&Rock",
+        "personer": []
+      },
+      {
+          "object_type": "aktivitet",
+          "id": 157,
+          "navn": "Aktivitet Alfa",
+          "sted": "Alfastedus",
+          "beskrivelse": "%3Cp%3Ea%3C%2Fp%3E",
+          "beskrivelseLeder": "%3Cp%3Eb%3C%2Fp%3E",
+          "kursholder": "Alf Alfansen",
+          "image": null,
+          "plId": 4047,
+          "isProgramSynlig": true
+      },
+    ]
   },
 ]
 ```
