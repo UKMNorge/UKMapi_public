@@ -415,7 +415,8 @@ Hent arrangement banner (nettside bilde)
 
 ### 1. `GET alle hendelser (program) i et arrangement`
 
-Hent listen over alle hendelser som tilhører programmet i et arrangement
+Hent listen over alle hendelser som tilhører programmet i et arrangement. Hver hendelse kan ha items. Det finnes to typer objekter som støttes: [`innslag`, `aktivitet`]. 
+**Viktig å huske** at rekkefølgen på `items` representerer rekkefølgen på elementene i en hendelse.
 
 - **URL:** `/nettside:arrangement_program`
 - **Method:** `GET`
@@ -433,20 +434,35 @@ Hent listen over alle hendelser som tilhører programmet i et arrangement
 ```json
 [
   {
-      "id": "7047",
-      "navn": "Først hendelse",
-      "start": 1646461200,
-      "synlig_i_rammeprogram": true,
-      "synlig_detaljprogram": false,
-      "sted": "Spektrum"
-  },
-  {
-      "id": "7105",
-      "navn": "Andre hendelse",
-      "start": 1646546400,
-      "synlig_i_rammeprogram": true,
-      "synlig_detaljprogram": false,
-      "sted": "Nebula"
+    "id": "7130",
+    "navn": "Hendelse A",
+    "start": 1771347600,
+    "synlig_i_rammeprogram": true,
+    "synlig_detaljprogram": true,
+    "sted": "A Stedet",
+    "items": [
+      {
+        "object_type": "innslag",
+        "id": 94043,
+        "navn": "Innslag ABC",
+        "type": "Dans",
+        "sjanger": "Rock",
+        "beskrivelse": "Rock&Rock",
+        "personer": []
+      },
+      {
+          "object_type": "aktivitet",
+          "id": 157,
+          "navn": "Aktivitet Alfa",
+          "sted": "Alfastedus",
+          "beskrivelse": "%3Cp%3Ea%3C%2Fp%3E",
+          "beskrivelseLeder": "%3Cp%3Eb%3C%2Fp%3E",
+          "kursholder": "Alf Alfansen",
+          "image": null,
+          "plId": 4047,
+          "isProgramSynlig": true
+      },
+    ]
   },
 ]
 ```
@@ -937,36 +953,44 @@ Hent listen over alle aktiviteter på et arrangement. Aktiviteter har en liste a
     "kursholder": "Nordingus Nordlinger",
     "image": null,
     "plId": 3724,
-    "tidspunkter": [
-      {
-        "id": 226,
-        "start": "2025-06-24 11:00:00",
-        "slutt": "2025-06-24 12:00:00",
-        "sted": "",
-        "varighet": 0,
-        "maksAntall": 100,
-        "antallDeltakere": 0,
-        "deltakere": [],
-        "hendelseId": 7122,
-        "harPaamelding": true,
-        "erSammeStedSomAktivitet": true,
-        "erKunInterne": true,
-        "klokkeslett": null
-      }
-    ],
-    "tags": [
-      {
-        "id": 54,
-        "navn": "Tag 1",
-        "beskrivelse": "asgsag",
-        "plId": 3724
-      }
-    ],
     "isProgramSynlig": true
   },
 ]
 ```
 
+### 2. `GET single aktivitet`
+
+Hent en aktivitet ved bruk av aktivitet id som argument
+
+###### Husak at `deltakere` blir ikke synlig gjennom dette API-et.
+
+- **URL:** `/nettside:single_aktivitet`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+| Name              | Type     | Required | Description       |
+|-------------------|----------|----------|-------------------|
+| `aktivitet_id`    | int      | Yes      | Aktivitet id      |
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+```json
+{
+    "object_type": "aktivitet",
+    "id": 151,
+    "navn": "Aktivitet X",
+    "sted": "zxbzxbzxb",
+    "beskrivelse": "%3Cp%3ELorem%20ipsum",
+    "beskrivelseLeder": "%3Ch1%3E%3Cbr%3E%3C%2Fh1%3E",
+    "kursholder": "Stilian Noli",
+    "image": "http://ukm.dev/wp-content/uploads/aktiviteter_bilder/b398ed918b1c2d2c1745579786.jpg",
+    "plId": 3724,
+    "isProgramSynlig": false
+}
+```
 
 
 ## Meld interesse

@@ -38,7 +38,7 @@ try{
     }
 
     foreach($arrangement->getProgram()->getAll() as $hendelse) {
-        $hendelser[] = ObjectTransformer::hendelseOld($hendelse);
+        $hendelser[] = ObjectTransformer::hendelse($hendelse);
     }
 
     
