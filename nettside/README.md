@@ -418,7 +418,7 @@ Hent arrangement banner (nettside bilde)
 Hent listen over alle hendelser som tilhører programmet i et arrangement. Hver hendelse kan ha items. Det finnes to typer objekter som støttes: [`innslag`, `aktivitet`]. 
 **Viktig å huske** at rekkefølgen på `items` representerer rekkefølgen på elementene i en hendelse.
 
-- **URL:** `/nettside:arrangement_program`
+- **URL:** `/nettside:arrangement_program_new`
 - **Method:** `GET`
 - **Auth required:** No
 
