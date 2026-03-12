@@ -436,6 +436,8 @@ Hent listen over alle hendelser som tilhører programmet i et arrangement. Hver 
   {
     "id": "7130",
     "navn": "Hendelse A",
+    "beskrivelse": "Beskrivelse Hendelse A",
+    "bilde": "http://sys.ukm.no/wp-content/uploads/kontaktpersoner_bilder/d2455c571f8bfd3d1736247692.png",
     "start": 1771347600,
     "synlig_i_rammeprogram": true,
     "synlig_detaljprogram": true,
