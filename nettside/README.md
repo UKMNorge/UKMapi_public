@@ -450,6 +450,7 @@ Hent listen over alle hendelser som tilhører programmet i et arrangement. Hver 
         "type": "Dans",
         "sjanger": "Rock",
         "beskrivelse": "Rock&Rock",
+        "omrade_navn": "Bærum",
         "personer": []
       },
       {
@@ -645,30 +646,21 @@ Hent listen over alle innslag som tilhører et arrangement
 ```json
 [
   {
-      "id": 93630,
-      "navn": "Teaterteamet",
-      "type": "Teater",
-      "personer": [
-          {
-              "id": "107496",
-              "navn": "Kurre Spøtt",
-              "fornavn": "Kurre",
-              "etternavn": "Spøtt"
-          }
-      ]
-  },
-  {
-      "id": 93632,
-      "navn": "Utestilling",
-      "type": "Utstilling",
-      "personer": [
-          {
-              "id": "107535",
-              "navn": "Maximus Narsion",
-              "fornavn": "Maximus",
-              "etternavn": "Narsion"
-          }
-      ]
+    "object_type": "innslag",
+    "id": 94043,
+    "navn": "Innslag ABC",
+    "type": "Dans",
+    "sjanger": "Rock",
+    "beskrivelse": "Rock&Rock",
+    "omrade_navn": "Bærum",
+    "personer": [
+      {
+        "id": "107496",
+        "navn": "Kurre Spøtt",
+        "fornavn": "Kurre",
+        "etternavn": "Spøtt"
+      }
+    ]
   },
 ]
 ```

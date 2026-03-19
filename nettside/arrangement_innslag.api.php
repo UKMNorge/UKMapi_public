@@ -37,7 +37,7 @@ try{
     }
 
     foreach($arrangement->getInnslag()->getAll() as $innslag) {
-        $retInnslags[] = ObjectTransformer::innslag($innslag);
+        $retInnslags[] = ObjectTransformer::innslag($innslag, $arrangement);
     }
 
 } catch( Exception $e ) {
