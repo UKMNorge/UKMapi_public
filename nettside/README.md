@@ -442,6 +442,7 @@ Hent listen over alle hendelser som tilhører programmet i et arrangement. Hver 
     "synlig_i_rammeprogram": true,
     "synlig_detaljprogram": true,
     "sted": "A Stedet",
+    "er_intern": false,
     "items": [
       {
         "object_type": "innslag",
