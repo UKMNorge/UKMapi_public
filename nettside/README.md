@@ -1,6 +1,6 @@
 # UKM Nettside - API
-Offentlig API brukt av UKM-nettsiden for å hente data fra arrangørsystemet
 
+Offentlig API brukt av UKM-nettsiden for å hente data fra arrangørsystemet
 
 # Endpoints
 
@@ -15,17 +15,16 @@ Hent listen over alle fylker i Norge som er registrert i arrangørsystemet
 - **Auth required:** No
 
 ### Required Parameters
+
 Ingen argument
-<!-- | Name       | Type     | Required | Description              |
-|------------|----------|----------|--------------------------|
-| `name`     | string   | Yes      | Full name of the user    |
-| `email`    | string   | Yes      | Email address            |
-| `password` | string   | Yes      | Password (min 8 chars)   | -->
+
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -62,12 +61,14 @@ Hent listen over alle kommuner i Norge som er registrert i arrangørsystemet
 - **Auth required:** No
 
 ### Required Parameters
+
 Ingen argument
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -91,14 +92,18 @@ Hent et enkelt arrangement ved bruk av path som argument
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type     | Required | Description              |
-|-------------|----------|----------|--------------------------|
-| `path`      | string   | Yes      | Arrangement path         |
+
+
+| Name   | Type   | Required | Description      |
+| ------ | ------ | -------- | ---------------- |
+| `path` | string | Yes      | Arrangement path |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 
 {
@@ -107,10 +112,30 @@ Hent et enkelt arrangement ved bruk av path som argument
   "url": "https://ukm.no/pl157/",
   "sted": "Tana miljøbygg",
   "beskrivelse": "beskrivelse...",
-  "start": 1236427200,
-  "stop": 1236438000,
-  "paameldingsfrist_1": 1796576400, // delta
-  "paameldingsfrist_2": 1796576400, // jobbe med
+  "start": 1772186400,
+  "start_date": {
+    "date": "2026-02-27 10:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "stop": 1772488800,
+  "stop_date": {
+    "date": "2026-03-02 22:00:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "paameldingsfrist_1": 1785628740, // delta
+  "paameldingsfrist_1_date": {
+    "date": "2026-08-01 23:59:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
+  "paameldingsfrist_2": 1789084740, // jobbe med
+  "paameldingsfrist_2_date": {
+    "date": "2026-09-10 23:59:00.000000",
+    "timezone_type": 3,
+    "timezone": "UTC"
+  },
   "type": "kommune", // 'kommune', 'fylke' eller 'land'
   "path": "pl157",
   "utvidet_gui": true,
@@ -153,12 +178,14 @@ Aktive arrangementer er arrangementer som har startet, men ikke er avsluttet.
 - **Auth required:** No
 
 ### Required Parameters
+
 Ingen
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -167,10 +194,30 @@ Ingen
     "url": "https://ukm.no/pl157/",
     "sted": "Tana miljøbygg",
     "beskrivelse": "beskrivelse...",
-    "start": 1236427200,
-    "stop": 1236438000,
-    "paameldingsfrist_1": 1796576400, // delta
-    "paameldingsfrist_2": 1796576400, // jobbe med
+    "start": 1772186400,
+    "start_date": {
+      "date": "2026-02-27 10:00:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "stop": 1772488800,
+    "stop_date": {
+      "date": "2026-03-02 22:00:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "paameldingsfrist_1": 1785628740, // delta
+    "paameldingsfrist_1_date": {
+      "date": "2026-08-01 23:59:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "paameldingsfrist_2": 1789084740, // jobbe med
+    "paameldingsfrist_2_date": {
+      "date": "2026-09-10 23:59:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
     "type": "kommune", // 'kommune', 'fylke' eller 'land'
     "path": "pl157",
     "utvidet_gui": true,
@@ -213,15 +260,19 @@ Hent listen over alle synlige arrangementer i en sesong.
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type                       | Required | Description              |
-|------------|----------                  |----------|--------------------------|
-| `season`   | int                        | Yes      | Sesong må være > 2019    |
-| `type`     | 'fylke', 'kommune', 'land' | No       | Arrangement type         |
+
+
+| Name     | Type                       | Required | Description           |
+| -------- | -------------------------- | -------- | --------------------- |
+| `season` | int                        | Yes      | Sesong må være > 2019 |
+| `type`   | 'fylke', 'kommune', 'land' | No       | Arrangement type      |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -230,10 +281,30 @@ Hent listen over alle synlige arrangementer i en sesong.
     "url": "https://ukm.no/pl157/",
     "sted": "Tana miljøbygg",
     "beskrivelse": "beskrivelse...",
-    "start": 1236427200,
-    "stop": 1236438000,
-    "paameldingsfrist_1": 1796576400, // delta
-    "paameldingsfrist_2": 1796576400, // jobbe med
+    "start": 1772186400,
+    "start_date": {
+      "date": "2026-02-27 10:00:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "stop": 1772488800,
+    "stop_date": {
+      "date": "2026-03-02 22:00:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "paameldingsfrist_1": 1785628740, // delta
+    "paameldingsfrist_1_date": {
+      "date": "2026-08-01 23:59:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "paameldingsfrist_2": 1789084740, // jobbe med
+    "paameldingsfrist_2_date": {
+      "date": "2026-09-10 23:59:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
     "type": "kommune", // 'kommune', 'fylke' eller 'land'
     "path": "pl157",
     "utvidet_gui": true,
@@ -276,14 +347,18 @@ Hent listen over alle arrangementer som tilhører en kommune
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type     | Required | Description              |
-|-------------|----------|----------|--------------------------|
-| `kommune_id`| int      | Yes      | Kommune id               |
+
+
+| Name         | Type | Required | Description |
+| ------------ | ---- | -------- | ----------- |
+| `kommune_id` | int  | Yes      | Kommune id  |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -292,10 +367,30 @@ Hent listen over alle arrangementer som tilhører en kommune
     "url": "https://ukm.no/pl157/",
     "sted": "Tana miljøbygg",
     "beskrivelse": "beskrivelse...",
-    "start": 1236427200,
-    "stop": 1236438000,
-    "paameldingsfrist_1": 1796576400, // delta
-    "paameldingsfrist_2": 1796576400, // jobbe med
+    "start": 1772186400,
+    "start_date": {
+      "date": "2026-02-27 10:00:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "stop": 1772488800,
+    "stop_date": {
+      "date": "2026-03-02 22:00:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "paameldingsfrist_1": 1785628740, // delta
+    "paameldingsfrist_1_date": {
+      "date": "2026-08-01 23:59:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "paameldingsfrist_2": 1789084740, // jobbe med
+    "paameldingsfrist_2_date": {
+      "date": "2026-09-10 23:59:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
     "type": "kommune", // 'kommune', 'fylke' eller 'land'
     "path": "pl157",
     "utvidet_gui": true,
@@ -338,14 +433,18 @@ Hent listen over alle arrangementer som tilhører et fylke
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type     | Required | Description              |
-|-------------|----------|----------|-------------------------|
-| `fylke_id`  | int      | Yes      | Fylke id                |
+
+
+| Name       | Type | Required | Description |
+| ---------- | ---- | -------- | ----------- |
+| `fylke_id` | int  | Yes      | Fylke id    |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -354,10 +453,30 @@ Hent listen over alle arrangementer som tilhører et fylke
     "url": "https://ukm.dev/2026-finnmark-finnmrku-finmarkku-finnmark2026/",
     "sted": "",
     "beskrivelse": "beskrivelse...",
-    "start": 1796576400,
-    "stop": 1796590800,
-    "paameldingsfrist_1": 1796576400, // delta
-    "paameldingsfrist_2": 1796576400, // jobbe med
+    "start": 1772186400,
+    "start_date": {
+      "date": "2026-02-27 10:00:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "stop": 1772488800,
+    "stop_date": {
+      "date": "2026-03-02 22:00:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "paameldingsfrist_1": 1785628740, // delta
+    "paameldingsfrist_1_date": {
+      "date": "2026-08-01 23:59:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
+    "paameldingsfrist_2": 1789084740, // jobbe med
+    "paameldingsfrist_2_date": {
+      "date": "2026-09-10 23:59:00.000000",
+      "timezone_type": 3,
+      "timezone": "UTC"
+    },
     "type": "fylke", // 'kommune', 'fylke' eller 'land'
     "path": "2026-finnmark-finnmrku-finmarkku-finnmark2026",
     "utvidet_gui": true,
@@ -394,14 +513,18 @@ Hent arrangement banner (nettside bilde)
 - **Auth required:** No
 
 ### Required Parameters
-| Name             | Type     | Required | Description              |
-|------------------|----------|----------|--------------------------|
-| `arrangement_id` | int      | Yes      | Arrangement id           |
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `arrangement_id` | int  | Yes      | Arrangement id |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 {
     "UKM_banner_image": "https://ukm.dev/nordalliansen/wp-content/uploads/sites/201/2020/03/2020_3620_49849-1200x800.jpg",
@@ -409,7 +532,6 @@ Hent arrangement banner (nettside bilde)
     "UKM_banner_image_position_y": "top"
 }
 ```
-
 
 ## Arrangement program
 
@@ -423,14 +545,18 @@ Hent listen over alle hendelser som tilhører programmet i et arrangement. Hver 
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type     | Required | Description              |
-|-------------------|----------|----------|-------------------------|
-| `arrangement_id`  | int      | Yes      | Arrangement id          |
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `arrangement_id` | int  | Yes      | Arrangement id |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -438,7 +564,12 @@ Hent listen over alle hendelser som tilhører programmet i et arrangement. Hver 
     "navn": "Hendelse A",
     "beskrivelse": "Beskrivelse Hendelse A",
     "bilde": "http://sys.ukm.no/wp-content/uploads/kontaktpersoner_bilder/d2455c571f8bfd3d1736247692.png",
-    "start": 1771347600,
+    "start": 1775499000,
+    "start_date": {
+      "date": "2026-04-06 20:10:00.000000",
+      "timezone_type": 3,
+      "timezone": "Europe/Oslo"
+    },
     "synlig_i_rammeprogram": true,
     "synlig_detaljprogram": true,
     "sted": "A Stedet",
@@ -482,14 +613,18 @@ Hent listen over alle filmer (inkludering reportasjefilmer) som tilhører et arr
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type     | Required | Description              |
-|-------------------|----------|----------|-------------------------|
-| `arrangement_id`  | int      | Yes      | Arrangement id          |
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `arrangement_id` | int  | Yes      | Arrangement id |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
     {
@@ -513,14 +648,18 @@ Hent listen over alle bilder som tilhører et arrangement.
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type     | Required | Description              |
-|-------------------|----------|----------|-------------------------|
-| `arrangement_id`  | int      | Yes      | Arrangement id          |
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `arrangement_id` | int  | Yes      | Arrangement id |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -587,15 +726,19 @@ Hent listen over alle innlegg som tilhører et arrangement.
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type     | Required | Description              |
-|-------------------|----------|----------|-------------------------|
-| `arrangement_id`  | int      | Yes      | Arrangement id          |
-| `category`        | string   | no       | Filtrerer basert på kategori: `innlegg-info-til-deltakere` eller `innlegg-info-til-publikum` eller `innlegg-info-til-reiseleder` |
+
+
+| Name             | Type   | Required | Description                                                                                                                      |
+| ---------------- | ------ | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `arrangement_id` | int    | Yes      | Arrangement id                                                                                                                   |
+| `category`       | string | no       | Filtrerer basert på kategori: `innlegg-info-til-deltakere` eller `innlegg-info-til-publikum` eller `innlegg-info-til-reiseleder` |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -624,7 +767,6 @@ Hent listen over alle innlegg som tilhører et arrangement.
 ]
 ```
 
-
 ## Innslag
 
 ### 1. `GET alle innslag i et arrangement`
@@ -636,14 +778,18 @@ Hent listen over alle innslag som tilhører et arrangement
 - **Auth required:** No
 
 ### Required Parameters
-| Name       | Type     | Required | Description              |
-|-------------------|----------|----------|-------------------------|
-| `arrangement_id`  | int      | Yes      | Arrangement id          |
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `arrangement_id` | int  | Yes      | Arrangement id |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -675,15 +821,19 @@ Hent listen over alle bilder som tilhører et innslag. Siden et innslag kan vær
 - **Auth required:** No
 
 ### Required Parameters
-| Name              | Type     | Required | Description             |
-|-------------------|----------|----------|-------------------------|
-| `innslag_id`      | int      | Yes      | Innslag id          |
-| `arrangement_id`  | int      | No       | Arrangement id          |
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `innslag_id`     | int  | Yes      | Innslag id     |
+| `arrangement_id` | int  | No       | Arrangement id |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -740,7 +890,6 @@ Hent listen over alle bilder som tilhører et innslag. Siden et innslag kan vær
 ]
 ```
 
-
 ### 3. `GET filmer i innslag`
 
 Hent listen over alle filmer som tilhører et innslag. Siden et innslag kan være del av flere arrangementer (pga videresending), kan man hente filmer kun på et arrangement hvis `arrangement_id` er oppgitt, ellers blir det alle filmer uansett arrangement.
@@ -750,15 +899,19 @@ Hent listen over alle filmer som tilhører et innslag. Siden et innslag kan vær
 - **Auth required:** No
 
 ### Required Parameters
-| Name              | Type     | Required | Description             |
-|-------------------|----------|----------|-------------------------|
-| `innslag_id`      | int      | Yes      | Innslag id          |
-| `arrangement_id`  | int      | No       | Arrangement id          |
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `innslag_id`     | int  | Yes      | Innslag id     |
+| `arrangement_id` | int  | No       | Arrangement id |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -773,7 +926,6 @@ Hent listen over alle filmer som tilhører et innslag. Siden et innslag kan vær
 
 ## Kontaktpersoner
 
-
 ### 1. `GET alle kontaktpersoner i et arrangement`
 
 Hent listen over alle kontaktpersoner som er del av et arrangement
@@ -783,15 +935,18 @@ Hent listen over alle kontaktpersoner som er del av et arrangement
 - **Auth required:** No
 
 ### Required Parameters
-| Name              | Type     | Required | Description       |
-|-------------------|----------|----------|-------------------|
-| `arrangement_id`  | int      | Yes      | Arrangement id    |
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `arrangement_id` | int  | Yes      | Arrangement id |
 
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -813,7 +968,6 @@ Hent listen over alle kontaktpersoner som er del av et arrangement
 ]
 ```
 
-
 ### 2. `GET alle kontaktpersoner`
 
 Hent listen over alle kontaktpersoner på alle fylker og kommuner. HUSK at kontaktpersoner på arrangementer blir ikke med
@@ -823,12 +977,14 @@ Hent listen over alle kontaktpersoner på alle fylker og kommuner. HUSK at konta
 - **Auth required:** No
 
 ### Required Parameters
+
 Ingen argument
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 {
   "fylke_42": {
@@ -915,13 +1071,12 @@ Ingen argument
 }
 ```
 
-
-
 ## Aktiviteter på arrangement
 
 ### 1. `GET alle aktiviteter på et arrangement`
 
 Hent listen over alle aktiviteter på et arrangement. Aktiviteter har en liste av  tags og en liste av tidspunkter hvor deltakere kan melde seg på 
+
 ###### Husak at `deltakere` blir ikke synlig gjennom dette API-et.
 
 - **URL:** `/nettside:alle_aktiviteter`
@@ -929,14 +1084,18 @@ Hent listen over alle aktiviteter på et arrangement. Aktiviteter har en liste a
 - **Auth required:** No
 
 ### Required Parameters
-| Name              | Type     | Required | Description       |
-|-------------------|----------|----------|-------------------|
-| `arrangement_id`  | int      | Yes      | Arrangement id    |
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `arrangement_id` | int  | Yes      | Arrangement id |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 [
   {
@@ -964,14 +1123,18 @@ Hent en aktivitet ved bruk av aktivitet id som argument
 - **Auth required:** No
 
 ### Required Parameters
-| Name              | Type     | Required | Description       |
-|-------------------|----------|----------|-------------------|
-| `aktivitet_id`    | int      | Yes      | Aktivitet id      |
+
+
+| Name           | Type | Required | Description  |
+| -------------- | ---- | -------- | ------------ |
+| `aktivitet_id` | int  | Yes      | Aktivitet id |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 {
     "object_type": "aktivitet",
@@ -987,7 +1150,6 @@ Hent en aktivitet ved bruk av aktivitet id som argument
 }
 ```
 
-
 ## Meld interesse
 
 ### 1. `Registrer interesse`
@@ -999,19 +1161,24 @@ Registrer interesse skjema for brukere uten autentisering
 - **Auth required:** No
 
 ### Required Parameters
-| Name              | Type     | Required | Description       |
-|-----------------------|----------|----------|-------------------|
-| `navn`                | string   | Yes      | Deltaker navn og etternavn    |
-| `beskrivelse`         | string   | Yes      | Beskrivelse av interessen    |
-| `mobil`               | string   | Yes/no   | Mobiltelefonnummer, obligatorisk hvis epost ikke sendes |
-| `epost`               | string   | Yes/no   | Epost, obligatorisk hvis mobil ikke sendes    |
-| `arrangor_interesse`  | boolean  | no       | Har brukeren arrangør interesse    |
-| `kommuner`            | array    | no       | Liste av alle ID av kommuner    |
+
+
+| Name                 | Type    | Required | Description                                             |
+| -------------------- | ------- | -------- | ------------------------------------------------------- |
+| `navn`               | string  | Yes      | Deltaker navn og etternavn                              |
+| `beskrivelse`        | string  | Yes      | Beskrivelse av interessen                               |
+| `mobil`              | string  | Yes/no   | Mobiltelefonnummer, obligatorisk hvis epost ikke sendes |
+| `epost`              | string  | Yes/no   | Epost, obligatorisk hvis mobil ikke sendes              |
+| `arrangor_interesse` | boolean | no       | Har brukeren arrangør interesse                         |
+| `kommuner`           | array   | no       | Liste av alle ID av kommuner                            |
+
 
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
 - **Content:**
+
 ```json
 {"status":"lagret"}
 ```
+
