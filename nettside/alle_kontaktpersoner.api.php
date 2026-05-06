@@ -41,7 +41,8 @@ try {
         
     
         foreach($oKFylke->getAll() as $kontaktperson) {
-            $erUKMNorge = $fylke->getId() == 9999 ? true : false;
+            //$erUKMNorge = $fylke->getId() == 9999 ? true : false;
+            $erUKMNorge = true;
             $retOmradeKontakpersoner[$omradeType. '_' .$omradeId]['kontaktpersoner'][] = ObjectTransformer::kontaktperson($kontaktperson, $erUKMNorge);
         }
     
