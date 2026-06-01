@@ -13,8 +13,8 @@ header('Access-Control-Allow-Origin: *');
 $handleCall = new HandleAPICall(['person_id'], [], ['GET', 'POST'], false, false, true);
 
 $personId = $handleCall->getArgument('person_id');
-$sporsmalId = 64; // Filopplasting
-$skjemaId = 33; // Skjema
+$sporsmalId = 922; // Filopplasting
+$skjemaId = 725; // Skjema
 
 // Slett fra bilder
 $delete = new Delete(
