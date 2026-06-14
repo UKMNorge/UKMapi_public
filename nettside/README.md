@@ -635,6 +635,70 @@ Hent listen over alle filmer (inkludering reportasjefilmer) som tilhører et arr
 ]
 ```
 
+
+## Arrangement filmer med context
+
+### 2. `GET alle filmer med context i et arrangement`
+
+Hent listen over alle filmer med context om innslag, hendelser, område, kommune og fylke. Det er inkludert reportasjefilmer som tilhører dette arrangementet.
+
+`innslag_obj` > Se innslag objekt
+`hendelse_obj` > Se hendelse objekt
+`kommune_obj` > Se kommune objekt
+
+- **URL:** `/nettside:arrangement_filmer_context`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `arrangement_id` | int  | Yes      | Arrangement id |
+
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+
+```json
+{
+    "103904": {
+        "film": {
+            "id": 103904,
+            "title": "a test",
+            "description": "b test",
+            "thumbnail_url": "https://customer-554chiv4hi7wraol.cloudflarestream.com/39be024362362360ffb4621caf99bf85a711c0d038/thumbnails/thumbnail.jpg?time=3s?time=3s",
+            "embed_url": "https://customer-554chiv4hi7wraol.cloudflarestream.com/39be024362362360ffb4621caf99bf85a711c0d038/watch"
+        },
+        "context": {
+            "innslag": innslag_obj,
+            "hendelser": [hendelse_obj, hendelse_obj],
+            "omraade": "Grimstad",
+            "kommune": kommune_obj,
+            "fylke": {
+                "id": 42,
+                "navn": "Agder"
+            }
+        }
+    },
+    "103820": {
+        "film": {
+            "id": 103820,
+            "title": "Akershus 2026",
+            "description": "Illustrasjon av festival 1",
+            "thumbnail_url": "https://customer-554chiv4hi7wraol.cloudflarestream.com/4308asujghaius363647734g9dhf5dfjaeeee98d0f39e64e8333c9cfaa/thumbnails/thumbnail.jpg?time=3s?time=3s",
+            "embed_url": "https://customer-554chiv4hi7wraol.cloudflarestream.com/4308asujghaius363647734g9dhf5dfjaeeee98d0f39e64e8333c9cfaa/watch"
+        },
+        "context": {
+            "hendelser": []
+        }
+    }
+}
+```
+
 ## Arrangement bilder
 
 ### 1. `GET alle bilder i et arrangement`
@@ -717,9 +781,9 @@ Hent listen over alle bilder som tilhører et arrangement.
 
 ## Arrangement bilder med context
 
-### 1. `GET alle bilder i et arrangement med context`
+### 2. `GET alle bilder i et arrangement med context`
 
-Hent listen over alle bilder som tilhører et arrangement med oppgit context på arrangement, innslag, hendelse, område, bilde_author .
+Hent listen over alle bilder som tilhører et arrangement med oppgit context om innslag, hendelser, område, kommune, fylke og bilde_author .
 
 `innslag_obj` > Se innslag objekt
 `hendelse_obj` > Se hendelse objekt
