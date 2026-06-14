@@ -18,8 +18,6 @@ Hent listen over alle fylker i Norge som er registrert i arrangørsystemet
 
 Ingen argument
 
-
-
 #### ✅ Success Response:
 
 - **Code:** `200 OK`
@@ -715,6 +713,108 @@ Hent listen over alle bilder som tilhører et arrangement.
     }
   },
 ]
+```
+
+## Arrangement bilder med context
+
+### 1. `GET alle bilder i et arrangement med context`
+
+Hent listen over alle bilder som tilhører et arrangement med oppgit context på arrangement, innslag, hendelse, område, bilde_author .
+
+`innslag_obj` > Se innslag objekt
+`hendelse_obj` > Se hendelse objekt
+`kommune_obj` > Se kommune objekt
+
+- **URL:** `/nettside:arrangement_bilder`
+- **Method:** `GET`
+- **Auth required:** No
+
+### Required Parameters
+
+
+| Name             | Type | Required | Description    |
+| ---------------- | ---- | -------- | -------------- |
+| `arrangement_id` | int  | Yes      | Arrangement id |
+
+
+#### ✅ Success Response:
+
+- **Code:** `200 OK`
+- **Content:**
+
+```json
+{
+  "59085": {
+      "bilde": {
+        "id": 49835,
+        "album_id": "6975",
+        "alt": "Arrangement: Nordalliansen? | Innslag type: Media",
+        "sizes": {
+            "thumbnail": {
+                "file": "2020/02/2020_3620_49835-150x150.jpg",
+                "width": 150,
+                "height": 150,
+                "mimetype": "image/jpeg",
+                "basepath": "/var/www/wordpress/",
+                "path_internal": "wp-content/uploads/sites/201/",
+                "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+            },
+            "medium": {
+                "file": "2020/02/2020_3620_49835-600x600.jpg",
+                "width": 600,
+                "height": 600,
+                "mimetype": "image/jpeg",
+                "basepath": "/var/www/wordpress/",
+                "path_internal": "wp-content/uploads/sites/201/",
+                "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+            },
+            "large": {
+                "file": "2020/02/2020_3620_49835-1200x1200.jpg",
+                "width": 1200,
+                "height": 1200,
+                "mimetype": "image/jpeg",
+                "basepath": "/var/www/wordpress/",
+                "path_internal": "wp-content/uploads/sites/201/",
+                "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+            },
+            "lite": {
+                "file": "2020/02/2020_3620_49835-350x350.jpg",
+                "width": 350,
+                "height": 350,
+                "mimetype": "image/jpeg",
+                "basepath": "/var/www/wordpress/",
+                "path_internal": "wp-content/uploads/sites/201/",
+                "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+            },
+            "original": {
+                "file": "2020/02/2020_3620_49835.jpg",
+                "width": 0,
+                "height": 0,
+                "mimetype": "",
+                "basepath": "/var/www/wordpress/",
+                "path_internal": "wp-content/uploads/sites/201/",
+                "path_external": "https://ukm.dev/wp-content/uploads/sites/201/"
+            }
+      },
+      "context" : {
+        "innslag" : innslag_obj,
+        "hendelser" : [hendelse_obj, hendelse_obj],
+        "omraade" : "Fredrikstad",
+        "kommune" : kommune_obj,
+        "fylke": {
+          "id": 42,
+          "navn": "Agder"
+        },
+        "author": {
+          "display_name": "Ephemera Vulgata",
+          "user_email": "ephemera@ukm.no",
+          "user_phone": "99999999"
+        }
+
+      }
+    }
+  },
+}
 ```
 
 ### 1. `GET alle innlegg i et arrangement`
