@@ -69,7 +69,7 @@ foreach($arrangement->getProgram()->getAll() as $h) {
 // Legg til alle bilder som ikke er del av en hendelse
 foreach($arrangement->getInnslag()->getAll() as $innslag) {
     foreach($innslag->getBilder()->getAll() as $bilde) {
-        if(!isset($bilder[$bilde->getId()]) && !empty($bilder[$bilde->getId()])) {
+        if(!isset($bilder[$bilde->getId()]) || !empty($bilder[$bilde->getId()])) {
             $innslag = Innslag::getById($bilde->getInnslagId());
 
             $bilder[$bilde->getId()] = [];
