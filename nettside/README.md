@@ -725,7 +725,7 @@ Hent listen over alle bilder som tilhører et arrangement med oppgit context på
 `hendelse_obj` > Se hendelse objekt
 `kommune_obj` > Se kommune objekt
 
-- **URL:** `/nettside:arrangement_bilder`
+- **URL:** `/nettside:arrangement_bilder_context`
 - **Method:** `GET`
 - **Auth required:** No
 
