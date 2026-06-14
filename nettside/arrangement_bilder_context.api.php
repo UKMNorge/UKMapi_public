@@ -66,6 +66,25 @@ foreach($arrangement->getProgram()->getAll() as $h) {
     }
 }
 
+// Legg til alle bilder som ikke er del av en hendelse
+foreach($arrangement->getBilder()->getAll() as $bilde) {
+    if(!isset($bilder[$bilde->getId()]) && !empty($bilder[$bilde->getId()])) {
+        $innslag = Innslag::getById($bilde->getInnslagId());
+
+        $bilder[$bilde->getId()] = [];
+        $bilder[$bilde->getId()]['bilde'] = ObjectTransformer::bilde($bilde);
+        $bilder[$bilde->getId()]['context']['innslag'] = ObjectTransformer::innslag($innslag);
+        $bilder[$bilde->getId()]['context']['hendelser'] = [];
+        $bilder[$bilde->getId()]['context']['omraade'] = $innslag->getOmradeNavn();
+        $bilder[$bilde->getId()]['context']['kommune'] = ObjectTransformer::kommune($innslag->getKommune());
+        $bilder[$bilde->getId()]['context']['fylke'] = ObjectTransformer::fylke($innslag->getFylke());
+        $author = getAdminInfoFromWP($bilde->getAuthorId());
+        if($author != null) {
+            $bilder[$bilde->getId()]['context']['author'] = $author;
+        }
+    }
+}
+
 $handleCall->sendToClient(
     $bilder
 );
