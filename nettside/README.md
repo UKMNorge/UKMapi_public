@@ -781,7 +781,7 @@ Hent listen over alle bilder som tilhører et arrangement.
 
 ## Arrangement bilder med context
 
-### 2. `GET alle bilder i et arrangement med context`
+### 2. `GET alle bilder med context i et arrangement`
 
 Hent listen over alle bilder som tilhører et arrangement med oppgit context om innslag, hendelser, område, kommune, fylke og bilde_author .
 
