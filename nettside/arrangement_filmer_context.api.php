@@ -56,23 +56,6 @@ foreach($arrangement->getProgram()->getAll() as $h) {
     }
 }
 
-// Legg til alle filmer som ikke er del av en hendelse
-foreach($arrangement->getInnslag()->getAll() as $innslag) {
-    foreach($innslag->getFilmer($arrangementId)->getAll() as $film) {
-        if(!isset($filmer[$film->getId()]) || !empty($filmer[$film->getId()])) {
-            $innslag = Innslag::getById($film->getInnslagId());
-
-            $filmer[$film->getId()] = [];
-            $filmer[$film->getId()]['film'] = ObjectTransformer::film($film);
-            $filmer[$film->getId()]['context']['innslag'] = ObjectTransformer::innslag($innslag);
-            $filmer[$film->getId()]['context']['hendelser'] = [];
-            $filmer[$film->getId()]['context']['omraade'] = $innslag->getOmradeNavn();
-            $filmer[$film->getId()]['context']['kommune'] = ObjectTransformer::kommune($innslag->getKommune());
-            $filmer[$film->getId()]['context']['fylke'] = ObjectTransformer::fylke($innslag->getFylke());
-        }
-    }
-}
-
 // Legg til reportasjefilmer som ikke er knyttet til innslag
 foreach($arrangement->getFilmer()->getAll() as $film) {
     if(isset($filmer[$film->getId()])) {
