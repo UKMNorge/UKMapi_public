@@ -32,7 +32,7 @@ $arrangement = new Arrangement($arrangementId);
 
 try {
     foreach($arrangement->getKontaktpersoner()->getAll() as $kontaktperson) {
-        $kontaktpersoner[] = ObjectTransformer::kontaktperson($kontaktperson, false);
+        $kontaktpersoner[] = ObjectTransformer::kontaktperson($kontaktperson);
     }
 } catch (Exception $e) {
     $handleCall->sendErrorToClient('Det har oppstått en serverfeil', 500);
