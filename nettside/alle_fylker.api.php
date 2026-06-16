@@ -14,6 +14,10 @@ $retFylker = [];
 try{ 
     $fylker = Fylker::getAll();
     foreach($fylker as $fylke) {
+        // Testfylke skal ikke vises
+        if ($fylke->getId() === 21) {
+            continue;
+        }
         $retFylker[] = $fylke;
     }
 } catch( Exception $e ) {
