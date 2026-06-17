@@ -39,6 +39,14 @@ try {
     return;
 }
 
+usort($kontaktpersoner, function($a, $b) {
+    $cmp = strcasecmp($a['beskrivelse'] ?? '', $b['beskrivelse'] ?? '');
+    if ($cmp !== 0) {
+        return $cmp;
+    }
+    return strcasecmp($a['navn'] ?? '', $b['navn'] ?? '');
+});
+
 $handleCall->sendToClient(
     $kontaktpersoner
 );
