@@ -40,6 +40,9 @@ foreach($arrangement->getProgram()->getAll() as $h) {
         if($item['object_type'] == 'innslag') {
             $innslag = Innslag::getById($item['id']);
             foreach($innslag->getBilder()->getAll() as $bilde) {
+                if($bilde->getPlId() != $arrangement->getId()) {
+                    continue;
+                }
                 try {
                     if(isset($bilder[$bilde->getId()]) && !empty($bilder[$bilde->getId()])) {
                         $bilder[$bilde->getId()]['context']['hendelser'][$hendelseObj['id']] = $hendelseObj;
@@ -69,6 +72,9 @@ foreach($arrangement->getProgram()->getAll() as $h) {
 // Legg til alle bilder som ikke er del av en hendelse
 foreach($arrangement->getInnslag()->getAll() as $innslag) {
     foreach($innslag->getBilder()->getAll() as $bilde) {
+        if($bilde->getPlId() != $arrangement->getId()) {
+            continue;
+        }
         if(!isset($bilder[$bilde->getId()]) || !empty($bilder[$bilde->getId()])) {
             $innslag = Innslag::getById($bilde->getInnslagId());
 
